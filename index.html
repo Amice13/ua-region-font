@@ -1,0 +1,9894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ua-region-font</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="description" content="A font with Ukrainian regions in TTF/EOT/WOFF/WOFF2/SVG formats. Based on the data provided by OCHA Field Information Service Section.">
+  <meta name="keywords" content="ua-region-font,TTF,EOT,WOFF,WOFF2,SVG">  
+  <link rel="stylesheet" href="ua-region.css" />
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vuetify@3.4.10/dist/vuetify.min.js"></script>  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@3.4.10/dist/vuetify.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+  <style>
+    *{margin: 0;padding: 0;list-style: none;}
+    body { color: #696969; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; }
+    a { color: #333; text-decoration: underline; }
+    a:hover { color: rgb(9, 73, 209); }
+    .header { color: #333; text-align: center; padding: 80px 0 60px 0; min-height: 153px; font-size: 14px; }
+    .header .logo svg { height: 120px; width: 120px; }
+    .header h1 { font-size: 42px; padding: 26px 0 10px 0; }
+    .header sup {font-size: 14px; margin: 8px 0 0 8px; position: absolute; color: #7b7b7b; }
+    .info {
+      color: #999;
+      font-weight: normal;
+      max-width: 346px;
+      margin: 0 auto;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+
+    .icons { max-width: 1190px; margin: 0 auto; }
+    .icons ul { text-align: center; }
+    .icons ul li {
+      vertical-align: top;
+      width: 120px;
+      display: inline-block;
+      text-align: center;
+      background-color: rgba(0,0,0,.02);
+      border-radius: 3px;
+      padding: 29px 0 10px 0;
+      margin-right: 10px;
+      margin-top: 10px;
+      transition: all 0.6s ease;
+    }
+    .icons ul li:hover { background-color: rgba(0,0,0,.06); }
+    .icons ul li:hover span { color: #3c75e4; opacity: 1; }
+    .icons ul li .unicode { color: #8c8c8c; opacity: 0.3; }
+    .icons ul li h4 {
+      font-weight: normal;
+      padding: 10px 0 5px 0;
+      display: block;
+      color: #8c8c8c;
+      font-size: 14px;
+      line-height: 12px;
+      opacity: 0.8;
+    }
+    .icons ul li:hover h4 { opacity: 1; }
+    .icons ul li svg { width: 24px; height: 24px; }
+    .icons ul li:hover { color: #3c75e4; }
+    .footer { text-align: center; padding: 10px 0 90px 0; }
+    .footer a { text-align: center; padding: 10px 0 90px 0; color: #696969;}
+    .footer a:hover { color: #0949d1; }
+    .links { text-align: center; padding: 50px 0 0 0; font-size: 14px; }
+    
+    .icons ul li.class-icon { font-size: 21px; line-height: 21px; padding-bottom: 20px; }
+    .icons ul li.class-icon p{ font-size: 12px; }
+    .icons ul li.class-icon [class^="ua-region-"]{ font-size: 26px; }
+  </style>
+  
+  <style>
+    .github-corner:hover .octo-arm { animation: octocat-wave 560ms ease-in-out; }
+    .github-corner svg { position: fixed; z-index: 999; border: 0px; top: 0px; right: 0px;}
+    @keyframes octocat-wave{
+      0%, 100% { transform: rotate(0); }
+      20%, 60% { transform: rotate(-25deg); }
+      40%, 80% { transform: rotate(10deg); }
+    }
+    @media (max-width:500px){
+      .github-corner:hover .octo-arm { animation: none; }
+      .github-corner .octo-arm { animation: octocat-wave 560ms ease-in-out; }
+    }
+  </style>
+</head>
+<body>
+  <a href="https://github.com/amice13/ua-region-font" target="__blank" class="github-corner">
+  <svg width="62" height="62" viewBox="0 0 250 250" aria-hidden="true" style="fill: #1876D2; color: rgb(255, 255, 255); ">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" class="octo-arm" style="transform-origin: 130px 106px;"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+  </svg>
+  </a>
+  <div id="app">
+    <v-container>
+      <v-row class="text-center mt-4 mb-8">
+        <v-col cols="12" class="d-flex flex-column align-center">
+          <v-img src="./UA.svg" :width="200"></v-img>
+          <h1 class="text-h2 font-weight-bold grey-darken-5">ua-region-font</h1>
+          <div class="mt-4 text-body-2" style="max-width: 320px;">A font with Ukrainian regions in TTF/EOT/WOFF/WOFF2/SVG formats. Based on the data provided by <a href="https://data.humdata.org/dataset/cod-ab-ukr" target="_blank">OCHA Field Information Service Section</a>.</div>
+        </v-col>
+      </v-row>
+      <v-row class="pa-4">
+        <v-text-field
+          v-model="search"
+          id="search"
+          name="search"
+          label="Search"
+          prepend-icon="mdi-magnify"
+          variant="outlined"
+        ></v-text-field>
+      </v-row>
+      <v-row>
+        <v-col
+          cols="12"
+          sm="4"
+          v-for="name in filteredNames"
+          :key="name.code"
+          style="cursor: pointer;"
+          @click="copyToClipboard(name.code)"
+        >
+          <div
+            class="v-card bg-blue-grey-lighten-5 v-theme--light v-card--density-default v-card--variant-elevated pa-4"
+            style="height: 100%;"
+          >
+            <v-row class="d-flex align-center">
+              <v-col cols="12" md="4" class='text-center'>
+                <i style="font-size: 46px;" :class="['ua-region-' + name.code]"></i>
+              </v-col>
+              <v-col cols="12" md="8" class="text-center">
+                <div style="font-size: 12px;">{{ name.name }} {{ getType(name.code) }} </div>
+                <div style="font-size: 12px;">{{ name.en }} {{ getTypeEn(name.code) }}</div>
+                <div style="font-size: 10px;">ua-region-{{ name.code }}</div>
+              </v-col>
+            </v-row>
+          </div>
+
+          <v-snackbar v-model="snackbar" :timeout="3000">
+            You copied the code to clipboard
+          </v-snackbar>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
+<script>
+const { createApp } = Vue
+const { createVuetify } = Vuetify
+
+const vuetify = createVuetify()
+
+const names = [
+  {
+    "name": "Україна",
+    "en": "Ukraine",
+    "code": "UA"
+  },
+  {
+    "name": "Автономна Республіка Крим",
+    "en": "Autonomous Republic of Crimea",
+    "code": "UA01"
+  },
+  {
+    "name": "Вінницька",
+    "en": "Vinnytska",
+    "code": "UA05"
+  },
+  {
+    "name": "Волинська",
+    "en": "Volynska",
+    "code": "UA07"
+  },
+  {
+    "name": "Дніпропетровська",
+    "en": "Dnipropetrovska",
+    "code": "UA12"
+  },
+  {
+    "name": "Донецька",
+    "en": "Donetska",
+    "code": "UA14"
+  },
+  {
+    "name": "Житомирська",
+    "en": "Zhytomyrska",
+    "code": "UA18"
+  },
+  {
+    "name": "Закарпатська",
+    "en": "Zakarpatska",
+    "code": "UA21"
+  },
+  {
+    "name": "Запорізька",
+    "en": "Zaporizka",
+    "code": "UA23"
+  },
+  {
+    "name": "Івано-Франківська",
+    "en": "Ivano-Frankivska",
+    "code": "UA26"
+  },
+  {
+    "name": "Київська",
+    "en": "Kyivska",
+    "code": "UA32"
+  },
+  {
+    "name": "Кіровоградська",
+    "en": "Kirovohradska",
+    "code": "UA35"
+  },
+  {
+    "name": "Луганська",
+    "en": "Luhanska",
+    "code": "UA44"
+  },
+  {
+    "name": "Львівська",
+    "en": "Lvivska",
+    "code": "UA46"
+  },
+  {
+    "name": "Миколаївська",
+    "en": "Mykolaivska",
+    "code": "UA48"
+  },
+  {
+    "name": "Одеська",
+    "en": "Odeska",
+    "code": "UA51"
+  },
+  {
+    "name": "Полтавська",
+    "en": "Poltavska",
+    "code": "UA53"
+  },
+  {
+    "name": "Рівненська",
+    "en": "Rivnenska",
+    "code": "UA56"
+  },
+  {
+    "name": "Сумська",
+    "en": "Sumska",
+    "code": "UA59"
+  },
+  {
+    "name": "Тернопільська",
+    "en": "Ternopilska",
+    "code": "UA61"
+  },
+  {
+    "name": "Харківська",
+    "en": "Kharkivska",
+    "code": "UA63"
+  },
+  {
+    "name": "Херсонська",
+    "en": "Khersonska",
+    "code": "UA65"
+  },
+  {
+    "name": "Хмельницька",
+    "en": "Khmelnytska",
+    "code": "UA68"
+  },
+  {
+    "name": "Черкаська",
+    "en": "Cherkaska",
+    "code": "UA71"
+  },
+  {
+    "name": "Чернівецька",
+    "en": "Chernivetska",
+    "code": "UA73"
+  },
+  {
+    "name": "Чернігівська",
+    "en": "Chernihivska",
+    "code": "UA74"
+  },
+  {
+    "name": "Київ",
+    "en": "Kyiv",
+    "code": "UA80"
+  },
+  {
+    "name": "Севастополь",
+    "en": "Sevastopol",
+    "code": "UA85"
+  },
+  {
+    "name": "Бахчисарайський",
+    "en": "Bakhchysaraiskyi",
+    "code": "UA0102"
+  },
+  {
+    "name": "Білогірський",
+    "en": "Bilohirskyi",
+    "code": "UA0104"
+  },
+  {
+    "name": "Джанкойський",
+    "en": "Dzhankoiskyi",
+    "code": "UA0106"
+  },
+  {
+    "name": "Євпаторійський",
+    "en": "Yevpatoriiskyi",
+    "code": "UA0108"
+  },
+  {
+    "name": "Керченський",
+    "en": "Kerchynskyi",
+    "code": "UA0110"
+  },
+  {
+    "name": "Красногвардійський",
+    "en": "Krasnohvardiiskyi",
+    "code": "UA0112"
+  },
+  {
+    "name": "Красноперекопський",
+    "en": "Krasnoperekopskyi",
+    "code": "UA0114"
+  },
+  {
+    "name": "Сімферопольський",
+    "en": "Simferopolskyi",
+    "code": "UA0116"
+  },
+  {
+    "name": "Феодосійський",
+    "en": "Feodosiiskyi",
+    "code": "UA0118"
+  },
+  {
+    "name": "Ялтинський",
+    "en": "Yaltynskyi",
+    "code": "UA0120"
+  },
+  {
+    "name": "Вінницький",
+    "en": "Vinnytskyi",
+    "code": "UA0502"
+  },
+  {
+    "name": "Гайсинський",
+    "en": "Haisynskyi",
+    "code": "UA0504"
+  },
+  {
+    "name": "Жмеринський",
+    "en": "Zhmerynskyi",
+    "code": "UA0506"
+  },
+  {
+    "name": "Могилів-Подільський",
+    "en": "Mohyliv-Podilskyi",
+    "code": "UA0508"
+  },
+  {
+    "name": "Тульчинський",
+    "en": "Tulchynskyi",
+    "code": "UA0510"
+  },
+  {
+    "name": "Хмільницький",
+    "en": "Khmilnytskyi",
+    "code": "UA0512"
+  },
+  {
+    "name": "Володимирський",
+    "en": "Volodymyrskyi",
+    "code": "UA0702"
+  },
+  {
+    "name": "Камінь-Каширський",
+    "en": "Kamin-Kashyrskyi",
+    "code": "UA0704"
+  },
+  {
+    "name": "Ковельський",
+    "en": "Kovelskyi",
+    "code": "UA0706"
+  },
+  {
+    "name": "Луцький",
+    "en": "Lutskyi",
+    "code": "UA0708"
+  },
+  {
+    "name": "Дніпровський",
+    "en": "Dniprovskyi",
+    "code": "UA1202"
+  },
+  {
+    "name": "Кам’янський",
+    "en": "Kamianskyi",
+    "code": "UA1204"
+  },
+  {
+    "name": "Криворізький",
+    "en": "Kryvorizkyi",
+    "code": "UA1206"
+  },
+  {
+    "name": "Нікопольський",
+    "en": "Nikopolskyi",
+    "code": "UA1208"
+  },
+  {
+    "name": "Новомосковський",
+    "en": "Novomoskovskyi",
+    "code": "UA1210"
+  },
+  {
+    "name": "Павлоградський",
+    "en": "Pavlohradskyi",
+    "code": "UA1212"
+  },
+  {
+    "name": "Синельниківський",
+    "en": "Synelnykivskyi",
+    "code": "UA1214"
+  },
+  {
+    "name": "Бахмутський",
+    "en": "Bakhmutskyi",
+    "code": "UA1402"
+  },
+  {
+    "name": "Волноваський",
+    "en": "Volnovaskyi",
+    "code": "UA1404"
+  },
+  {
+    "name": "Горлівський",
+    "en": "Horlivskyi",
+    "code": "UA1406"
+  },
+  {
+    "name": "Донецький",
+    "en": "Donetskyi",
+    "code": "UA1408"
+  },
+  {
+    "name": "Кальміуський",
+    "en": "Kalmiuskyi",
+    "code": "UA1410"
+  },
+  {
+    "name": "Краматорський",
+    "en": "Kramatorskyi",
+    "code": "UA1412"
+  },
+  {
+    "name": "Маріупольський",
+    "en": "Mariupolskyi",
+    "code": "UA1414"
+  },
+  {
+    "name": "Покровський",
+    "en": "Pokrovskyi",
+    "code": "UA1416"
+  },
+  {
+    "name": "Бердичівський",
+    "en": "Berdychivskyi",
+    "code": "UA1802"
+  },
+  {
+    "name": "Житомирський",
+    "en": "Zhytomyrskyi",
+    "code": "UA1804"
+  },
+  {
+    "name": "Коростенський",
+    "en": "Korostenskyi",
+    "code": "UA1806"
+  },
+  {
+    "name": "Звягельський",
+    "en": "Zviahelskyi",
+    "code": "UA1808"
+  },
+  {
+    "name": "Берегівський",
+    "en": "Berehivskyi",
+    "code": "UA2102"
+  },
+  {
+    "name": "Мукачівський",
+    "en": "Mukachivskyi",
+    "code": "UA2104"
+  },
+  {
+    "name": "Рахівський",
+    "en": "Rakhivskyi",
+    "code": "UA2106"
+  },
+  {
+    "name": "Тячівський",
+    "en": "Tiachivskyi",
+    "code": "UA2108"
+  },
+  {
+    "name": "Ужгородський",
+    "en": "Uzhhorodskyi",
+    "code": "UA2110"
+  },
+  {
+    "name": "Хустський",
+    "en": "Khustskyi",
+    "code": "UA2112"
+  },
+  {
+    "name": "Бердянський",
+    "en": "Berdianskyi",
+    "code": "UA2302"
+  },
+  {
+    "name": "Василівський",
+    "en": "Vasylivskyi",
+    "code": "UA2304"
+  },
+  {
+    "name": "Запорізький",
+    "en": "Zaporizkyi",
+    "code": "UA2306"
+  },
+  {
+    "name": "Мелітопольський",
+    "en": "Melitopolskyi",
+    "code": "UA2308"
+  },
+  {
+    "name": "Пологівський",
+    "en": "Polohivskyi",
+    "code": "UA2310"
+  },
+  {
+    "name": "Верховинський",
+    "en": "Verkhovynskyi",
+    "code": "UA2602"
+  },
+  {
+    "name": "Івано-Франківський",
+    "en": "Ivano-Frankivskyi",
+    "code": "UA2604"
+  },
+  {
+    "name": "Калуський",
+    "en": "Kaluskyi",
+    "code": "UA2606"
+  },
+  {
+    "name": "Коломийський",
+    "en": "Kolomyiskyi",
+    "code": "UA2608"
+  },
+  {
+    "name": "Косівський",
+    "en": "Kosivskyi",
+    "code": "UA2610"
+  },
+  {
+    "name": "Надвірнянський",
+    "en": "Nadvirnianskyi",
+    "code": "UA2612"
+  },
+  {
+    "name": "Чорнобильська зона відчуження",
+    "en": "Chornobyl Exclusion Zone",
+    "code": "UA3200"
+  },
+  {
+    "name": "Білоцерківський",
+    "en": "Bilotserkivskyi",
+    "code": "UA3202"
+  },
+  {
+    "name": "Бориспільський",
+    "en": "Boryspilskyi",
+    "code": "UA3204"
+  },
+  {
+    "name": "Броварський",
+    "en": "Brovarskyi",
+    "code": "UA3206"
+  },
+  {
+    "name": "Бучанський",
+    "en": "Buchanskyi",
+    "code": "UA3208"
+  },
+  {
+    "name": "Вишгородський",
+    "en": "Vyshhorodskyi",
+    "code": "UA3210"
+  },
+  {
+    "name": "Обухівський",
+    "en": "Obukhivskyi",
+    "code": "UA3212"
+  },
+  {
+    "name": "Фастівський",
+    "en": "Fastivskyi",
+    "code": "UA3214"
+  },
+  {
+    "name": "Голованівський",
+    "en": "Holovanivskyi",
+    "code": "UA3502"
+  },
+  {
+    "name": "Кропивницький",
+    "en": "Kropyvnytskyi",
+    "code": "UA3504"
+  },
+  {
+    "name": "Новоукраїнський",
+    "en": "Novoukrainskyi",
+    "code": "UA3506"
+  },
+  {
+    "name": "Олександрійський",
+    "en": "Oleksandriiskyi",
+    "code": "UA3508"
+  },
+  {
+    "name": "Алчевський",
+    "en": "Alchevskyi",
+    "code": "UA4402"
+  },
+  {
+    "name": "Довжанський",
+    "en": "Dovzhanskyi",
+    "code": "UA4404"
+  },
+  {
+    "name": "Луганський",
+    "en": "Luhanskyi",
+    "code": "UA4406"
+  },
+  {
+    "name": "Ровеньківський",
+    "en": "Rovenkivskyi",
+    "code": "UA4408"
+  },
+  {
+    "name": "Сватівський",
+    "en": "Svativskyi",
+    "code": "UA4410"
+  },
+  {
+    "name": "Сєвєродонецький",
+    "en": "Sievierodonetskyi",
+    "code": "UA4412"
+  },
+  {
+    "name": "Старобільський",
+    "en": "Starobilskyi",
+    "code": "UA4414"
+  },
+  {
+    "name": "Щастинський",
+    "en": "Shchastynskyi",
+    "code": "UA4416"
+  },
+  {
+    "name": "Дрогобицький",
+    "en": "Drohobytskyi",
+    "code": "UA4602"
+  },
+  {
+    "name": "Золочівський",
+    "en": "Zolochivskyi",
+    "code": "UA4604"
+  },
+  {
+    "name": "Львівський",
+    "en": "Lvivskyi",
+    "code": "UA4606"
+  },
+  {
+    "name": "Самбірський",
+    "en": "Sambirskyi",
+    "code": "UA4608"
+  },
+  {
+    "name": "Стрийський",
+    "en": "Stryiskyi",
+    "code": "UA4610"
+  },
+  {
+    "name": "Червоноградський",
+    "en": "Chervonohradskyi",
+    "code": "UA4612"
+  },
+  {
+    "name": "Яворівський",
+    "en": "Yavorivskyi",
+    "code": "UA4614"
+  },
+  {
+    "name": "Баштанський",
+    "en": "Bashtanskyi",
+    "code": "UA4802"
+  },
+  {
+    "name": "Вознесенський",
+    "en": "Voznesenskyi",
+    "code": "UA4804"
+  },
+  {
+    "name": "Миколаївський",
+    "en": "Mykolaivskyi",
+    "code": "UA4806"
+  },
+  {
+    "name": "Первомайський",
+    "en": "Pervomaiskyi",
+    "code": "UA4808"
+  },
+  {
+    "name": "Березівський",
+    "en": "Berezivskyi",
+    "code": "UA5102"
+  },
+  {
+    "name": "Білгород-Дністровський",
+    "en": "Bilhorod-Dnistrovskyi",
+    "code": "UA5104"
+  },
+  {
+    "name": "Болградський",
+    "en": "Bolhradskyi",
+    "code": "UA5106"
+  },
+  {
+    "name": "Ізмаїльський",
+    "en": "Izmailskyi",
+    "code": "UA5108"
+  },
+  {
+    "name": "Одеський",
+    "en": "Odeskyi",
+    "code": "UA5110"
+  },
+  {
+    "name": "Подільський",
+    "en": "Podilskyi",
+    "code": "UA5112"
+  },
+  {
+    "name": "Роздільнянський",
+    "en": "Rozdilnianskyi",
+    "code": "UA5114"
+  },
+  {
+    "name": "Кременчуцький",
+    "en": "Kremenchutskyi",
+    "code": "UA5302"
+  },
+  {
+    "name": "Лубенський",
+    "en": "Lubenskyi",
+    "code": "UA5304"
+  },
+  {
+    "name": "Миргородський",
+    "en": "Myrhorodskyi",
+    "code": "UA5306"
+  },
+  {
+    "name": "Полтавський",
+    "en": "Poltavskyi",
+    "code": "UA5308"
+  },
+  {
+    "name": "Вараський",
+    "en": "Varaskyi",
+    "code": "UA5602"
+  },
+  {
+    "name": "Дубенський",
+    "en": "Dubenskyi",
+    "code": "UA5604"
+  },
+  {
+    "name": "Рівненський",
+    "en": "Rivnenskyi",
+    "code": "UA5606"
+  },
+  {
+    "name": "Сарненський",
+    "en": "Sarnenskyi",
+    "code": "UA5608"
+  },
+  {
+    "name": "Конотопський",
+    "en": "Konotopskyi",
+    "code": "UA5902"
+  },
+  {
+    "name": "Охтирський",
+    "en": "Okhtyrskyi",
+    "code": "UA5904"
+  },
+  {
+    "name": "Роменський",
+    "en": "Romenskyi",
+    "code": "UA5906"
+  },
+  {
+    "name": "Сумський",
+    "en": "Sumskyi",
+    "code": "UA5908"
+  },
+  {
+    "name": "Шосткинський",
+    "en": "Shostkynskyi",
+    "code": "UA5910"
+  },
+  {
+    "name": "Кременецький",
+    "en": "Kremenetskyi",
+    "code": "UA6102"
+  },
+  {
+    "name": "Тернопільський",
+    "en": "Ternopilskyi",
+    "code": "UA6104"
+  },
+  {
+    "name": "Чортківський",
+    "en": "Chortkivskyi",
+    "code": "UA6106"
+  },
+  {
+    "name": "Богодухівський",
+    "en": "Bohodukhivskyi",
+    "code": "UA6302"
+  },
+  {
+    "name": "Ізюмський",
+    "en": "Iziumskyi",
+    "code": "UA6304"
+  },
+  {
+    "name": "Красноградський",
+    "en": "Krasnohradskyi",
+    "code": "UA6306"
+  },
+  {
+    "name": "Куп'янський",
+    "en": "Kupianskyi",
+    "code": "UA6308"
+  },
+  {
+    "name": "Лозівський",
+    "en": "Lozivskyi",
+    "code": "UA6310"
+  },
+  {
+    "name": "Харківський",
+    "en": "Kharkivskyi",
+    "code": "UA6312"
+  },
+  {
+    "name": "Чугуївський",
+    "en": "Chuhuivskyi",
+    "code": "UA6314"
+  },
+  {
+    "name": "Бериславський",
+    "en": "Beryslavskyi",
+    "code": "UA6502"
+  },
+  {
+    "name": "Генічеський",
+    "en": "Henicheskyi",
+    "code": "UA6504"
+  },
+  {
+    "name": "Каховський",
+    "en": "Kakhovskyi",
+    "code": "UA6506"
+  },
+  {
+    "name": "Скадовський",
+    "en": "Skadovskyi",
+    "code": "UA6508"
+  },
+  {
+    "name": "Херсонський",
+    "en": "Khersonskyi",
+    "code": "UA6510"
+  },
+  {
+    "name": "Кам'янець-Подільський",
+    "en": "Kamianets-Podilskyi",
+    "code": "UA6802"
+  },
+  {
+    "name": "Хмельницький",
+    "en": "Khmelnytskyi",
+    "code": "UA6804"
+  },
+  {
+    "name": "Шепетівський",
+    "en": "Shepetivskyi",
+    "code": "UA6806"
+  },
+  {
+    "name": "Звенигородський",
+    "en": "Zvenyhorodskyi",
+    "code": "UA7102"
+  },
+  {
+    "name": "Золотоніський",
+    "en": "Zolotoniskyi",
+    "code": "UA7104"
+  },
+  {
+    "name": "Уманський",
+    "en": "Umanskyi",
+    "code": "UA7106"
+  },
+  {
+    "name": "Черкаський",
+    "en": "Cherkaskyi",
+    "code": "UA7108"
+  },
+  {
+    "name": "Вижницький",
+    "en": "Vyzhnytskyi",
+    "code": "UA7302"
+  },
+  {
+    "name": "Дністровський",
+    "en": "Dnistrovskyi",
+    "code": "UA7304"
+  },
+  {
+    "name": "Чернівецький",
+    "en": "Chernivetskyi",
+    "code": "UA7306"
+  },
+  {
+    "name": "Корюківський",
+    "en": "Koriukivskyi",
+    "code": "UA7402"
+  },
+  {
+    "name": "Ніжинський",
+    "en": "Nizhynskyi",
+    "code": "UA7404"
+  },
+  {
+    "name": "Новгород-Сіверський",
+    "en": "Novhorod-Siverskyi",
+    "code": "UA7406"
+  },
+  {
+    "name": "Прилуцький",
+    "en": "Prylutskyi",
+    "code": "UA7408"
+  },
+  {
+    "name": "Чернігівський",
+    "en": "Chernihivskyi",
+    "code": "UA7410"
+  },
+  {
+    "name": "Київ",
+    "en": "Kyiv",
+    "code": "UA8000"
+  },
+  {
+    "name": "Севастополь",
+    "en": "Sevastopol",
+    "code": "UA8500"
+  },
+  {
+    "name": "Ароматненська",
+    "en": "Aromatnenska",
+    "code": "UA0102003"
+  },
+  {
+    "name": "Бахчисарайська",
+    "en": "Bakhchysaraiska",
+    "code": "UA0102005"
+  },
+  {
+    "name": "Верхоріченська",
+    "en": "Verkhorichenska",
+    "code": "UA0102009"
+  },
+  {
+    "name": "Вілінська",
+    "en": "Vilinska",
+    "code": "UA0102011"
+  },
+  {
+    "name": "Голубинська",
+    "en": "Holubynska",
+    "code": "UA0102013"
+  },
+  {
+    "name": "Долинненська",
+    "en": "Dolynnenska",
+    "code": "UA0102015"
+  },
+  {
+    "name": "Залізничненська",
+    "en": "Zaliznychnenska",
+    "code": "UA0102017"
+  },
+  {
+    "name": "Зеленівська",
+    "en": "Zelenivska",
+    "code": "UA0102019"
+  },
+  {
+    "name": "Каштанівська",
+    "en": "Kashtanivska",
+    "code": "UA0102025"
+  },
+  {
+    "name": "Красномацька",
+    "en": "Krasnomatska",
+    "code": "UA0102027"
+  },
+  {
+    "name": "Куйбишевська",
+    "en": "Kuibyshevska",
+    "code": "UA0102029"
+  },
+  {
+    "name": "Піщанівська",
+    "en": "Pishchanivska",
+    "code": "UA0102033"
+  },
+  {
+    "name": "Плодівська",
+    "en": "Plodivska",
+    "code": "UA0102035"
+  },
+  {
+    "name": "Поштівська",
+    "en": "Poshtivska",
+    "code": "UA0102037"
+  },
+  {
+    "name": "Скалистівська",
+    "en": "Skalystivska",
+    "code": "UA0102039"
+  },
+  {
+    "name": "Табачненська",
+    "en": "Tabachnenska",
+    "code": "UA0102041"
+  },
+  {
+    "name": "Тінистівська",
+    "en": "Tinystivska",
+    "code": "UA0102045"
+  },
+  {
+    "name": "Углівська",
+    "en": "Uhlivska",
+    "code": "UA0102047"
+  },
+  {
+    "name": "Ароматнівська",
+    "en": "Aromatnivska",
+    "code": "UA0104001"
+  },
+  {
+    "name": "Багатівська",
+    "en": "Bahativska",
+    "code": "UA0104003"
+  },
+  {
+    "name": "Білогірська",
+    "en": "Bilohirska",
+    "code": "UA0104005"
+  },
+  {
+    "name": "Василівська",
+    "en": "Vasylivska",
+    "code": "UA0104007"
+  },
+  {
+    "name": "Вишенська",
+    "en": "Vyshenska",
+    "code": "UA0104009"
+  },
+  {
+    "name": "Дрофинська",
+    "en": "Drofynska",
+    "code": "UA0104011"
+  },
+  {
+    "name": "Желябовська",
+    "en": "Zheliabovska",
+    "code": "UA0104013"
+  },
+  {
+    "name": "Жемчужинська",
+    "en": "Zhemchuzhynska",
+    "code": "UA0104015"
+  },
+  {
+    "name": "Зеленогірська",
+    "en": "Zelenohirska",
+    "code": "UA0104017"
+  },
+  {
+    "name": "Земляничненська",
+    "en": "Zemlianychnenska",
+    "code": "UA0104019"
+  },
+  {
+    "name": "Зибинська",
+    "en": "Zybynska",
+    "code": "UA0104021"
+  },
+  {
+    "name": "Зоркінська",
+    "en": "Zorkinska",
+    "code": "UA0104023"
+  },
+  {
+    "name": "Зуйська",
+    "en": "Zuiska",
+    "code": "UA0104025"
+  },
+  {
+    "name": "Іванівська",
+    "en": "Ivanivska",
+    "code": "UA0104027"
+  },
+  {
+    "name": "Ізобільненська",
+    "en": "Izobilnenska",
+    "code": "UA0104029"
+  },
+  {
+    "name": "Кісточківська",
+    "en": "Kistochkivska",
+    "code": "UA0104031"
+  },
+  {
+    "name": "Кримськорозівська",
+    "en": "Krymskorozivska",
+    "code": "UA0104033"
+  },
+  {
+    "name": "Криничненська",
+    "en": "Krynychnenska",
+    "code": "UA0104035"
+  },
+  {
+    "name": "Курська",
+    "en": "Kurska",
+    "code": "UA0104037"
+  },
+  {
+    "name": "Листвинська",
+    "en": "Lystvynska",
+    "code": "UA0104039"
+  },
+  {
+    "name": "Мельнична",
+    "en": "Melnychna",
+    "code": "UA0104041"
+  },
+  {
+    "name": "Митрофанівська",
+    "en": "Mytrofanivska",
+    "code": "UA0104043"
+  },
+  {
+    "name": "Михайлівська",
+    "en": "Mykhailivska",
+    "code": "UA0104045"
+  },
+  {
+    "name": "Мічурінська",
+    "en": "Michurinska",
+    "code": "UA0104047"
+  },
+  {
+    "name": "Муромська",
+    "en": "Muromska",
+    "code": "UA0104049"
+  },
+  {
+    "name": "Нижньогірська",
+    "en": "Nyzhnohirska",
+    "code": "UA0104051"
+  },
+  {
+    "name": "Новогригорівська",
+    "en": "Novohryhorivska",
+    "code": "UA0104053"
+  },
+  {
+    "name": "Новожилівська",
+    "en": "Novozhylivska",
+    "code": "UA0104055"
+  },
+  {
+    "name": "Омелянівська",
+    "en": "Omelianivska",
+    "code": "UA0104057"
+  },
+  {
+    "name": "Охотська",
+    "en": "Okhotska",
+    "code": "UA0104059"
+  },
+  {
+    "name": "Пшеничненська",
+    "en": "Pshenychnenska",
+    "code": "UA0104061"
+  },
+  {
+    "name": "Русаківська",
+    "en": "Rusakivska",
+    "code": "UA0104063"
+  },
+  {
+    "name": "Садова",
+    "en": "Sadova",
+    "code": "UA0104065"
+  },
+  {
+    "name": "Уварівська",
+    "en": "Uvarivska",
+    "code": "UA0104067"
+  },
+  {
+    "name": "Цвіточненська",
+    "en": "Tsvitochnenska",
+    "code": "UA0104069"
+  },
+  {
+    "name": "Чкаловська",
+    "en": "Chkalovska",
+    "code": "UA0104071"
+  },
+  {
+    "name": "Чорнопільська",
+    "en": "Chornopilska",
+    "code": "UA0104073"
+  },
+  {
+    "name": "Якимівська",
+    "en": "Yakymivska",
+    "code": "UA0104075"
+  },
+  {
+    "name": "Азовська",
+    "en": "Azovska",
+    "code": "UA0106001"
+  },
+  {
+    "name": "Вільненська",
+    "en": "Vilnenska",
+    "code": "UA0106003"
+  },
+  {
+    "name": "Джанкойська",
+    "en": "Dzhankoiska",
+    "code": "UA0106005"
+  },
+  {
+    "name": "Єрмаківська",
+    "en": "Yermakivska",
+    "code": "UA0106007"
+  },
+  {
+    "name": "Завіто-Ленінська",
+    "en": "Zavito-Leninska",
+    "code": "UA0106009"
+  },
+  {
+    "name": "Зарічненська",
+    "en": "Zarichnenska",
+    "code": "UA0106011"
+  },
+  {
+    "name": "Ізумруднівська",
+    "en": "Izumrudnivska",
+    "code": "UA0106013"
+  },
+  {
+    "name": "Кіндратівська",
+    "en": "Kindrativska",
+    "code": "UA0106015"
+  },
+  {
+    "name": "Кримківська",
+    "en": "Krymkivska",
+    "code": "UA0106017"
+  },
+  {
+    "name": "Лобанівська",
+    "en": "Lobanivska",
+    "code": "UA0106019"
+  },
+  {
+    "name": "Луганська",
+    "en": "Luhanska",
+    "code": "UA0106021"
+  },
+  {
+    "name": "Майська",
+    "en": "Maiska",
+    "code": "UA0106023"
+  },
+  {
+    "name": "Маслівська",
+    "en": "Maslivska",
+    "code": "UA0106025"
+  },
+  {
+    "name": "Медведівська",
+    "en": "Medvedivska",
+    "code": "UA0106027"
+  },
+  {
+    "name": "Мирнівська",
+    "en": "Myrnivska",
+    "code": "UA0106029"
+  },
+  {
+    "name": "Новокримська",
+    "en": "Novokrymska",
+    "code": "UA0106031"
+  },
+  {
+    "name": "Пахарівська",
+    "en": "Pakharivska",
+    "code": "UA0106033"
+  },
+  {
+    "name": "Побєдненська",
+    "en": "Pobiednenska",
+    "code": "UA0106035"
+  },
+  {
+    "name": "Просторненська",
+    "en": "Prostornenska",
+    "code": "UA0106037"
+  },
+  {
+    "name": "Розкішненська",
+    "en": "Rozkishnenska",
+    "code": "UA0106039"
+  },
+  {
+    "name": "Рощинська",
+    "en": "Roshchynska",
+    "code": "UA0106041"
+  },
+  {
+    "name": "Світлівська",
+    "en": "Svitlivska",
+    "code": "UA0106043"
+  },
+  {
+    "name": "Стальненська",
+    "en": "Stalnenska",
+    "code": "UA0106045"
+  },
+  {
+    "name": "Табачненська",
+    "en": "Tabachnenska",
+    "code": "UA0106047"
+  },
+  {
+    "name": "Цілинна",
+    "en": "Tsilynna",
+    "code": "UA0106049"
+  },
+  {
+    "name": "Чайкинська",
+    "en": "Chaikynska",
+    "code": "UA0106051"
+  },
+  {
+    "name": "Ярківська",
+    "en": "Yarkivska",
+    "code": "UA0106053"
+  },
+  {
+    "name": "Яркополенська",
+    "en": "Yarkopolenska",
+    "code": "UA0106055"
+  },
+  {
+    "name": "Яснополянська",
+    "en": "Yasnopolianska",
+    "code": "UA0106057"
+  },
+  {
+    "name": "Вересаєвська",
+    "en": "Veresaievska",
+    "code": "UA0108001"
+  },
+  {
+    "name": "Веселівська",
+    "en": "Veselivska",
+    "code": "UA0108003"
+  },
+  {
+    "name": "Виноградівська",
+    "en": "Vynohradivska",
+    "code": "UA0108005"
+  },
+  {
+    "name": "Воробйовська",
+    "en": "Vorobiovska",
+    "code": "UA0108007"
+  },
+  {
+    "name": "Геройська",
+    "en": "Heroiska",
+    "code": "UA0108009"
+  },
+  {
+    "name": "Далеківська",
+    "en": "Dalekivska",
+    "code": "UA0108011"
+  },
+  {
+    "name": "Добрушинська",
+    "en": "Dobrushynska",
+    "code": "UA0108013"
+  },
+  {
+    "name": "Євпаторійська",
+    "en": "Yevpatoriiska",
+    "code": "UA0108015"
+  },
+  {
+    "name": "Заозерненська",
+    "en": "Zaozernenska",
+    "code": "UA0108017"
+  },
+  {
+    "name": "Зернівська",
+    "en": "Zernivska",
+    "code": "UA0108019"
+  },
+  {
+    "name": "Іванівська",
+    "en": "Ivanivska",
+    "code": "UA0108021"
+  },
+  {
+    "name": "Кіровська",
+    "en": "Kirovska",
+    "code": "UA0108023"
+  },
+  {
+    "name": "Кольцовська",
+    "en": "Koltsovska",
+    "code": "UA0108025"
+  },
+  {
+    "name": "Крайненська",
+    "en": "Krainenska",
+    "code": "UA0108027"
+  },
+  {
+    "name": "Краснополянська",
+    "en": "Krasnopolianska",
+    "code": "UA0108029"
+  },
+  {
+    "name": "Красноярська",
+    "en": "Krasnoiarska",
+    "code": "UA0108031"
+  },
+  {
+    "name": "Кримська",
+    "en": "Krymska",
+    "code": "UA0108033"
+  },
+  {
+    "name": "Ліснівська",
+    "en": "Lisnivska",
+    "code": "UA0108035"
+  },
+  {
+    "name": "Медведівська",
+    "en": "Medvedivska",
+    "code": "UA0108037"
+  },
+  {
+    "name": "Мирнівська",
+    "en": "Myrnivska",
+    "code": "UA0108039"
+  },
+  {
+    "name": "Митяївська",
+    "en": "Mytiaivska",
+    "code": "UA0108041"
+  },
+  {
+    "name": "Міжводненська",
+    "en": "Mizhvodnenska",
+    "code": "UA0108043"
+  },
+  {
+    "name": "Молочненська",
+    "en": "Molochnenska",
+    "code": "UA0108045"
+  },
+  {
+    "name": "Новоіванівська",
+    "en": "Novoivanivska",
+    "code": "UA0108047"
+  },
+  {
+    "name": "Новоозернівська",
+    "en": "Novoozernivska",
+    "code": "UA0108049"
+  },
+  {
+    "name": "Новосільська",
+    "en": "Novosilska",
+    "code": "UA0108051"
+  },
+  {
+    "name": "Новофедорівська",
+    "en": "Novofedorivska",
+    "code": "UA0108053"
+  },
+  {
+    "name": "Окунівська",
+    "en": "Okunivska",
+    "code": "UA0108055"
+  },
+  {
+    "name": "Оленівська",
+    "en": "Olenivska",
+    "code": "UA0108057"
+  },
+  {
+    "name": "Оріхівська",
+    "en": "Orikhivska",
+    "code": "UA0108059"
+  },
+  {
+    "name": "Охотниківська",
+    "en": "Okhotnykivska",
+    "code": "UA0108061"
+  },
+  {
+    "name": "Ромашкінська",
+    "en": "Romashkinska",
+    "code": "UA0108063"
+  },
+  {
+    "name": "Сакська",
+    "en": "Sakska",
+    "code": "UA0108065"
+  },
+  {
+    "name": "Сизівська",
+    "en": "Syzivska",
+    "code": "UA0108067"
+  },
+  {
+    "name": "Стовпівська",
+    "en": "Stovpivska",
+    "code": "UA0108069"
+  },
+  {
+    "name": "Суворовська",
+    "en": "Suvorovska",
+    "code": "UA0108071"
+  },
+  {
+    "name": "Уютненська",
+    "en": "Uiutnenska",
+    "code": "UA0108073"
+  },
+  {
+    "name": "Фрунзенська",
+    "en": "Frunzenska",
+    "code": "UA0108075"
+  },
+  {
+    "name": "Чорноморська",
+    "en": "Chornomorska",
+    "code": "UA0108077"
+  },
+  {
+    "name": "Штормівська",
+    "en": "Shtormivska",
+    "code": "UA0108079"
+  },
+  {
+    "name": "Багерівська",
+    "en": "Baherivska",
+    "code": "UA0110001"
+  },
+  {
+    "name": "Батальненська",
+    "en": "Batalnenska",
+    "code": "UA0110003"
+  },
+  {
+    "name": "Бєлінська",
+    "en": "Bielinska",
+    "code": "UA0110005"
+  },
+  {
+    "name": "Виноградненська",
+    "en": "Vynohradnenska",
+    "code": "UA0110007"
+  },
+  {
+    "name": "Войковська",
+    "en": "Voikovska",
+    "code": "UA0110009"
+  },
+  {
+    "name": "Глазівська",
+    "en": "Hlazivska",
+    "code": "UA0110011"
+  },
+  {
+    "name": "Горностаївська",
+    "en": "Hornostaivska",
+    "code": "UA0110013"
+  },
+  {
+    "name": "Завітненська",
+    "en": "Zavitnenska",
+    "code": "UA0110015"
+  },
+  {
+    "name": "Іллічівська",
+    "en": "Illichivska",
+    "code": "UA0110017"
+  },
+  {
+    "name": "Калинівська",
+    "en": "Kalynivska",
+    "code": "UA0110019"
+  },
+  {
+    "name": "Керченська",
+    "en": "Kerchenska",
+    "code": "UA0110021"
+  },
+  {
+    "name": "Кіровська",
+    "en": "Kirovska",
+    "code": "UA0110023"
+  },
+  {
+    "name": "Красногірська",
+    "en": "Krasnohirska",
+    "code": "UA0110025"
+  },
+  {
+    "name": "Ленінська",
+    "en": "Leninska",
+    "code": "UA0110027"
+  },
+  {
+    "name": "Ленінська",
+    "en": "Leninska",
+    "code": "UA0110029"
+  },
+  {
+    "name": "Лугівська",
+    "en": "Luhivska",
+    "code": "UA0110031"
+  },
+  {
+    "name": "Мар'ївська",
+    "en": "Marivska",
+    "code": "UA0110033"
+  },
+  {
+    "name": "Марфівська",
+    "en": "Marfivska",
+    "code": "UA0110035"
+  },
+  {
+    "name": "Мисівська",
+    "en": "Mysivska",
+    "code": "UA0110037"
+  },
+  {
+    "name": "Новомиколаївська",
+    "en": "Novomykolaivska",
+    "code": "UA0110039"
+  },
+  {
+    "name": "Октябрська",
+    "en": "Oktiabrska",
+    "code": "UA0110041"
+  },
+  {
+    "name": "Останінська",
+    "en": "Ostaninska",
+    "code": "UA0110043"
+  },
+  {
+    "name": "Приозернівська",
+    "en": "Pryozernivska",
+    "code": "UA0110045"
+  },
+  {
+    "name": "Семисотська",
+    "en": "Semysotska",
+    "code": "UA0110047"
+  },
+  {
+    "name": "Уварівська",
+    "en": "Uvarivska",
+    "code": "UA0110049"
+  },
+  {
+    "name": "Челядінівська",
+    "en": "Cheliadinivska",
+    "code": "UA0110051"
+  },
+  {
+    "name": "Чистопільська",
+    "en": "Chystopilska",
+    "code": "UA0110053"
+  },
+  {
+    "name": "Щолкінська",
+    "en": "Shcholkinska",
+    "code": "UA0110055"
+  },
+  {
+    "name": "Абрикосівська",
+    "en": "Abrykosivska",
+    "code": "UA0112001"
+  },
+  {
+    "name": "Амурська",
+    "en": "Amurska",
+    "code": "UA0112003"
+  },
+  {
+    "name": "Войковська",
+    "en": "Voikovska",
+    "code": "UA0112005"
+  },
+  {
+    "name": "Восходненська",
+    "en": "Voskhodnenska",
+    "code": "UA0112007"
+  },
+  {
+    "name": "Гвардійська",
+    "en": "Hvardiiska",
+    "code": "UA0112009"
+  },
+  {
+    "name": "Гришинська",
+    "en": "Hryshynska",
+    "code": "UA0112011"
+  },
+  {
+    "name": "Зернівська",
+    "en": "Zernivska",
+    "code": "UA0112013"
+  },
+  {
+    "name": "Калінінська",
+    "en": "Kalininska",
+    "code": "UA0112015"
+  },
+  {
+    "name": "Калінінська",
+    "en": "Kalininska",
+    "code": "UA0112017"
+  },
+  {
+    "name": "Клепинінська",
+    "en": "Klepyninska",
+    "code": "UA0112019"
+  },
+  {
+    "name": "Колодязянська",
+    "en": "Kolodiazianska",
+    "code": "UA0112021"
+  },
+  {
+    "name": "Кормівська",
+    "en": "Kormivska",
+    "code": "UA0112023"
+  },
+  {
+    "name": "Котельниківська",
+    "en": "Kotelnykivska",
+    "code": "UA0112025"
+  },
+  {
+    "name": "Красногвардійська",
+    "en": "Krasnohvardiiska",
+    "code": "UA0112027"
+  },
+  {
+    "name": "Краснознам'янська",
+    "en": "Krasnoznamianska",
+    "code": "UA0112029"
+  },
+  {
+    "name": "Крестянівська",
+    "en": "Krestianivska",
+    "code": "UA0112031"
+  },
+  {
+    "name": "Ленінська",
+    "en": "Leninska",
+    "code": "UA0112033"
+  },
+  {
+    "name": "Мар'янівська",
+    "en": "Marianivska",
+    "code": "UA0112035"
+  },
+  {
+    "name": "Найдьонівська",
+    "en": "Naidonivska",
+    "code": "UA0112037"
+  },
+  {
+    "name": "Новопокровська",
+    "en": "Novopokrovska",
+    "code": "UA0112039"
+  },
+  {
+    "name": "Октябрська",
+    "en": "Oktiabrska",
+    "code": "UA0112041"
+  },
+  {
+    "name": "Октябрська",
+    "en": "Oktiabrska",
+    "code": "UA0112043"
+  },
+  {
+    "name": "Олександрівська",
+    "en": "Oleksandrivska",
+    "code": "UA0112045"
+  },
+  {
+    "name": "Олексіївська",
+    "en": "Oleksiivska",
+    "code": "UA0112047"
+  },
+  {
+    "name": "Островська",
+    "en": "Ostrovska",
+    "code": "UA0112049"
+  },
+  {
+    "name": "П'ятихатська",
+    "en": "Piatykhatska",
+    "code": "UA0112051"
+  },
+  {
+    "name": "Первомайська",
+    "en": "Pervomaiska",
+    "code": "UA0112053"
+  },
+  {
+    "name": "Петрівська",
+    "en": "Petrivska",
+    "code": "UA0112055"
+  },
+  {
+    "name": "Полтавська",
+    "en": "Poltavska",
+    "code": "UA0112057"
+  },
+  {
+    "name": "Правдівська",
+    "en": "Pravdivska",
+    "code": "UA0112059"
+  },
+  {
+    "name": "Рівнівська",
+    "en": "Rivnivska",
+    "code": "UA0112061"
+  },
+  {
+    "name": "Сарибашівська",
+    "en": "Sarybashivska",
+    "code": "UA0112063"
+  },
+  {
+    "name": "Стахановська",
+    "en": "Stakhanovska",
+    "code": "UA0112065"
+  },
+  {
+    "name": "Степнівська",
+    "en": "Stepnivska",
+    "code": "UA0112067"
+  },
+  {
+    "name": "Сусанінська",
+    "en": "Susaninska",
+    "code": "UA0112069"
+  },
+  {
+    "name": "Черновська",
+    "en": "Chernovska",
+    "code": "UA0112071"
+  },
+  {
+    "name": "Янтарненська",
+    "en": "Yantarnenska",
+    "code": "UA0112073"
+  },
+  {
+    "name": "Армянська",
+    "en": "Armianska",
+    "code": "UA0114001"
+  },
+  {
+    "name": "Березівська",
+    "en": "Berezivska",
+    "code": "UA0114003"
+  },
+  {
+    "name": "Ботанічна",
+    "en": "Botanichna",
+    "code": "UA0114005"
+  },
+  {
+    "name": "Братська",
+    "en": "Bratska",
+    "code": "UA0114007"
+  },
+  {
+    "name": "Вишнівська",
+    "en": "Vyshnivska",
+    "code": "UA0114009"
+  },
+  {
+    "name": "Воїнська",
+    "en": "Voinska",
+    "code": "UA0114011"
+  },
+  {
+    "name": "Зиминська",
+    "en": "Zymynska",
+    "code": "UA0114013"
+  },
+  {
+    "name": "Іллінська",
+    "en": "Illinska",
+    "code": "UA0114015"
+  },
+  {
+    "name": "Ішунська",
+    "en": "Ishunska",
+    "code": "UA0114017"
+  },
+  {
+    "name": "Ковильнівська",
+    "en": "Kovylnivska",
+    "code": "UA0114019"
+  },
+  {
+    "name": "Красноармійська",
+    "en": "Krasnoarmiiska",
+    "code": "UA0114021"
+  },
+  {
+    "name": "Красноперекопська",
+    "en": "Krasnoperekopska",
+    "code": "UA0114023"
+  },
+  {
+    "name": "Кукушкінська",
+    "en": "Kukushkinska",
+    "code": "UA0114025"
+  },
+  {
+    "name": "Магазинська",
+    "en": "Mahazynska",
+    "code": "UA0114027"
+  },
+  {
+    "name": "Новопавлівська",
+    "en": "Novopavlivska",
+    "code": "UA0114029"
+  },
+  {
+    "name": "Новоселівська",
+    "en": "Novoselivska",
+    "code": "UA0114031"
+  },
+  {
+    "name": "Орлівська",
+    "en": "Orlivska",
+    "code": "UA0114033"
+  },
+  {
+    "name": "Почетненська",
+    "en": "Pochetnenska",
+    "code": "UA0114035"
+  },
+  {
+    "name": "Роздольненська",
+    "en": "Rozdolnenska",
+    "code": "UA0114037"
+  },
+  {
+    "name": "Руч'ївська",
+    "en": "Ruchivska",
+    "code": "UA0114039"
+  },
+  {
+    "name": "Серебрянська",
+    "en": "Serebrianska",
+    "code": "UA0114041"
+  },
+  {
+    "name": "Славнівська",
+    "en": "Slavnivska",
+    "code": "UA0114043"
+  },
+  {
+    "name": "Слов'янська",
+    "en": "Slovianska",
+    "code": "UA0114045"
+  },
+  {
+    "name": "Совхозненська",
+    "en": "Sovkhoznenska",
+    "code": "UA0114047"
+  },
+  {
+    "name": "Суворовська",
+    "en": "Suvorovska",
+    "code": "UA0114049"
+  },
+  {
+    "name": "Філатівська",
+    "en": "Filativska",
+    "code": "UA0114051"
+  },
+  {
+    "name": "Чернишівська",
+    "en": "Chernyshivska",
+    "code": "UA0114053"
+  },
+  {
+    "name": "Гвардійська",
+    "en": "Hvardiiska",
+    "code": "UA0116001"
+  },
+  {
+    "name": "Гресівська",
+    "en": "Hresivska",
+    "code": "UA0116003"
+  },
+  {
+    "name": "Добрівська",
+    "en": "Dobrivska",
+    "code": "UA0116005"
+  },
+  {
+    "name": "Донська",
+    "en": "Donska",
+    "code": "UA0116007"
+  },
+  {
+    "name": "Журавлівська",
+    "en": "Zhuravlivska",
+    "code": "UA0116009"
+  },
+  {
+    "name": "Кольчугинська",
+    "en": "Kolchuhynska",
+    "code": "UA0116011"
+  },
+  {
+    "name": "Мазанська",
+    "en": "Mazanska",
+    "code": "UA0116013"
+  },
+  {
+    "name": "Миколаївська",
+    "en": "Mykolaivska",
+    "code": "UA0116015"
+  },
+  {
+    "name": "Мирнівська",
+    "en": "Myrnivska",
+    "code": "UA0116017"
+  },
+  {
+    "name": "Молодіжненська",
+    "en": "Molodizhnenska",
+    "code": "UA0116019"
+  },
+  {
+    "name": "Новоандріївська",
+    "en": "Novoandriivska",
+    "code": "UA0116021"
+  },
+  {
+    "name": "Новоселівська",
+    "en": "Novoselivska",
+    "code": "UA0116023"
+  },
+  {
+    "name": "Первомайська",
+    "en": "Pervomaiska",
+    "code": "UA0116025"
+  },
+  {
+    "name": "Перовська",
+    "en": "Perovska",
+    "code": "UA0116027"
+  },
+  {
+    "name": "Пожарська",
+    "en": "Pozharska",
+    "code": "UA0116029"
+  },
+  {
+    "name": "Родниківська",
+    "en": "Rodnykivska",
+    "code": "UA0116031"
+  },
+  {
+    "name": "Сімферопольська",
+    "en": "Simferopolska",
+    "code": "UA0116033"
+  },
+  {
+    "name": "Скворцівська",
+    "en": "Skvortsivska",
+    "code": "UA0116035"
+  },
+  {
+    "name": "Трудівська",
+    "en": "Trudivska",
+    "code": "UA0116037"
+  },
+  {
+    "name": "Укромнівська",
+    "en": "Ukromnivska",
+    "code": "UA0116039"
+  },
+  {
+    "name": "Урожайнівська",
+    "en": "Urozhainivska",
+    "code": "UA0116041"
+  },
+  {
+    "name": "Чистенська",
+    "en": "Chystenska",
+    "code": "UA0116043"
+  },
+  {
+    "name": "Широківська",
+    "en": "Shyrokivska",
+    "code": "UA0116045"
+  },
+  {
+    "name": "Шкільненська",
+    "en": "Shkilnenska",
+    "code": "UA0116047"
+  },
+  {
+    "name": "Абрикосівська",
+    "en": "Abrykosivska",
+    "code": "UA0118001"
+  },
+  {
+    "name": "Берегова",
+    "en": "Berehova",
+    "code": "UA0118003"
+  },
+  {
+    "name": "Веселівська",
+    "en": "Veselivska",
+    "code": "UA0118005"
+  },
+  {
+    "name": "Владиславівська",
+    "en": "Vladyslavivska",
+    "code": "UA0118007"
+  },
+  {
+    "name": "Грушівська",
+    "en": "Hrushivska",
+    "code": "UA0118009"
+  },
+  {
+    "name": "Дачнівська",
+    "en": "Dachnivska",
+    "code": "UA0118011"
+  },
+  {
+    "name": "Дмитрівська",
+    "en": "Dmytrivska",
+    "code": "UA0118013"
+  },
+  {
+    "name": "Журавська",
+    "en": "Zhuravska",
+    "code": "UA0118015"
+  },
+  {
+    "name": "Завітненська",
+    "en": "Zavitnenska",
+    "code": "UA0118017"
+  },
+  {
+    "name": "Золотополенська",
+    "en": "Zolotopolenska",
+    "code": "UA0118019"
+  },
+  {
+    "name": "Іллічівська",
+    "en": "Illichivska",
+    "code": "UA0118021"
+  },
+  {
+    "name": "Кіровська",
+    "en": "Kirovska",
+    "code": "UA0118023"
+  },
+  {
+    "name": "Коктебельська",
+    "en": "Koktebelska",
+    "code": "UA0118025"
+  },
+  {
+    "name": "Красногвардійська",
+    "en": "Krasnohvardiiska",
+    "code": "UA0118027"
+  },
+  {
+    "name": "Краснофлотська",
+    "en": "Krasnoflotska",
+    "code": "UA0118029"
+  },
+  {
+    "name": "Льговська",
+    "en": "Lhovska",
+    "code": "UA0118031"
+  },
+  {
+    "name": "Міжріченська",
+    "en": "Mizhrichenska",
+    "code": "UA0118033"
+  },
+  {
+    "name": "Морська",
+    "en": "Morska",
+    "code": "UA0118035"
+  },
+  {
+    "name": "Насипнівська",
+    "en": "Nasypnivska",
+    "code": "UA0118037"
+  },
+  {
+    "name": "Некрасовська",
+    "en": "Nekrasovska",
+    "code": "UA0118039"
+  },
+  {
+    "name": "Новосвітська",
+    "en": "Novosvitska",
+    "code": "UA0118041"
+  },
+  {
+    "name": "Орджонікідзевська",
+    "en": "Ordzhonikidzevska",
+    "code": "UA0118043"
+  },
+  {
+    "name": "Партизанська",
+    "en": "Partyzanska",
+    "code": "UA0118045"
+  },
+  {
+    "name": "Первомайська",
+    "en": "Pervomaiska",
+    "code": "UA0118047"
+  },
+  {
+    "name": "Привітненська",
+    "en": "Pryvitnenska",
+    "code": "UA0118049"
+  },
+  {
+    "name": "Приморська",
+    "en": "Prymorska",
+    "code": "UA0118051"
+  },
+  {
+    "name": "Прудівська",
+    "en": "Prudivska",
+    "code": "UA0118053"
+  },
+  {
+    "name": "Пушкінська",
+    "en": "Pushkinska",
+    "code": "UA0118055"
+  },
+  {
+    "name": "Синицинська",
+    "en": "Synytsynska",
+    "code": "UA0118057"
+  },
+  {
+    "name": "Совєтська",
+    "en": "Sovietska",
+    "code": "UA0118059"
+  },
+  {
+    "name": "Сонячнодолинська",
+    "en": "Soniachnodolynska",
+    "code": "UA0118061"
+  },
+  {
+    "name": "Старокримська",
+    "en": "Starokrymska",
+    "code": "UA0118063"
+  },
+  {
+    "name": "Судацька",
+    "en": "Sudatska",
+    "code": "UA0118065"
+  },
+  {
+    "name": "Токарєвська",
+    "en": "Tokarievska",
+    "code": "UA0118067"
+  },
+  {
+    "name": "Урожайнівська",
+    "en": "Urozhainivska",
+    "code": "UA0118069"
+  },
+  {
+    "name": "Феодосійська",
+    "en": "Feodosiiska",
+    "code": "UA0118071"
+  },
+  {
+    "name": "Чапаєвська",
+    "en": "Chapaievska",
+    "code": "UA0118073"
+  },
+  {
+    "name": "Чорноземненська",
+    "en": "Chornozemnenska",
+    "code": "UA0118075"
+  },
+  {
+    "name": "Щебетовська",
+    "en": "Shchebetovska",
+    "code": "UA0118077"
+  },
+  {
+    "name": "Яркополенська",
+    "en": "Yarkopolenska",
+    "code": "UA0118079"
+  },
+  {
+    "name": "Алупкинська",
+    "en": "Alupkynska",
+    "code": "UA0120001"
+  },
+  {
+    "name": "Алуштинська",
+    "en": "Alushtynska",
+    "code": "UA0120003"
+  },
+  {
+    "name": "Гаспринська",
+    "en": "Hasprynska",
+    "code": "UA0120005"
+  },
+  {
+    "name": "Гурзуфська",
+    "en": "Hurzufska",
+    "code": "UA0120007"
+  },
+  {
+    "name": "Ізобільненська",
+    "en": "Izobilnenska",
+    "code": "UA0120009"
+  },
+  {
+    "name": "Кореїзька",
+    "en": "Koreizka",
+    "code": "UA0120011"
+  },
+  {
+    "name": "Лівадійська",
+    "en": "Livadiiska",
+    "code": "UA0120013"
+  },
+  {
+    "name": "Лучистівська",
+    "en": "Luchystivska",
+    "code": "UA0120015"
+  },
+  {
+    "name": "Маломаяцька",
+    "en": "Malomaiatska",
+    "code": "UA0120017"
+  },
+  {
+    "name": "Малоріченська",
+    "en": "Malorichenska",
+    "code": "UA0120019"
+  },
+  {
+    "name": "Масандрівська",
+    "en": "Masandrivska",
+    "code": "UA0120021"
+  },
+  {
+    "name": "Партенітська",
+    "en": "Partenitska",
+    "code": "UA0120023"
+  },
+  {
+    "name": "Привітненська",
+    "en": "Pryvitnenska",
+    "code": "UA0120025"
+  },
+  {
+    "name": "Сімеїзька",
+    "en": "Simeizka",
+    "code": "UA0120027"
+  },
+  {
+    "name": "Фороська",
+    "en": "Foroska",
+    "code": "UA0120029"
+  },
+  {
+    "name": "Ялтинська",
+    "en": "Yaltynska",
+    "code": "UA0120031"
+  },
+  {
+    "name": "Агрономічна",
+    "en": "Ahronomichna",
+    "code": "UA0502001"
+  },
+  {
+    "name": "Вінницька",
+    "en": "Vinnytska",
+    "code": "UA0502003"
+  },
+  {
+    "name": "Вороновицька",
+    "en": "Voronovytska",
+    "code": "UA0502005"
+  },
+  {
+    "name": "Гніванська",
+    "en": "Hnivanska",
+    "code": "UA0502007"
+  },
+  {
+    "name": "Іллінецька",
+    "en": "Illinetska",
+    "code": "UA0502009"
+  },
+  {
+    "name": "Липовецька",
+    "en": "Lypovetska",
+    "code": "UA0502011"
+  },
+  {
+    "name": "Літинська",
+    "en": "Litynska",
+    "code": "UA0502013"
+  },
+  {
+    "name": "Лука-Мелешківська",
+    "en": "Luka-Meleshkivska",
+    "code": "UA0502015"
+  },
+  {
+    "name": "Немирівська",
+    "en": "Nemyrivska",
+    "code": "UA0502017"
+  },
+  {
+    "name": "Оратівська",
+    "en": "Orativska",
+    "code": "UA0502019"
+  },
+  {
+    "name": "Погребищенська",
+    "en": "Pohrebyshchenska",
+    "code": "UA0502021"
+  },
+  {
+    "name": "Стрижавська",
+    "en": "Stryzhavska",
+    "code": "UA0502023"
+  },
+  {
+    "name": "Сутисківська",
+    "en": "Sutyskivska",
+    "code": "UA0502025"
+  },
+  {
+    "name": "Тиврівська",
+    "en": "Tyvrivska",
+    "code": "UA0502027"
+  },
+  {
+    "name": "Турбівська",
+    "en": "Turbivska",
+    "code": "UA0502029"
+  },
+  {
+    "name": "Якушинецька",
+    "en": "Yakushynetska",
+    "code": "UA0502031"
+  },
+  {
+    "name": "Бершадська",
+    "en": "Bershadska",
+    "code": "UA0504001"
+  },
+  {
+    "name": "Гайсинська",
+    "en": "Haisynska",
+    "code": "UA0504003"
+  },
+  {
+    "name": "Дашівська",
+    "en": "Dashivska",
+    "code": "UA0504005"
+  },
+  {
+    "name": "Джулинська",
+    "en": "Dzhulynska",
+    "code": "UA0504007"
+  },
+  {
+    "name": "Краснопільська",
+    "en": "Krasnopilska",
+    "code": "UA0504009"
+  },
+  {
+    "name": "Кунківська",
+    "en": "Kunkivska",
+    "code": "UA0504011"
+  },
+  {
+    "name": "Ладижинська",
+    "en": "Ladyzhynska",
+    "code": "UA0504013"
+  },
+  {
+    "name": "Ободівська",
+    "en": "Obodivska",
+    "code": "UA0504015"
+  },
+  {
+    "name": "Ольгопільська",
+    "en": "Olhopilska",
+    "code": "UA0504017"
+  },
+  {
+    "name": "Райгородська",
+    "en": "Raihorodska",
+    "code": "UA0504019"
+  },
+  {
+    "name": "Соболівська",
+    "en": "Sobolivska",
+    "code": "UA0504021"
+  },
+  {
+    "name": "Теплицька",
+    "en": "Teplytska",
+    "code": "UA0504023"
+  },
+  {
+    "name": "Тростянецька",
+    "en": "Trostianetska",
+    "code": "UA0504025"
+  },
+  {
+    "name": "Чечельницька",
+    "en": "Chechelnytska",
+    "code": "UA0504027"
+  },
+  {
+    "name": "Барська",
+    "en": "Barska",
+    "code": "UA0506001"
+  },
+  {
+    "name": "Джуринська",
+    "en": "Dzhurynska",
+    "code": "UA0506003"
+  },
+  {
+    "name": "Жмеринська",
+    "en": "Zhmerynska",
+    "code": "UA0506005"
+  },
+  {
+    "name": "Копайгородська",
+    "en": "Kopaihorodska",
+    "code": "UA0506007"
+  },
+  {
+    "name": "Мурафська",
+    "en": "Murafska",
+    "code": "UA0506009"
+  },
+  {
+    "name": "Северинівська",
+    "en": "Severynivska",
+    "code": "UA0506011"
+  },
+  {
+    "name": "Станіславчицька",
+    "en": "Stanislavchytska",
+    "code": "UA0506013"
+  },
+  {
+    "name": "Шаргородська",
+    "en": "Sharhorodska",
+    "code": "UA0506015"
+  },
+  {
+    "name": "Бабчинецька",
+    "en": "Babchynetska",
+    "code": "UA0508001"
+  },
+  {
+    "name": "Вендичанська",
+    "en": "Vendychanska",
+    "code": "UA0508003"
+  },
+  {
+    "name": "Могилів-Подільська",
+    "en": "Mohyliv-Podilska",
+    "code": "UA0508005"
+  },
+  {
+    "name": "Мурованокуриловецька",
+    "en": "Murovanokurylovetska",
+    "code": "UA0508007"
+  },
+  {
+    "name": "Чернівецька",
+    "en": "Chernivetska",
+    "code": "UA0508009"
+  },
+  {
+    "name": "Ямпільська",
+    "en": "Yampilska",
+    "code": "UA0508011"
+  },
+  {
+    "name": "Яришівська",
+    "en": "Yaryshivska",
+    "code": "UA0508013"
+  },
+  {
+    "name": "Брацлавська",
+    "en": "Bratslavska",
+    "code": "UA0510001"
+  },
+  {
+    "name": "Вапнярська",
+    "en": "Vapniarska",
+    "code": "UA0510003"
+  },
+  {
+    "name": "Городківська",
+    "en": "Horodkivska",
+    "code": "UA0510005"
+  },
+  {
+    "name": "Крижопільська",
+    "en": "Kryzhopilska",
+    "code": "UA0510007"
+  },
+  {
+    "name": "Піщанська",
+    "en": "Pishchanska",
+    "code": "UA0510009"
+  },
+  {
+    "name": "Студенянська",
+    "en": "Studenianska",
+    "code": "UA0510011"
+  },
+  {
+    "name": "Томашпільська",
+    "en": "Tomashpilska",
+    "code": "UA0510013"
+  },
+  {
+    "name": "Тульчинська",
+    "en": "Tulchynska",
+    "code": "UA0510015"
+  },
+  {
+    "name": "Шпиківська",
+    "en": "Shpykivska",
+    "code": "UA0510017"
+  },
+  {
+    "name": "Глуховецька",
+    "en": "Hlukhovetska",
+    "code": "UA0512001"
+  },
+  {
+    "name": "Жданівська",
+    "en": "Zhdanivska",
+    "code": "UA0512003"
+  },
+  {
+    "name": "Іванівська",
+    "en": "Ivanivska",
+    "code": "UA0512005"
+  },
+  {
+    "name": "Калинівська",
+    "en": "Kalynivska",
+    "code": "UA0512007"
+  },
+  {
+    "name": "Козятинська",
+    "en": "Koziatynska",
+    "code": "UA0512009"
+  },
+  {
+    "name": "Махнівська",
+    "en": "Makhnivska",
+    "code": "UA0512011"
+  },
+  {
+    "name": "Самгородоцька",
+    "en": "Samhorodotska",
+    "code": "UA0512013"
+  },
+  {
+    "name": "Уланівська",
+    "en": "Ulanivska",
+    "code": "UA0512015"
+  },
+  {
+    "name": "Хмільницька",
+    "en": "Khmilnytska",
+    "code": "UA0512017"
+  },
+  {
+    "name": "Володимир-Волинська",
+    "en": "Volodymyr-Volynska",
+    "code": "UA0702001"
+  },
+  {
+    "name": "Затурцівська",
+    "en": "Zaturtsivska",
+    "code": "UA0702003"
+  },
+  {
+    "name": "Зимнівська",
+    "en": "Zymnivska",
+    "code": "UA0702005"
+  },
+  {
+    "name": "Іваничівська",
+    "en": "Ivanychivska",
+    "code": "UA0702007"
+  },
+  {
+    "name": "Литовезька",
+    "en": "Lytovezka",
+    "code": "UA0702009"
+  },
+  {
+    "name": "Локачинська",
+    "en": "Lokachynska",
+    "code": "UA0702011"
+  },
+  {
+    "name": "Нововолинська",
+    "en": "Novovolynska",
+    "code": "UA0702013"
+  },
+  {
+    "name": "Оваднівська",
+    "en": "Ovadnivska",
+    "code": "UA0702015"
+  },
+  {
+    "name": "Павлівська",
+    "en": "Pavlivska",
+    "code": "UA0702017"
+  },
+  {
+    "name": "Поромівська",
+    "en": "Poromivska",
+    "code": "UA0702019"
+  },
+  {
+    "name": "Устилузька",
+    "en": "Ustyluzka",
+    "code": "UA0702021"
+  },
+  {
+    "name": "Камінь-Каширська",
+    "en": "Kamin-Kashyrska",
+    "code": "UA0704001"
+  },
+  {
+    "name": "Любешівська",
+    "en": "Liubeshivska",
+    "code": "UA0704003"
+  },
+  {
+    "name": "Маневицька",
+    "en": "Manevytska",
+    "code": "UA0704005"
+  },
+  {
+    "name": "Прилісненська",
+    "en": "Prylisnenska",
+    "code": "UA0704007"
+  },
+  {
+    "name": "Сошичненська",
+    "en": "Soshychnenska",
+    "code": "UA0704009"
+  },
+  {
+    "name": "Велимченська",
+    "en": "Velymchenska",
+    "code": "UA0706001"
+  },
+  {
+    "name": "Велицька",
+    "en": "Velytska",
+    "code": "UA0706003"
+  },
+  {
+    "name": "Вишнівська",
+    "en": "Vyshnivska",
+    "code": "UA0706005"
+  },
+  {
+    "name": "Голобська",
+    "en": "Holobska",
+    "code": "UA0706007"
+  },
+  {
+    "name": "Головненська",
+    "en": "Holovnenska",
+    "code": "UA0706009"
+  },
+  {
+    "name": "Дубечненська",
+    "en": "Dubechnenska",
+    "code": "UA0706011"
+  },
+  {
+    "name": "Дубівська",
+    "en": "Dubivska",
+    "code": "UA0706013"
+  },
+  {
+    "name": "Заболоттівська",
+    "en": "Zabolottivska",
+    "code": "UA0706015"
+  },
+  {
+    "name": "Забродівська",
+    "en": "Zabrodivska",
+    "code": "UA0706017"
+  },
+  {
+    "name": "Ковельська",
+    "en": "Kovelska",
+    "code": "UA0706019"
+  },
+  {
+    "name": "Колодяжненська",
+    "en": "Kolodiazhnenska",
+    "code": "UA0706021"
+  },
+  {
+    "name": "Луківська",
+    "en": "Lukivska",
+    "code": "UA0706023"
+  },
+  {
+    "name": "Люблинецька",
+    "en": "Liublynetska",
+    "code": "UA0706025"
+  },
+  {
+    "name": "Любомльська",
+    "en": "Liubomlska",
+    "code": "UA0706027"
+  },
+  {
+    "name": "Поворська",
+    "en": "Povorska",
+    "code": "UA0706029"
+  },
+  {
+    "name": "Ратнівська",
+    "en": "Ratnivska",
+    "code": "UA0706031"
+  },
+  {
+    "name": "Рівненська",
+    "en": "Rivnenska",
+    "code": "UA0706033"
+  },
+  {
+    "name": "Самарівська",
+    "en": "Samarivska",
+    "code": "UA0706035"
+  },
+  {
+    "name": "Сереховичівська",
+    "en": "Serekhovychivska",
+    "code": "UA0706037"
+  },
+  {
+    "name": "Смідинська",
+    "en": "Smidynska",
+    "code": "UA0706039"
+  },
+  {
+    "name": "Старовижівська",
+    "en": "Starovyzhivska",
+    "code": "UA0706041"
+  },
+  {
+    "name": "Турійська",
+    "en": "Turiiska",
+    "code": "UA0706043"
+  },
+  {
+    "name": "Шацька",
+    "en": "Shatska",
+    "code": "UA0706045"
+  },
+  {
+    "name": "Берестечківська",
+    "en": "Berestechkivska",
+    "code": "UA0708001"
+  },
+  {
+    "name": "Боратинська",
+    "en": "Boratynska",
+    "code": "UA0708003"
+  },
+  {
+    "name": "Городищенська",
+    "en": "Horodyshchenska",
+    "code": "UA0708005"
+  },
+  {
+    "name": "Горохівська",
+    "en": "Horokhivska",
+    "code": "UA0708007"
+  },
+  {
+    "name": "Доросинівська",
+    "en": "Dorosynivska",
+    "code": "UA0708009"
+  },
+  {
+    "name": "Ківерцівська",
+    "en": "Kivertsivska",
+    "code": "UA0708011"
+  },
+  {
+    "name": "Колківська",
+    "en": "Kolkivska",
+    "code": "UA0708013"
+  },
+  {
+    "name": "Копачівська",
+    "en": "Kopachivska",
+    "code": "UA0708015"
+  },
+  {
+    "name": "Луцька",
+    "en": "Lutska",
+    "code": "UA0708017"
+  },
+  {
+    "name": "Мар'янівська",
+    "en": "Marianivska",
+    "code": "UA0708019"
+  },
+  {
+    "name": "Олицька",
+    "en": "Olytska",
+    "code": "UA0708021"
+  },
+  {
+    "name": "Підгайцівська",
+    "en": "Pidhaitsivska",
+    "code": "UA0708023"
+  },
+  {
+    "name": "Рожищенська",
+    "en": "Rozhyshchenska",
+    "code": "UA0708025"
+  },
+  {
+    "name": "Торчинська",
+    "en": "Torchynska",
+    "code": "UA0708027"
+  },
+  {
+    "name": "Цуманська",
+    "en": "Tsumanska",
+    "code": "UA0708029"
+  },
+  {
+    "name": "Дніпровська",
+    "en": "Dniprovska",
+    "code": "UA1202001"
+  },
+  {
+    "name": "Китайгородська",
+    "en": "Kytaihorodska",
+    "code": "UA1202003"
+  },
+  {
+    "name": "Любимівська",
+    "en": "Liubymivska",
+    "code": "UA1202005"
+  },
+  {
+    "name": "Ляшківська",
+    "en": "Liashkivska",
+    "code": "UA1202007"
+  },
+  {
+    "name": "Миколаївська",
+    "en": "Mykolaivska",
+    "code": "UA1202009"
+  },
+  {
+    "name": "Могилівська",
+    "en": "Mohylivska",
+    "code": "UA1202011"
+  },
+  {
+    "name": "Новоолександрівська",
+    "en": "Novooleksandrivska",
+    "code": "UA1202013"
+  },
+  {
+    "name": "Новопокровська",
+    "en": "Novopokrovska",
+    "code": "UA1202015"
+  },
+  {
+    "name": "Обухівська",
+    "en": "Obukhivska",
+    "code": "UA1202017"
+  },
+  {
+    "name": "Петриківська",
+    "en": "Petrykivska",
+    "code": "UA1202019"
+  },
+  {
+    "name": "Підгородненська",
+    "en": "Pidhorodnenska",
+    "code": "UA1202021"
+  },
+  {
+    "name": "Святовасилівська",
+    "en": "Sviatovasylivska",
+    "code": "UA1202023"
+  },
+  {
+    "name": "Слобожанська",
+    "en": "Slobozhanska",
+    "code": "UA1202025"
+  },
+  {
+    "name": "Солонянська",
+    "en": "Solonianska",
+    "code": "UA1202027"
+  },
+  {
+    "name": "Сурсько-Литовська",
+    "en": "Sursko-Lytovska",
+    "code": "UA1202029"
+  },
+  {
+    "name": "Царичанська",
+    "en": "Tsarychanska",
+    "code": "UA1202031"
+  },
+  {
+    "name": "Чумаківська",
+    "en": "Chumakivska",
+    "code": "UA1202033"
+  },
+  {
+    "name": "Божедарівська",
+    "en": "Bozhedarivska",
+    "code": "UA1204001"
+  },
+  {
+    "name": "Верхівцівська",
+    "en": "Verkhivtsivska",
+    "code": "UA1204003"
+  },
+  {
+    "name": "Верхньодніпровська",
+    "en": "Verkhnodniprovska",
+    "code": "UA1204005"
+  },
+  {
+    "name": "Вишнівська",
+    "en": "Vyshnivska",
+    "code": "UA1204007"
+  },
+  {
+    "name": "Вільногірська",
+    "en": "Vilnohirska",
+    "code": "UA1204009"
+  },
+  {
+    "name": "Жовтоводська",
+    "en": "Zhovtovodska",
+    "code": "UA1204011"
+  },
+  {
+    "name": "Затишнянська",
+    "en": "Zatyshnianska",
+    "code": "UA1204013"
+  },
+  {
+    "name": "Кам'янська",
+    "en": "Kamianska",
+    "code": "UA1204015"
+  },
+  {
+    "name": "Криничанська",
+    "en": "Krynychanska",
+    "code": "UA1204017"
+  },
+  {
+    "name": "Лихівська",
+    "en": "Lykhivska",
+    "code": "UA1204019"
+  },
+  {
+    "name": "П'ятихатська",
+    "en": "Piatykhatska",
+    "code": "UA1204021"
+  },
+  {
+    "name": "Саксаганська",
+    "en": "Saksahanska",
+    "code": "UA1204023"
+  },
+  {
+    "name": "Апостолівська",
+    "en": "Apostolivska",
+    "code": "UA1206001"
+  },
+  {
+    "name": "Вакулівська",
+    "en": "Vakulivska",
+    "code": "UA1206003"
+  },
+  {
+    "name": "Глеюватська",
+    "en": "Hleiuvatska",
+    "code": "UA1206005"
+  },
+  {
+    "name": "Гречаноподівська",
+    "en": "Hrechanopodivska",
+    "code": "UA1206007"
+  },
+  {
+    "name": "Грушівська",
+    "en": "Hrushivska",
+    "code": "UA1206009"
+  },
+  {
+    "name": "Девладівська",
+    "en": "Devladivska",
+    "code": "UA1206011"
+  },
+  {
+    "name": "Зеленодольська",
+    "en": "Zelenodolska",
+    "code": "UA1206013"
+  },
+  {
+    "name": "Карпівська",
+    "en": "Karpivska",
+    "code": "UA1206015"
+  },
+  {
+    "name": "Криворізька",
+    "en": "Kryvorizka",
+    "code": "UA1206017"
+  },
+  {
+    "name": "Лозуватська",
+    "en": "Lozuvatska",
+    "code": "UA1206019"
+  },
+  {
+    "name": "Нивотрудівська",
+    "en": "Nyvotrudivska",
+    "code": "UA1206021"
+  },
+  {
+    "name": "Новолатівська",
+    "en": "Novolativska",
+    "code": "UA1206023"
+  },
+  {
+    "name": "Новопільська",
+    "en": "Novopilska",
+    "code": "UA1206025"
+  },
+  {
+    "name": "Софіївська",
+    "en": "Sofiivska",
+    "code": "UA1206027"
+  },
+  {
+    "name": "Широківська",
+    "en": "Shyrokivska",
+    "code": "UA1206029"
+  },
+  {
+    "name": "Марганецька",
+    "en": "Marhanetska",
+    "code": "UA1208001"
+  },
+  {
+    "name": "Мирівська",
+    "en": "Myrivska",
+    "code": "UA1208003"
+  },
+  {
+    "name": "Нікопольська",
+    "en": "Nikopolska",
+    "code": "UA1208005"
+  },
+  {
+    "name": "Першотравневська",
+    "en": "Pershotravnevska",
+    "code": "UA1208007"
+  },
+  {
+    "name": "Покровська",
+    "en": "Pokrovska",
+    "code": "UA1208009"
+  },
+  {
+    "name": "Покровська",
+    "en": "Pokrovska",
+    "code": "UA1208011"
+  },
+  {
+    "name": "Томаківська",
+    "en": "Tomakivska",
+    "code": "UA1208013"
+  },
+  {
+    "name": "Червоногригорівська",
+    "en": "Chervonohryhorivska",
+    "code": "UA1208015"
+  },
+  {
+    "name": "Губиниська",
+    "en": "Hubynyska",
+    "code": "UA1210001"
+  },
+  {
+    "name": "Личківська",
+    "en": "Lychkivska",
+    "code": "UA1210003"
+  },
+  {
+    "name": "Магдалинівська",
+    "en": "Mahdalynivska",
+    "code": "UA1210005"
+  },
+  {
+    "name": "Новомосковська",
+    "en": "Novomoskovska",
+    "code": "UA1210007"
+  },
+  {
+    "name": "Перещепинська",
+    "en": "Pereshchepynska",
+    "code": "UA1210009"
+  },
+  {
+    "name": "Піщанська",
+    "en": "Pishchanska",
+    "code": "UA1210011"
+  },
+  {
+    "name": "Черкаська",
+    "en": "Cherkaska",
+    "code": "UA1210013"
+  },
+  {
+    "name": "Чернеччинська",
+    "en": "Chernechchynska",
+    "code": "UA1210015"
+  },
+  {
+    "name": "Богданівська",
+    "en": "Bohdanivska",
+    "code": "UA1212001"
+  },
+  {
+    "name": "Вербківська",
+    "en": "Verbkivska",
+    "code": "UA1212003"
+  },
+  {
+    "name": "Межиріцька",
+    "en": "Mezhyritska",
+    "code": "UA1212005"
+  },
+  {
+    "name": "Павлоградська",
+    "en": "Pavlohradska",
+    "code": "UA1212007"
+  },
+  {
+    "name": "Тернівська",
+    "en": "Ternivska",
+    "code": "UA1212009"
+  },
+  {
+    "name": "Троїцька",
+    "en": "Troitska",
+    "code": "UA1212011"
+  },
+  {
+    "name": "Юр'ївська",
+    "en": "Yurivska",
+    "code": "UA1212013"
+  },
+  {
+    "name": "Брагинівська",
+    "en": "Brahynivska",
+    "code": "UA1214001"
+  },
+  {
+    "name": "Васильківська",
+    "en": "Vasylkivska",
+    "code": "UA1214003"
+  },
+  {
+    "name": "Великомихайлівська",
+    "en": "Velykomykhailivska",
+    "code": "UA1214005"
+  },
+  {
+    "name": "Дубовиківська",
+    "en": "Dubovykivska",
+    "code": "UA1214007"
+  },
+  {
+    "name": "Зайцівська",
+    "en": "Zaitsivska",
+    "code": "UA1214009"
+  },
+  {
+    "name": "Іларіонівська",
+    "en": "Ilarionivska",
+    "code": "UA1214011"
+  },
+  {
+    "name": "Маломихайлівська",
+    "en": "Malomykhailivska",
+    "code": "UA1214013"
+  },
+  {
+    "name": "Межівська",
+    "en": "Mezhivska",
+    "code": "UA1214015"
+  },
+  {
+    "name": "Миколаївська",
+    "en": "Mykolaivska",
+    "code": "UA1214017"
+  },
+  {
+    "name": "Новопавлівська",
+    "en": "Novopavlivska",
+    "code": "UA1214019"
+  },
+  {
+    "name": "Першотравенська",
+    "en": "Pershotravenska",
+    "code": "UA1214021"
+  },
+  {
+    "name": "Петропавлівська",
+    "en": "Petropavlivska",
+    "code": "UA1214023"
+  },
+  {
+    "name": "Покровська",
+    "en": "Pokrovska",
+    "code": "UA1214025"
+  },
+  {
+    "name": "Раївська",
+    "en": "Raivska",
+    "code": "UA1214027"
+  },
+  {
+    "name": "Роздорська",
+    "en": "Rozdorska",
+    "code": "UA1214029"
+  },
+  {
+    "name": "Синельниківська",
+    "en": "Synelnykivska",
+    "code": "UA1214031"
+  },
+  {
+    "name": "Славгородська",
+    "en": "Slavhorodska",
+    "code": "UA1214033"
+  },
+  {
+    "name": "Слов'янська",
+    "en": "Slovianska",
+    "code": "UA1214035"
+  },
+  {
+    "name": "Українська",
+    "en": "Ukrainska",
+    "code": "UA1214037"
+  },
+  {
+    "name": "Бахмутська",
+    "en": "Bakhmutska",
+    "code": "UA1402001"
+  },
+  {
+    "name": "Званівська",
+    "en": "Zvanivska",
+    "code": "UA1402003"
+  },
+  {
+    "name": "Світлодарська",
+    "en": "Svitlodarska",
+    "code": "UA1402005"
+  },
+  {
+    "name": "Сіверська",
+    "en": "Siverska",
+    "code": "UA1402007"
+  },
+  {
+    "name": "Соледарська",
+    "en": "Soledarska",
+    "code": "UA1402009"
+  },
+  {
+    "name": "Торецька",
+    "en": "Toretska",
+    "code": "UA1402011"
+  },
+  {
+    "name": "Часовоярська",
+    "en": "Chasovoiarska",
+    "code": "UA1402013"
+  },
+  {
+    "name": "Великоновосілківська",
+    "en": "Velykonovosilkivska",
+    "code": "UA1404001"
+  },
+  {
+    "name": "Волноваська",
+    "en": "Volnovaska",
+    "code": "UA1404003"
+  },
+  {
+    "name": "Вугледарська",
+    "en": "Vuhledarska",
+    "code": "UA1404005"
+  },
+  {
+    "name": "Комарська",
+    "en": "Komarska",
+    "code": "UA1404007"
+  },
+  {
+    "name": "Мирненська",
+    "en": "Myrnenska",
+    "code": "UA1404009"
+  },
+  {
+    "name": "Ольгинська",
+    "en": "Olhynska",
+    "code": "UA1404011"
+  },
+  {
+    "name": "Старомлинівська",
+    "en": "Staromlynivska",
+    "code": "UA1404013"
+  },
+  {
+    "name": "Хлібодарівська",
+    "en": "Khlibodarivska",
+    "code": "UA1404015"
+  },
+  {
+    "name": "Вуглегірська",
+    "en": "Vuhlehirska",
+    "code": "UA1406001"
+  },
+  {
+    "name": "Горлівська",
+    "en": "Horlivska",
+    "code": "UA1406003"
+  },
+  {
+    "name": "Дебальцівська",
+    "en": "Debaltsivska",
+    "code": "UA1406005"
+  },
+  {
+    "name": "Єнакієвська",
+    "en": "Yenakiievska",
+    "code": "UA1406007"
+  },
+  {
+    "name": "Жданівська",
+    "en": "Zhdanivska",
+    "code": "UA1406009"
+  },
+  {
+    "name": "Сніжнянська",
+    "en": "Snizhnianska",
+    "code": "UA1406011"
+  },
+  {
+    "name": "Хрестівська",
+    "en": "Khrestivska",
+    "code": "UA1406013"
+  },
+  {
+    "name": "Чистяківська",
+    "en": "Chystiakivska",
+    "code": "UA1406015"
+  },
+  {
+    "name": "Шахтарська",
+    "en": "Shakhtarska",
+    "code": "UA1406017"
+  },
+  {
+    "name": "Амвросіївська",
+    "en": "Amvrosiivska",
+    "code": "UA1408001"
+  },
+  {
+    "name": "Донецька",
+    "en": "Donetska",
+    "code": "UA1408003"
+  },
+  {
+    "name": "Іловайська",
+    "en": "Ilovaiska",
+    "code": "UA1408005"
+  },
+  {
+    "name": "Макіївська",
+    "en": "Makiivska",
+    "code": "UA1408007"
+  },
+  {
+    "name": "Харцизька",
+    "en": "Khartsyzka",
+    "code": "UA1408009"
+  },
+  {
+    "name": "Ясинуватська",
+    "en": "Yasynuvatska",
+    "code": "UA1408011"
+  },
+  {
+    "name": "Бойківська",
+    "en": "Boikivska",
+    "code": "UA1410001"
+  },
+  {
+    "name": "Докучаєвська",
+    "en": "Dokuchaievska",
+    "code": "UA1410003"
+  },
+  {
+    "name": "Кальміуська",
+    "en": "Kalmiuska",
+    "code": "UA1410005"
+  },
+  {
+    "name": "Новоазовська",
+    "en": "Novoazovska",
+    "code": "UA1410007"
+  },
+  {
+    "name": "Старобешівська",
+    "en": "Starobeshivska",
+    "code": "UA1410009"
+  },
+  {
+    "name": "Андріївська",
+    "en": "Andriivska",
+    "code": "UA1412001"
+  },
+  {
+    "name": "Дружківська",
+    "en": "Druzhkivska",
+    "code": "UA1412003"
+  },
+  {
+    "name": "Іллінівська",
+    "en": "Illinivska",
+    "code": "UA1412005"
+  },
+  {
+    "name": "Костянтинівська",
+    "en": "Kostiantynivska",
+    "code": "UA1412007"
+  },
+  {
+    "name": "Краматорська",
+    "en": "Kramatorska",
+    "code": "UA1412009"
+  },
+  {
+    "name": "Лиманська",
+    "en": "Lymanska",
+    "code": "UA1412011"
+  },
+  {
+    "name": "Миколаївська",
+    "en": "Mykolaivska",
+    "code": "UA1412013"
+  },
+  {
+    "name": "Новодонецька",
+    "en": "Novodonetska",
+    "code": "UA1412015"
+  },
+  {
+    "name": "Олександрівська",
+    "en": "Oleksandrivska",
+    "code": "UA1412017"
+  },
+  {
+    "name": "Святогірська",
+    "en": "Sviatohirska",
+    "code": "UA1412019"
+  },
+  {
+    "name": "Слов'янська",
+    "en": "Slovianska",
+    "code": "UA1412021"
+  },
+  {
+    "name": "Черкаська",
+    "en": "Cherkaska",
+    "code": "UA1412023"
+  },
+  {
+    "name": "Кальчицька",
+    "en": "Kalchytska",
+    "code": "UA1414001"
+  },
+  {
+    "name": "Мангушська",
+    "en": "Manhushska",
+    "code": "UA1414003"
+  },
+  {
+    "name": "Маріупольська",
+    "en": "Mariupolska",
+    "code": "UA1414005"
+  },
+  {
+    "name": "Нікольська",
+    "en": "Nikolska",
+    "code": "UA1414007"
+  },
+  {
+    "name": "Сартанська",
+    "en": "Sartanska",
+    "code": "UA1414009"
+  },
+  {
+    "name": "Авдіївська",
+    "en": "Avdiivska",
+    "code": "UA1416001"
+  },
+  {
+    "name": "Білозерська",
+    "en": "Bilozerska",
+    "code": "UA1416003"
+  },
+  {
+    "name": "Гродівська",
+    "en": "Hrodivska",
+    "code": "UA1416005"
+  },
+  {
+    "name": "Добропільська",
+    "en": "Dobropilska",
+    "code": "UA1416007"
+  },
+  {
+    "name": "Криворізька",
+    "en": "Kryvorizka",
+    "code": "UA1416009"
+  },
+  {
+    "name": "Курахівська",
+    "en": "Kurakhivska",
+    "code": "UA1416011"
+  },
+  {
+    "name": "Мар'їнська",
+    "en": "Marinska",
+    "code": "UA1416013"
+  },
+  {
+    "name": "Мирноградська",
+    "en": "Myrnohradska",
+    "code": "UA1416015"
+  },
+  {
+    "name": "Новогродівська",
+    "en": "Novohrodivska",
+    "code": "UA1416017"
+  },
+  {
+    "name": "Очеретинська",
+    "en": "Ocheretynska",
+    "code": "UA1416019"
+  },
+  {
+    "name": "Покровська",
+    "en": "Pokrovska",
+    "code": "UA1416021"
+  },
+  {
+    "name": "Селидівська",
+    "en": "Selydivska",
+    "code": "UA1416023"
+  },
+  {
+    "name": "Удачненська",
+    "en": "Udachnenska",
+    "code": "UA1416025"
+  },
+  {
+    "name": "Шахівська",
+    "en": "Shakhivska",
+    "code": "UA1416027"
+  },
+  {
+    "name": "Андрушівська",
+    "en": "Andrushivska",
+    "code": "UA1802001"
+  },
+  {
+    "name": "Бердичівська",
+    "en": "Berdychivska",
+    "code": "UA1802003"
+  },
+  {
+    "name": "Вчорайшенська",
+    "en": "Vchoraishenska",
+    "code": "UA1802005"
+  },
+  {
+    "name": "Гришковецька",
+    "en": "Hryshkovetska",
+    "code": "UA1802007"
+  },
+  {
+    "name": "Краснопільська",
+    "en": "Krasnopilska",
+    "code": "UA1802009"
+  },
+  {
+    "name": "Райгородоцька",
+    "en": "Raihorodotska",
+    "code": "UA1802011"
+  },
+  {
+    "name": "Ружинська",
+    "en": "Ruzhynska",
+    "code": "UA1802013"
+  },
+  {
+    "name": "Семенівська",
+    "en": "Semenivska",
+    "code": "UA1802015"
+  },
+  {
+    "name": "Червоненська",
+    "en": "Chervonenska",
+    "code": "UA1802017"
+  },
+  {
+    "name": "Швайківська",
+    "en": "Shvaikivska",
+    "code": "UA1802019"
+  },
+  {
+    "name": "Андрушківська",
+    "en": "Andrushkivska",
+    "code": "UA1804001"
+  },
+  {
+    "name": "Березівська",
+    "en": "Berezivska",
+    "code": "UA1804003"
+  },
+  {
+    "name": "Брусилівська",
+    "en": "Brusylivska",
+    "code": "UA1804005"
+  },
+  {
+    "name": "Високівська",
+    "en": "Vysokivska",
+    "code": "UA1804007"
+  },
+  {
+    "name": "Вишевицька",
+    "en": "Vyshevytska",
+    "code": "UA1804009"
+  },
+  {
+    "name": "Вільшанська",
+    "en": "Vilshanska",
+    "code": "UA1804011"
+  },
+  {
+    "name": "Волицька",
+    "en": "Volytska",
+    "code": "UA1804013"
+  },
+  {
+    "name": "Глибочицька",
+    "en": "Hlybochytska",
+    "code": "UA1804015"
+  },
+  {
+    "name": "Городоцька",
+    "en": "Horodotska",
+    "code": "UA1804017"
+  },
+  {
+    "name": "Житомирська",
+    "en": "Zhytomyrska",
+    "code": "UA1804019"
+  },
+  {
+    "name": "Квітнева",
+    "en": "Kvitneva",
+    "code": "UA1804021"
+  },
+  {
+    "name": "Корнинська",
+    "en": "Kornynska",
+    "code": "UA1804023"
+  },
+  {
+    "name": "Коростишівська",
+    "en": "Korostyshivska",
+    "code": "UA1804025"
+  },
+  {
+    "name": "Курненська",
+    "en": "Kurnenska",
+    "code": "UA1804027"
+  },
+  {
+    "name": "Любарська",
+    "en": "Liubarska",
+    "code": "UA1804029"
+  },
+  {
+    "name": "Миропільська",
+    "en": "Myropilska",
+    "code": "UA1804031"
+  },
+  {
+    "name": "Новоборівська",
+    "en": "Novoborivska",
+    "code": "UA1804033"
+  },
+  {
+    "name": "Новогуйвинська",
+    "en": "Novohuivynska",
+    "code": "UA1804035"
+  },
+  {
+    "name": "Оліївська",
+    "en": "Oliivska",
+    "code": "UA1804037"
+  },
+  {
+    "name": "Попільнянська",
+    "en": "Popilnianska",
+    "code": "UA1804039"
+  },
+  {
+    "name": "Потіївська",
+    "en": "Potiivska",
+    "code": "UA1804041"
+  },
+  {
+    "name": "Пулинська",
+    "en": "Pulynska",
+    "code": "UA1804043"
+  },
+  {
+    "name": "Радомишльська",
+    "en": "Radomyshlska",
+    "code": "UA1804045"
+  },
+  {
+    "name": "Романівська",
+    "en": "Romanivska",
+    "code": "UA1804047"
+  },
+  {
+    "name": "Станишівська",
+    "en": "Stanyshivska",
+    "code": "UA1804049"
+  },
+  {
+    "name": "Старосілецька",
+    "en": "Starosiletska",
+    "code": "UA1804051"
+  },
+  {
+    "name": "Тетерівська",
+    "en": "Teterivska",
+    "code": "UA1804053"
+  },
+  {
+    "name": "Харитонівська",
+    "en": "Kharytonivska",
+    "code": "UA1804055"
+  },
+  {
+    "name": "Хорошівська",
+    "en": "Khoroshivska",
+    "code": "UA1804057"
+  },
+  {
+    "name": "Черняхівська",
+    "en": "Cherniakhivska",
+    "code": "UA1804059"
+  },
+  {
+    "name": "Чуднівська",
+    "en": "Chudniv",
+    "code": "UA1804061"
+  },
+  {
+    "name": "Білокоровицька",
+    "en": "Bilokorovytska",
+    "code": "UA1806001"
+  },
+  {
+    "name": "Гладковицька",
+    "en": "Hladkovytska",
+    "code": "UA1806003"
+  },
+  {
+    "name": "Горщиківська",
+    "en": "Horshchykivska",
+    "code": "UA1806005"
+  },
+  {
+    "name": "Іршанська",
+    "en": "Irshanska",
+    "code": "UA1806007"
+  },
+  {
+    "name": "Коростенська",
+    "en": "Korostenska",
+    "code": "UA1806009"
+  },
+  {
+    "name": "Лугинська",
+    "en": "Luhynska",
+    "code": "UA1806011"
+  },
+  {
+    "name": "Малинська",
+    "en": "Malynska",
+    "code": "UA1806013"
+  },
+  {
+    "name": "Народицька",
+    "en": "Narodytska",
+    "code": "UA1806015"
+  },
+  {
+    "name": "Овруцька",
+    "en": "Ovrutska",
+    "code": "UA1806017"
+  },
+  {
+    "name": "Олевська",
+    "en": "Olevska",
+    "code": "UA1806019"
+  },
+  {
+    "name": "Словечанська",
+    "en": "Slovechanska",
+    "code": "UA1806021"
+  },
+  {
+    "name": "Ушомирська",
+    "en": "Ushomyrska",
+    "code": "UA1806023"
+  },
+  {
+    "name": "Чоповицька",
+    "en": "Chopovytska",
+    "code": "UA1806025"
+  },
+  {
+    "name": "Баранівська",
+    "en": "Baranivska",
+    "code": "UA1808001"
+  },
+  {
+    "name": "Барашівська",
+    "en": "Barashivska",
+    "code": "UA1808003"
+  },
+  {
+    "name": "Брониківська",
+    "en": "Bronykivska",
+    "code": "UA1808005"
+  },
+  {
+    "name": "Городницька",
+    "en": "Horodnytska",
+    "code": "UA1808007"
+  },
+  {
+    "name": "Довбиська",
+    "en": "Dovbyska",
+    "code": "UA1808009"
+  },
+  {
+    "name": "Дубрівська",
+    "en": "Dubrivska",
+    "code": "UA1808011"
+  },
+  {
+    "name": "Ємільчинська",
+    "en": "Yemilchynska",
+    "code": "UA1808013"
+  },
+  {
+    "name": "Звягельська",
+    "en": "Zviahelska",
+    "code": "UA1808015"
+  },
+  {
+    "name": "Піщівська",
+    "en": "Pishchivska",
+    "code": "UA1808017"
+  },
+  {
+    "name": "Стриївська",
+    "en": "Stryivska",
+    "code": "UA1808019"
+  },
+  {
+    "name": "Чижівська",
+    "en": "Chyzhivska",
+    "code": "UA1808021"
+  },
+  {
+    "name": "Ярунська",
+    "en": "Yarunska",
+    "code": "UA1808023"
+  },
+  {
+    "name": "Батівська",
+    "en": "Bativska",
+    "code": "UA2102001"
+  },
+  {
+    "name": "Берегівська",
+    "en": "Berehivska",
+    "code": "UA2102003"
+  },
+  {
+    "name": "Великоберезька",
+    "en": "Velykoberezka",
+    "code": "UA2102005"
+  },
+  {
+    "name": "Великобийганська",
+    "en": "Velykobyihanska",
+    "code": "UA2102007"
+  },
+  {
+    "name": "Вилоцька",
+    "en": "Vylotska",
+    "code": "UA2102009"
+  },
+  {
+    "name": "Виноградівська",
+    "en": "Vynohradivska",
+    "code": "UA2102011"
+  },
+  {
+    "name": "Кам'янська",
+    "en": "Kamianska",
+    "code": "UA2102013"
+  },
+  {
+    "name": "Королівська",
+    "en": "Korolivska",
+    "code": "UA2102015"
+  },
+  {
+    "name": "Косоньська",
+    "en": "Kosonska",
+    "code": "UA2102017"
+  },
+  {
+    "name": "Пийтерфолвівська",
+    "en": "Pyiterfolvivska",
+    "code": "UA2102019"
+  },
+  {
+    "name": "Великолучківська",
+    "en": "Velykoluchkivska",
+    "code": "UA2104001"
+  },
+  {
+    "name": "Верхньокоропецька",
+    "en": "Verkhnokoropetska",
+    "code": "UA2104003"
+  },
+  {
+    "name": "Воловецька",
+    "en": "Volovetska",
+    "code": "UA2104005"
+  },
+  {
+    "name": "Горондівська",
+    "en": "Horondivska",
+    "code": "UA2104007"
+  },
+  {
+    "name": "Жденіївська",
+    "en": "Zhdeniivska",
+    "code": "UA2104009"
+  },
+  {
+    "name": "Івановецька",
+    "en": "Ivanovetska",
+    "code": "UA2104011"
+  },
+  {
+    "name": "Кольчинська",
+    "en": "Kolchynska",
+    "code": "UA2104013"
+  },
+  {
+    "name": "Мукачівська",
+    "en": "Mukachivska",
+    "code": "UA2104015"
+  },
+  {
+    "name": "Неліпинська",
+    "en": "Nelipynska",
+    "code": "UA2104017"
+  },
+  {
+    "name": "Нижньоворітська",
+    "en": "Nyzhnovoritska",
+    "code": "UA2104019"
+  },
+  {
+    "name": "Полянська",
+    "en": "Polianska",
+    "code": "UA2104021"
+  },
+  {
+    "name": "Свалявська",
+    "en": "Svaliavska",
+    "code": "UA2104023"
+  },
+  {
+    "name": "Чинадіївська",
+    "en": "Chynadiivska",
+    "code": "UA2104025"
+  },
+  {
+    "name": "Богданська",
+    "en": "Bohdanska",
+    "code": "UA2106001"
+  },
+  {
+    "name": "Великобичківська",
+    "en": "Velykobychkivska",
+    "code": "UA2106003"
+  },
+  {
+    "name": "Рахівська",
+    "en": "Rakhivska",
+    "code": "UA2106005"
+  },
+  {
+    "name": "Ясінянська",
+    "en": "Yasinianska",
+    "code": "UA2106007"
+  },
+  {
+    "name": "Бедевлянська",
+    "en": "Bedevlianska",
+    "code": "UA2108001"
+  },
+  {
+    "name": "Буштинська",
+    "en": "Bushtynska",
+    "code": "UA2108003"
+  },
+  {
+    "name": "Вільховецька",
+    "en": "Vilkhovetska",
+    "code": "UA2108005"
+  },
+  {
+    "name": "Дубівська",
+    "en": "Dubivska",
+    "code": "UA2108007"
+  },
+  {
+    "name": "Нересницька",
+    "en": "Neresnytska",
+    "code": "UA2108009"
+  },
+  {
+    "name": "Солотвинська",
+    "en": "Solotvynska",
+    "code": "UA2108011"
+  },
+  {
+    "name": "Тересвянська",
+    "en": "Teresvianska",
+    "code": "UA2108013"
+  },
+  {
+    "name": "Тячівська",
+    "en": "Tiachivska",
+    "code": "UA2108015"
+  },
+  {
+    "name": "Углянська",
+    "en": "Uhlianska",
+    "code": "UA2108017"
+  },
+  {
+    "name": "Усть-Чорнянська",
+    "en": "Ust-Chornianska",
+    "code": "UA2108019"
+  },
+  {
+    "name": "Баранинська",
+    "en": "Baranynska",
+    "code": "UA2110001"
+  },
+  {
+    "name": "Великоберезнянська",
+    "en": "Velykobereznianska",
+    "code": "UA2110003"
+  },
+  {
+    "name": "Великодобронська",
+    "en": "Velykodobronska",
+    "code": "UA2110005"
+  },
+  {
+    "name": "Дубриницько-Малоберезнянська",
+    "en": "Dubrynytska-Malobereznianska",
+    "code": "UA2110007"
+  },
+  {
+    "name": "Костринська",
+    "en": "Kostrynska",
+    "code": "UA2110009"
+  },
+  {
+    "name": "Оноківська",
+    "en": "Onokivska",
+    "code": "UA2110011"
+  },
+  {
+    "name": "Перечинська",
+    "en": "Perechynska",
+    "code": "UA2110013"
+  },
+  {
+    "name": "Середнянська",
+    "en": "Serednianska",
+    "code": "UA2110015"
+  },
+  {
+    "name": "Ставненська",
+    "en": "Stavnenska",
+    "code": "UA2110017"
+  },
+  {
+    "name": "Сюртівська",
+    "en": "Siurtivska",
+    "code": "UA2110019"
+  },
+  {
+    "name": "Тур'є-Реметівська",
+    "en": "Turie-Remetivska",
+    "code": "UA2110021"
+  },
+  {
+    "name": "Ужгородська",
+    "en": "Uzhhorodska",
+    "code": "UA2110023"
+  },
+  {
+    "name": "Холмківська",
+    "en": "Kholmkivska",
+    "code": "UA2110025"
+  },
+  {
+    "name": "Чопська",
+    "en": "Chopska",
+    "code": "UA2110027"
+  },
+  {
+    "name": "Білківська",
+    "en": "Bilkivska",
+    "code": "UA2112001"
+  },
+  {
+    "name": "Вишківська",
+    "en": "Vyshkivska",
+    "code": "UA2112003"
+  },
+  {
+    "name": "Горінчівська",
+    "en": "Horinchivska",
+    "code": "UA2112005"
+  },
+  {
+    "name": "Довжанська",
+    "en": "Dovzhanska",
+    "code": "UA2112007"
+  },
+  {
+    "name": "Драгівська",
+    "en": "Drahivska",
+    "code": "UA2112009"
+  },
+  {
+    "name": "Зарічанська",
+    "en": "Zarichanska",
+    "code": "UA2112011"
+  },
+  {
+    "name": "Іршавська",
+    "en": "Irshavska",
+    "code": "UA2112013"
+  },
+  {
+    "name": "Керецьківська",
+    "en": "Keretskivska",
+    "code": "UA2112015"
+  },
+  {
+    "name": "Колочавська",
+    "en": "Kolochavska",
+    "code": "UA2112017"
+  },
+  {
+    "name": "Міжгірська",
+    "en": "Mizhhirska",
+    "code": "UA2112019"
+  },
+  {
+    "name": "Пилипецька",
+    "en": "Pylypetska",
+    "code": "UA2112021"
+  },
+  {
+    "name": "Синевирська",
+    "en": "Synevyrska",
+    "code": "UA2112023"
+  },
+  {
+    "name": "Хустська",
+    "en": "Khustska",
+    "code": "UA2112025"
+  },
+  {
+    "name": "Андрівська",
+    "en": "Andrivska",
+    "code": "UA2302001"
+  },
+  {
+    "name": "Андріївська",
+    "en": "Andriivska",
+    "code": "UA2302003"
+  },
+  {
+    "name": "Бердянська",
+    "en": "Berdianska",
+    "code": "UA2302005"
+  },
+  {
+    "name": "Берестівська",
+    "en": "Berestivska",
+    "code": "UA2302007"
+  },
+  {
+    "name": "Коларівська",
+    "en": "Kolarivska",
+    "code": "UA2302009"
+  },
+  {
+    "name": "Осипенківська",
+    "en": "Osypenkivska",
+    "code": "UA2302011"
+  },
+  {
+    "name": "Приморська",
+    "en": "Prymorska",
+    "code": "UA2302013"
+  },
+  {
+    "name": "Чернігівська",
+    "en": "Chernihivska",
+    "code": "UA2302015"
+  },
+  {
+    "name": "Благовіщенська",
+    "en": "Blahovishchenska",
+    "code": "UA2304001"
+  },
+  {
+    "name": "Василівська",
+    "en": "Vasylivska",
+    "code": "UA2304003"
+  },
+  {
+    "name": "Великобілозерська",
+    "en": "Velykobilozerska",
+    "code": "UA2304005"
+  },
+  {
+    "name": "Водянська",
+    "en": "Vodianska",
+    "code": "UA2304007"
+  },
+  {
+    "name": "Дніпрорудненська",
+    "en": "Dniprorudnenska",
+    "code": "UA2304009"
+  },
+  {
+    "name": "Енергодарська",
+    "en": "Enerhodarska",
+    "code": "UA2304011"
+  },
+  {
+    "name": "Кам'янсько-Дніпровська",
+    "en": "Kamiansko-Dniprovska",
+    "code": "UA2304013"
+  },
+  {
+    "name": "Малобілозерська",
+    "en": "Malobilozerska",
+    "code": "UA2304015"
+  },
+  {
+    "name": "Михайлівська",
+    "en": "Mykhailivska",
+    "code": "UA2304017"
+  },
+  {
+    "name": "Роздольська",
+    "en": "Rozdolska",
+    "code": "UA2304019"
+  },
+  {
+    "name": "Степногірська",
+    "en": "Stepnohirska",
+    "code": "UA2304021"
+  },
+  {
+    "name": "Біленьківська",
+    "en": "Bilenkivska",
+    "code": "UA2306001"
+  },
+  {
+    "name": "Вільнянська",
+    "en": "Vilnianska",
+    "code": "UA2306003"
+  },
+  {
+    "name": "Долинська",
+    "en": "Dolynska",
+    "code": "UA2306005"
+  },
+  {
+    "name": "Запорізька",
+    "en": "Zaporizka",
+    "code": "UA2306007"
+  },
+  {
+    "name": "Комишуваська",
+    "en": "Komyshuvaska",
+    "code": "UA2306009"
+  },
+  {
+    "name": "Кушугумська",
+    "en": "Kushuhumska",
+    "code": "UA2306011"
+  },
+  {
+    "name": "Матвіївська",
+    "en": "Matviivska",
+    "code": "UA2306013"
+  },
+  {
+    "name": "Михайлівська",
+    "en": "Mykhailivska",
+    "code": "UA2306015"
+  },
+  {
+    "name": "Михайло-Лукашівська",
+    "en": "Mykhailo-Lukashivska",
+    "code": "UA2306017"
+  },
+  {
+    "name": "Новомиколаївська",
+    "en": "Novomykolaivska",
+    "code": "UA2306019"
+  },
+  {
+    "name": "Новоолександрівська",
+    "en": "Novooleksandrivska",
+    "code": "UA2306021"
+  },
+  {
+    "name": "Павлівська",
+    "en": "Pavlivska",
+    "code": "UA2306023"
+  },
+  {
+    "name": "Петро-Михайлівська",
+    "en": "Petro-Mykhailivska",
+    "code": "UA2306025"
+  },
+  {
+    "name": "Степненська",
+    "en": "Stepnenska",
+    "code": "UA2306027"
+  },
+  {
+    "name": "Таврійська",
+    "en": "Tavriiska",
+    "code": "UA2306029"
+  },
+  {
+    "name": "Тернуватська",
+    "en": "Ternuvatska",
+    "code": "UA2306031"
+  },
+  {
+    "name": "Широківська",
+    "en": "Shyrokivska",
+    "code": "UA2306033"
+  },
+  {
+    "name": "Веселівська",
+    "en": "Veselivska",
+    "code": "UA2308001"
+  },
+  {
+    "name": "Кирилівська",
+    "en": "Kyrylivska",
+    "code": "UA2308003"
+  },
+  {
+    "name": "Костянтинівська",
+    "en": "Kostiantynivska",
+    "code": "UA2308005"
+  },
+  {
+    "name": "Мелітопольська",
+    "en": "Melitopolska",
+    "code": "UA2308007"
+  },
+  {
+    "name": "Мирненська",
+    "en": "Myrnenska",
+    "code": "UA2308009"
+  },
+  {
+    "name": "Новенська",
+    "en": "Novenska",
+    "code": "UA2308011"
+  },
+  {
+    "name": "Новобогданівська",
+    "en": "Novobohdanivska",
+    "code": "UA2308013"
+  },
+  {
+    "name": "Нововасилівська",
+    "en": "Novovasylivska",
+    "code": "UA2308015"
+  },
+  {
+    "name": "Новоуспенівська",
+    "en": "Novouspenivska",
+    "code": "UA2308017"
+  },
+  {
+    "name": "Олександрівська",
+    "en": "Oleksandrivska",
+    "code": "UA2308019"
+  },
+  {
+    "name": "Плодородненська",
+    "en": "Plodorodnenska",
+    "code": "UA2308021"
+  },
+  {
+    "name": "Приазовська",
+    "en": "Pryazovska",
+    "code": "UA2308023"
+  },
+  {
+    "name": "Семенівська",
+    "en": "Semenivska",
+    "code": "UA2308025"
+  },
+  {
+    "name": "Терпіннівська",
+    "en": "Terpinnivska",
+    "code": "UA2308027"
+  },
+  {
+    "name": "Чкаловська",
+    "en": "Chkalovska",
+    "code": "UA2308029"
+  },
+  {
+    "name": "Якимівська",
+    "en": "Yakymivska",
+    "code": "UA2308031"
+  },
+  {
+    "name": "Більмацька",
+    "en": "Bilmatska",
+    "code": "UA2310001"
+  },
+  {
+    "name": "Воздвижівська",
+    "en": "Vozdvyzhivska",
+    "code": "UA2310003"
+  },
+  {
+    "name": "Воскресенська",
+    "en": "Voskresenska",
+    "code": "UA2310005"
+  },
+  {
+    "name": "Гуляйпільська",
+    "en": "Huliaipilska",
+    "code": "UA2310007"
+  },
+  {
+    "name": "Комиш-Зорянська",
+    "en": "Komysh-Zorianska",
+    "code": "UA2310009"
+  },
+  {
+    "name": "Малинівська",
+    "en": "Malynivska",
+    "code": "UA2310011"
+  },
+  {
+    "name": "Малотокмачанська",
+    "en": "Malotokmachanska",
+    "code": "UA2310013"
+  },
+  {
+    "name": "Молочанська",
+    "en": "Molochanska",
+    "code": "UA2310015"
+  },
+  {
+    "name": "Оріхівська",
+    "en": "Orikhivska",
+    "code": "UA2310017"
+  },
+  {
+    "name": "Пологівська",
+    "en": "Polohivska",
+    "code": "UA2310019"
+  },
+  {
+    "name": "Преображенська",
+    "en": "Preobrazhenska",
+    "code": "UA2310021"
+  },
+  {
+    "name": "Розівська",
+    "en": "Rozivska",
+    "code": "UA2310023"
+  },
+  {
+    "name": "Смирновська",
+    "en": "Smyrnovska",
+    "code": "UA2310025"
+  },
+  {
+    "name": "Токмацька",
+    "en": "Tokmatska",
+    "code": "UA2310027"
+  },
+  {
+    "name": "Федорівська",
+    "en": "Fedorivska",
+    "code": "UA2310029"
+  },
+  {
+    "name": "Білоберізька",
+    "en": "Biloberizka",
+    "code": "UA2602001"
+  },
+  {
+    "name": "Верховинська",
+    "en": "Verkhovynska",
+    "code": "UA2602003"
+  },
+  {
+    "name": "Зеленська",
+    "en": "Zelenska",
+    "code": "UA2602005"
+  },
+  {
+    "name": "Більшівцівська",
+    "en": "Bilshivtsivska",
+    "code": "UA2604001"
+  },
+  {
+    "name": "Богородчанська",
+    "en": "Bohorodchanska",
+    "code": "UA2604003"
+  },
+  {
+    "name": "Букачівська",
+    "en": "Bukachivska",
+    "code": "UA2604005"
+  },
+  {
+    "name": "Бурштинська",
+    "en": "Burshtynska",
+    "code": "UA2604007"
+  },
+  {
+    "name": "Галицька",
+    "en": "Halytska",
+    "code": "UA2604009"
+  },
+  {
+    "name": "Дзвиняцька",
+    "en": "Dzvyniatska",
+    "code": "UA2604011"
+  },
+  {
+    "name": "Дубовецька",
+    "en": "Dubovetska",
+    "code": "UA2604013"
+  },
+  {
+    "name": "Єзупільська",
+    "en": "Yezupilska",
+    "code": "UA2604015"
+  },
+  {
+    "name": "Загвіздянська",
+    "en": "Zahvizdianska",
+    "code": "UA2604017"
+  },
+  {
+    "name": "Івано-Франківська",
+    "en": "Ivano-Frankivska",
+    "code": "UA2604019"
+  },
+  {
+    "name": "Лисецька",
+    "en": "Lysetska",
+    "code": "UA2604021"
+  },
+  {
+    "name": "Обертинська",
+    "en": "Obertynska",
+    "code": "UA2604023"
+  },
+  {
+    "name": "Олешанська",
+    "en": "Oleshanska",
+    "code": "UA2604025"
+  },
+  {
+    "name": "Рогатинська",
+    "en": "Rohatynska",
+    "code": "UA2604027"
+  },
+  {
+    "name": "Солотвинська",
+    "en": "Solotvynska",
+    "code": "UA2604029"
+  },
+  {
+    "name": "Старобогородчанська",
+    "en": "Starobohorodchanska",
+    "code": "UA2604031"
+  },
+  {
+    "name": "Тисменицька",
+    "en": "Tysmenytska",
+    "code": "UA2604033"
+  },
+  {
+    "name": "Тлумацька",
+    "en": "Tlumatska",
+    "code": "UA2604035"
+  },
+  {
+    "name": "Угринівська",
+    "en": "Uhrynivska",
+    "code": "UA2604037"
+  },
+  {
+    "name": "Ямницька",
+    "en": "Yamnytska",
+    "code": "UA2604039"
+  },
+  {
+    "name": "Болехівська",
+    "en": "Bolekhivska",
+    "code": "UA2606001"
+  },
+  {
+    "name": "Брошнів-Осадська",
+    "en": "Broshniv-Osadska",
+    "code": "UA2606003"
+  },
+  {
+    "name": "Верхнянська",
+    "en": "Verkhnianska",
+    "code": "UA2606005"
+  },
+  {
+    "name": "Вигодська",
+    "en": "Vyhodska",
+    "code": "UA2606007"
+  },
+  {
+    "name": "Витвицька",
+    "en": "Vytvytska",
+    "code": "UA2606009"
+  },
+  {
+    "name": "Войнилівська",
+    "en": "Voinylivska",
+    "code": "UA2606011"
+  },
+  {
+    "name": "Долинська",
+    "en": "Dolynska",
+    "code": "UA2606013"
+  },
+  {
+    "name": "Дубівська",
+    "en": "Dubivska",
+    "code": "UA2606015"
+  },
+  {
+    "name": "Калуська",
+    "en": "Kaluska",
+    "code": "UA2606017"
+  },
+  {
+    "name": "Новицька",
+    "en": "Novytska",
+    "code": "UA2606019"
+  },
+  {
+    "name": "Перегінська",
+    "en": "Perehinska",
+    "code": "UA2606021"
+  },
+  {
+    "name": "Рожнятівська",
+    "en": "Rozhniativska",
+    "code": "UA2606023"
+  },
+  {
+    "name": "Спаська",
+    "en": "Spaska",
+    "code": "UA2606025"
+  },
+  {
+    "name": "Гвіздецька",
+    "en": "Hvizdetska",
+    "code": "UA2608001"
+  },
+  {
+    "name": "Городенківська",
+    "en": "Horodenkivska",
+    "code": "UA2608003"
+  },
+  {
+    "name": "Заболотівська",
+    "en": "Zabolotivska",
+    "code": "UA2608005"
+  },
+  {
+    "name": "Коломийська",
+    "en": "Kolomyiska",
+    "code": "UA2608007"
+  },
+  {
+    "name": "Коршівська",
+    "en": "Korshivska",
+    "code": "UA2608009"
+  },
+  {
+    "name": "Матеївецька",
+    "en": "Mateievetska",
+    "code": "UA2608011"
+  },
+  {
+    "name": "Нижньовербізька",
+    "en": "Nyzhnoverbizka",
+    "code": "UA2608013"
+  },
+  {
+    "name": "Отинійська",
+    "en": "Otyniiska",
+    "code": "UA2608015"
+  },
+  {
+    "name": "Печеніжинська",
+    "en": "Pechenizhynska",
+    "code": "UA2608017"
+  },
+  {
+    "name": "Підгайчиківська",
+    "en": "Pidhaichykivska",
+    "code": "UA2608019"
+  },
+  {
+    "name": "П'ядицька",
+    "en": "Piadytska",
+    "code": "UA2608021"
+  },
+  {
+    "name": "Снятинська",
+    "en": "Sniatynska",
+    "code": "UA2608023"
+  },
+  {
+    "name": "Чернелицька",
+    "en": "Chernelytska",
+    "code": "UA2608025"
+  },
+  {
+    "name": "Косівська",
+    "en": "Kosivska",
+    "code": "UA2610001"
+  },
+  {
+    "name": "Космацька",
+    "en": "Kosmatska",
+    "code": "UA2610003"
+  },
+  {
+    "name": "Кутська",
+    "en": "Kutska",
+    "code": "UA2610005"
+  },
+  {
+    "name": "Рожнівська",
+    "en": "Rozhnivska",
+    "code": "UA2610007"
+  },
+  {
+    "name": "Яблунівська",
+    "en": "Yablunivska",
+    "code": "UA2610009"
+  },
+  {
+    "name": "Ворохтянська",
+    "en": "Vorokhtianska",
+    "code": "UA2612001"
+  },
+  {
+    "name": "Делятинська",
+    "en": "Deliatynska",
+    "code": "UA2612003"
+  },
+  {
+    "name": "Ланчинська",
+    "en": "Lanchynska",
+    "code": "UA2612005"
+  },
+  {
+    "name": "Надвірнянська",
+    "en": "Nadvirnianska",
+    "code": "UA2612007"
+  },
+  {
+    "name": "Пасічнянська",
+    "en": "Pasichnianska",
+    "code": "UA2612009"
+  },
+  {
+    "name": "Переріслянська",
+    "en": "Pererislianska",
+    "code": "UA2612011"
+  },
+  {
+    "name": "Поляницька",
+    "en": "Polianytska",
+    "code": "UA2612013"
+  },
+  {
+    "name": "Яремчанська",
+    "en": "Yaremchanska",
+    "code": "UA2612015"
+  },
+  {
+    "name": "Чорнобильська зона відчуження",
+    "en": "Chornobyl Exclusion Zone",
+    "code": "UA3200000"
+  },
+  {
+    "name": "Білоцерківська",
+    "en": "Bilotserkivska",
+    "code": "UA3202001"
+  },
+  {
+    "name": "Володарська",
+    "en": "Volodarska",
+    "code": "UA3202003"
+  },
+  {
+    "name": "Гребінківська",
+    "en": "Hrebinkivska",
+    "code": "UA3202005"
+  },
+  {
+    "name": "Ковалівська",
+    "en": "Kovalivska",
+    "code": "UA3202007"
+  },
+  {
+    "name": "Маловільшанська",
+    "en": "Malovilshanska",
+    "code": "UA3202009"
+  },
+  {
+    "name": "Медвинська",
+    "en": "Medvynska",
+    "code": "UA3202011"
+  },
+  {
+    "name": "Рокитнянська",
+    "en": "Rokytnianska",
+    "code": "UA3202013"
+  },
+  {
+    "name": "Сквирська",
+    "en": "Skvyrska",
+    "code": "UA3202015"
+  },
+  {
+    "name": "Ставищенська",
+    "en": "Stavyshchenska",
+    "code": "UA3202017"
+  },
+  {
+    "name": "Таращанська",
+    "en": "Tarashchanska",
+    "code": "UA3202019"
+  },
+  {
+    "name": "Тетіївська",
+    "en": "Tetiivska",
+    "code": "UA3202021"
+  },
+  {
+    "name": "Узинська",
+    "en": "Uzynska",
+    "code": "UA3202023"
+  },
+  {
+    "name": "Фурсівська",
+    "en": "Fursivska",
+    "code": "UA3202025"
+  },
+  {
+    "name": "Бориспільська",
+    "en": "Boryspilska",
+    "code": "UA3204001"
+  },
+  {
+    "name": "Вороньківська",
+    "en": "Voronkivska",
+    "code": "UA3204003"
+  },
+  {
+    "name": "Гірська",
+    "en": "Hirska",
+    "code": "UA3204005"
+  },
+  {
+    "name": "Дівичківська",
+    "en": "Divychkivska",
+    "code": "UA3204007"
+  },
+  {
+    "name": "Золочівська",
+    "en": "Zolochivska",
+    "code": "UA3204009"
+  },
+  {
+    "name": "Переяславська",
+    "en": "Pereiaslavcska",
+    "code": "UA3204011"
+  },
+  {
+    "name": "Пристолична",
+    "en": "Prystolychna",
+    "code": "UA3204013"
+  },
+  {
+    "name": "Студениківська",
+    "en": "Studenykivska",
+    "code": "UA3204015"
+  },
+  {
+    "name": "Ташанська",
+    "en": "Tashanska",
+    "code": "UA3204017"
+  },
+  {
+    "name": "Циблівська",
+    "en": "Tsyblivska",
+    "code": "UA3204019"
+  },
+  {
+    "name": "Яготинська",
+    "en": "Yahotynska",
+    "code": "UA3204021"
+  },
+  {
+    "name": "Баришівська",
+    "en": "Baryshivska",
+    "code": "UA3206001"
+  },
+  {
+    "name": "Березанська",
+    "en": "Berezanska",
+    "code": "UA3206003"
+  },
+  {
+    "name": "Броварська",
+    "en": "Brovarska",
+    "code": "UA3206005"
+  },
+  {
+    "name": "Великодимерська",
+    "en": "Velykodymerska",
+    "code": "UA3206007"
+  },
+  {
+    "name": "Зазимська",
+    "en": "Zazymska",
+    "code": "UA3206009"
+  },
+  {
+    "name": "Згурівська",
+    "en": "Zghurivska",
+    "code": "UA3206011"
+  },
+  {
+    "name": "Калинівська",
+    "en": "Kalynivska",
+    "code": "UA3206013"
+  },
+  {
+    "name": "Калитянська",
+    "en": "Kalytianska",
+    "code": "UA3206015"
+  },
+  {
+    "name": "Білогородська",
+    "en": "Bilohorodska",
+    "code": "UA3208001"
+  },
+  {
+    "name": "Бородянська",
+    "en": "Borodianska",
+    "code": "UA3208003"
+  },
+  {
+    "name": "Борщагівська",
+    "en": "Borshchahivska",
+    "code": "UA3208005"
+  },
+  {
+    "name": "Бучанська",
+    "en": "Buchanska",
+    "code": "UA3208007"
+  },
+  {
+    "name": "Вишнева",
+    "en": "Vyshneva",
+    "code": "UA3208009"
+  },
+  {
+    "name": "Гостомельська",
+    "en": "Hostomelska",
+    "code": "UA3208011"
+  },
+  {
+    "name": "Дмитрівська",
+    "en": "Dmytrivska",
+    "code": "UA3208013"
+  },
+  {
+    "name": "Ірпінська",
+    "en": "Irpinska",
+    "code": "UA3208015"
+  },
+  {
+    "name": "Коцюбинська",
+    "en": "Kotsiubynska",
+    "code": "UA3208017"
+  },
+  {
+    "name": "Макарівська",
+    "en": "Makarivska",
+    "code": "UA3208019"
+  },
+  {
+    "name": "Немішаївська",
+    "en": "Nemishaivska",
+    "code": "UA3208021"
+  },
+  {
+    "name": "Пісківська",
+    "en": "Piskivska",
+    "code": "UA3208023"
+  },
+  {
+    "name": "Вишгородська",
+    "en": "Vyshhorodska",
+    "code": "UA3210001"
+  },
+  {
+    "name": "Димерська",
+    "en": "Dymerska",
+    "code": "UA3210003"
+  },
+  {
+    "name": "Іванківська",
+    "en": "Ivankivska",
+    "code": "UA3210005"
+  },
+  {
+    "name": "Петрівська",
+    "en": "Petrivska",
+    "code": "UA3210007"
+  },
+  {
+    "name": "Пірнівська",
+    "en": "Pirnivska",
+    "code": "UA3210009"
+  },
+  {
+    "name": "Поліська",
+    "en": "Poliska",
+    "code": "UA3210011"
+  },
+  {
+    "name": "Славутицька",
+    "en": "Slavutytska",
+    "code": "UA3210013"
+  },
+  {
+    "name": "Богуславська",
+    "en": "Bohuslavska",
+    "code": "UA3212001"
+  },
+  {
+    "name": "Васильківська",
+    "en": "Vasylkivska",
+    "code": "UA3212003"
+  },
+  {
+    "name": "Кагарлицька",
+    "en": "Kaharlytska",
+    "code": "UA3212005"
+  },
+  {
+    "name": "Козинська",
+    "en": "Kozynska",
+    "code": "UA3212007"
+  },
+  {
+    "name": "Миронівська",
+    "en": "Myronivska",
+    "code": "UA3212009"
+  },
+  {
+    "name": "Обухівська",
+    "en": "Obukhivska",
+    "code": "UA3212011"
+  },
+  {
+    "name": "Ржищівська",
+    "en": "Rzhyshchivska",
+    "code": "UA3212013"
+  },
+  {
+    "name": "Українська",
+    "en": "Ukrainska",
+    "code": "UA3212015"
+  },
+  {
+    "name": "Феодосіївська",
+    "en": "Feodosiivska",
+    "code": "UA3212017"
+  },
+  {
+    "name": "Бишівська",
+    "en": "Byshivska",
+    "code": "UA3214001"
+  },
+  {
+    "name": "Боярська",
+    "en": "Boiarska",
+    "code": "UA3214003"
+  },
+  {
+    "name": "Гатненська",
+    "en": "Hatnenska",
+    "code": "UA3214005"
+  },
+  {
+    "name": "Глевахівська",
+    "en": "Hlevakhivska",
+    "code": "UA3214007"
+  },
+  {
+    "name": "Калинівська",
+    "en": "Kalynivska",
+    "code": "UA3214009"
+  },
+  {
+    "name": "Кожанська",
+    "en": "Kozhanska",
+    "code": "UA3214011"
+  },
+  {
+    "name": "Томашівська",
+    "en": "Tomashivska",
+    "code": "UA3214013"
+  },
+  {
+    "name": "Фастівська",
+    "en": "Fastivska",
+    "code": "UA3214015"
+  },
+  {
+    "name": "Чабанівська",
+    "en": "Chabanivska",
+    "code": "UA3214017"
+  },
+  {
+    "name": "Благовіщенська",
+    "en": "Blahovishchenska",
+    "code": "UA3502001"
+  },
+  {
+    "name": "Вільшанська",
+    "en": "Vilshanska",
+    "code": "UA3502003"
+  },
+  {
+    "name": "Гайворонська",
+    "en": "Haivoronska",
+    "code": "UA3502005"
+  },
+  {
+    "name": "Голованівська",
+    "en": "Holovanivska",
+    "code": "UA3502007"
+  },
+  {
+    "name": "Заваллівська",
+    "en": "Zavallivska",
+    "code": "UA3502009"
+  },
+  {
+    "name": "Надлацька",
+    "en": "Nadlatska",
+    "code": "UA3502011"
+  },
+  {
+    "name": "Новоархангельська",
+    "en": "Novoarkhanhelska",
+    "code": "UA3502013"
+  },
+  {
+    "name": "Перегонівська",
+    "en": "Perehonivska",
+    "code": "UA3502015"
+  },
+  {
+    "name": "Підвисоцька",
+    "en": "Pidvysotska",
+    "code": "UA3502017"
+  },
+  {
+    "name": "Побузька",
+    "en": "Pobuzka",
+    "code": "UA3502019"
+  },
+  {
+    "name": "Аджамська",
+    "en": "Adzhamska",
+    "code": "UA3504001"
+  },
+  {
+    "name": "Бобринецька",
+    "en": "Bobrynetska",
+    "code": "UA3504003"
+  },
+  {
+    "name": "Великосеверинівська",
+    "en": "Velykoseverynivska",
+    "code": "UA3504005"
+  },
+  {
+    "name": "Гурівська",
+    "en": "Hurivska",
+    "code": "UA3504007"
+  },
+  {
+    "name": "Дмитрівська",
+    "en": "Dmytrivska",
+    "code": "UA3504009"
+  },
+  {
+    "name": "Долинська",
+    "en": "Dolynska",
+    "code": "UA3504011"
+  },
+  {
+    "name": "Знам'янська",
+    "en": "Znamianska",
+    "code": "UA3504013"
+  },
+  {
+    "name": "Катеринівська",
+    "en": "Katerynivska",
+    "code": "UA3504015"
+  },
+  {
+    "name": "Кетрисанівська",
+    "en": "Ketrysanivska",
+    "code": "UA3504017"
+  },
+  {
+    "name": "Компаніївська",
+    "en": "Kompaniivska",
+    "code": "UA3504019"
+  },
+  {
+    "name": "Кропивницька",
+    "en": "Kropyvnytskyi",
+    "code": "UA3504021"
+  },
+  {
+    "name": "Новгородківська",
+    "en": "Novhorodkivska",
+    "code": "UA3504023"
+  },
+  {
+    "name": "Олександрівська",
+    "en": "Oleksandrivska",
+    "code": "UA3504025"
+  },
+  {
+    "name": "Первозванівська",
+    "en": "Pervozvanivska",
+    "code": "UA3504027"
+  },
+  {
+    "name": "Соколівська",
+    "en": "Sokolivska",
+    "code": "UA3504029"
+  },
+  {
+    "name": "Суботцівська",
+    "en": "Subottsivska",
+    "code": "UA3504031"
+  },
+  {
+    "name": "Устинівська",
+    "en": "Ustynivska",
+    "code": "UA3504033"
+  },
+  {
+    "name": "Ганнівська",
+    "en": "Hannivska",
+    "code": "UA3506001"
+  },
+  {
+    "name": "Глодоська",
+    "en": "Hlodoska",
+    "code": "UA3506003"
+  },
+  {
+    "name": "Добровеличківська",
+    "en": "Dobrovelychkivska",
+    "code": "UA3506005"
+  },
+  {
+    "name": "Злинська",
+    "en": "Zlynska",
+    "code": "UA3506007"
+  },
+  {
+    "name": "Маловисківська",
+    "en": "Malovyskivska",
+    "code": "UA3506009"
+  },
+  {
+    "name": "Мар'янівська",
+    "en": "Marianivska",
+    "code": "UA3506011"
+  },
+  {
+    "name": "Новомиргородська",
+    "en": "Novomyrhorodska",
+    "code": "UA3506013"
+  },
+  {
+    "name": "Новоукраїнська",
+    "en": "Novoukrainska",
+    "code": "UA3506015"
+  },
+  {
+    "name": "Піщанобрідська",
+    "en": "Pishchanobridska",
+    "code": "UA3506017"
+  },
+  {
+    "name": "Помічнянська",
+    "en": "Pomichnianska",
+    "code": "UA3506019"
+  },
+  {
+    "name": "Рівнянська",
+    "en": "Rivnianska",
+    "code": "UA3506021"
+  },
+  {
+    "name": "Смолінська",
+    "en": "Smolinska",
+    "code": "UA3506023"
+  },
+  {
+    "name": "Тишківська",
+    "en": "Tyshkivska",
+    "code": "UA3506025"
+  },
+  {
+    "name": "Великоандрусівська",
+    "en": "Velykoandrusivska",
+    "code": "UA3508001"
+  },
+  {
+    "name": "Новопразька",
+    "en": "Novoprazka",
+    "code": "UA3508003"
+  },
+  {
+    "name": "Олександрійська",
+    "en": "Oleksandriiska",
+    "code": "UA3508005"
+  },
+  {
+    "name": "Онуфріївська",
+    "en": "Onufriivska",
+    "code": "UA3508007"
+  },
+  {
+    "name": "Пантаївська",
+    "en": "Pantaivska",
+    "code": "UA3508009"
+  },
+  {
+    "name": "Петрівська",
+    "en": "Petrivska",
+    "code": "UA3508011"
+  },
+  {
+    "name": "Попельнастівська",
+    "en": "Popelnastivska",
+    "code": "UA3508013"
+  },
+  {
+    "name": "Приютівська",
+    "en": "Pryiutivska",
+    "code": "UA3508015"
+  },
+  {
+    "name": "Світловодська",
+    "en": "Svitlovodska",
+    "code": "UA3508017"
+  },
+  {
+    "name": "Алчевська",
+    "en": "Alchevska",
+    "code": "UA4402001"
+  },
+  {
+    "name": "Зимогір'ївська",
+    "en": "Zymohirivska",
+    "code": "UA4402003"
+  },
+  {
+    "name": "Кадіївська",
+    "en": "Kadiivska",
+    "code": "UA4402005"
+  },
+  {
+    "name": "Довжанська",
+    "en": "Dovzhanska",
+    "code": "UA4404001"
+  },
+  {
+    "name": "Сорокинська",
+    "en": "Sorokynska",
+    "code": "UA4404003"
+  },
+  {
+    "name": "Луганська",
+    "en": "Luhanska",
+    "code": "UA4406001"
+  },
+  {
+    "name": "Лутугинська",
+    "en": "Lutuhynska",
+    "code": "UA4406003"
+  },
+  {
+    "name": "Молодогвардійська",
+    "en": "Molodohvardiiska",
+    "code": "UA4406005"
+  },
+  {
+    "name": "Антрацитівська",
+    "en": "Antratsytivska",
+    "code": "UA4408001"
+  },
+  {
+    "name": "Ровеньківська",
+    "en": "Rovenkivska",
+    "code": "UA4408003"
+  },
+  {
+    "name": "Хрустальненська",
+    "en": "Khrustalnenska",
+    "code": "UA4408005"
+  },
+  {
+    "name": "Білокуракинська",
+    "en": "Bilokurakynska",
+    "code": "UA4410001"
+  },
+  {
+    "name": "Коломийчиська",
+    "en": "Kolomyichyska",
+    "code": "UA4410003"
+  },
+  {
+    "name": "Красноріченська",
+    "en": "Krasnorichenska",
+    "code": "UA4410005"
+  },
+  {
+    "name": "Лозно-Олександрівська",
+    "en": "Lozno-Oleksandrivska",
+    "code": "UA4410007"
+  },
+  {
+    "name": "Нижньодуванська",
+    "en": "Nyzhnoduvanska",
+    "code": "UA4410009"
+  },
+  {
+    "name": "Сватівська",
+    "en": "Svativska",
+    "code": "UA4410011"
+  },
+  {
+    "name": "Троїцька",
+    "en": "Troitska",
+    "code": "UA4410013"
+  },
+  {
+    "name": "Гірська",
+    "en": "Hirska",
+    "code": "UA4412001"
+  },
+  {
+    "name": "Кремінська",
+    "en": "Kreminska",
+    "code": "UA4412003"
+  },
+  {
+    "name": "Лисичанська",
+    "en": "Lysychanska",
+    "code": "UA4412005"
+  },
+  {
+    "name": "Попаснянська",
+    "en": "Popasnianska",
+    "code": "UA4412007"
+  },
+  {
+    "name": "Рубіжанська",
+    "en": "Rubizhanska",
+    "code": "UA4412009"
+  },
+  {
+    "name": "Сєвєродонецька",
+    "en": "Sievierodonetska",
+    "code": "UA4412011"
+  },
+  {
+    "name": "Біловодська",
+    "en": "Bilovodska",
+    "code": "UA4414001"
+  },
+  {
+    "name": "Білолуцька",
+    "en": "Bilolutska",
+    "code": "UA4414003"
+  },
+  {
+    "name": "Марківська",
+    "en": "Markivska",
+    "code": "UA4414005"
+  },
+  {
+    "name": "Міловська",
+    "en": "Milovska",
+    "code": "UA4414007"
+  },
+  {
+    "name": "Новопсковська",
+    "en": "Novopskovska",
+    "code": "UA4414009"
+  },
+  {
+    "name": "Старобільська",
+    "en": "Starobilska",
+    "code": "UA4414011"
+  },
+  {
+    "name": "Чмирівська",
+    "en": "Chmyrivska",
+    "code": "UA4414013"
+  },
+  {
+    "name": "Шульгинська",
+    "en": "Shulhynska",
+    "code": "UA4414015"
+  },
+  {
+    "name": "Нижньотеплівська",
+    "en": "Nyzhnoteplivska",
+    "code": "UA4416001"
+  },
+  {
+    "name": "Новоайдарська",
+    "en": "Novoaidarska",
+    "code": "UA4416003"
+  },
+  {
+    "name": "Станично-Луганська",
+    "en": "Stanychno-Luhanska",
+    "code": "UA4416005"
+  },
+  {
+    "name": "Широківська",
+    "en": "Shyrokivska",
+    "code": "UA4416007"
+  },
+  {
+    "name": "Щастинська",
+    "en": "Shchastynska",
+    "code": "UA4416009"
+  },
+  {
+    "name": "Бориславська",
+    "en": "Boryslavska",
+    "code": "UA4602001"
+  },
+  {
+    "name": "Дрогобицька",
+    "en": "Drohobytska",
+    "code": "UA4602003"
+  },
+  {
+    "name": "Меденицька",
+    "en": "Medenytska",
+    "code": "UA4602005"
+  },
+  {
+    "name": "Східницька",
+    "en": "Skhidnytska",
+    "code": "UA4602007"
+  },
+  {
+    "name": "Трускавецька",
+    "en": "Truskavetska",
+    "code": "UA4602009"
+  },
+  {
+    "name": "Бродівська",
+    "en": "Brodivska",
+    "code": "UA4604001"
+  },
+  {
+    "name": "Буська",
+    "en": "Buska",
+    "code": "UA4604003"
+  },
+  {
+    "name": "Заболотцівська",
+    "en": "Zabolottsivska",
+    "code": "UA4604005"
+  },
+  {
+    "name": "Золочівська",
+    "en": "Zolochivska",
+    "code": "UA4604007"
+  },
+  {
+    "name": "Красненська",
+    "en": "Krasnenska",
+    "code": "UA4604009"
+  },
+  {
+    "name": "Підкамінська",
+    "en": "Pidkaminska",
+    "code": "UA4604011"
+  },
+  {
+    "name": "Поморянська",
+    "en": "Pomorianska",
+    "code": "UA4604013"
+  },
+  {
+    "name": "Бібрська",
+    "en": "Bibrska",
+    "code": "UA4606001"
+  },
+  {
+    "name": "Великолюбінська",
+    "en": "Velykoliubinska",
+    "code": "UA4606003"
+  },
+  {
+    "name": "Глинянська",
+    "en": "Hlynianska",
+    "code": "UA4606005"
+  },
+  {
+    "name": "Городоцька",
+    "en": "Horodotska",
+    "code": "UA4606007"
+  },
+  {
+    "name": "Давидівська",
+    "en": "Davydivska",
+    "code": "UA4606009"
+  },
+  {
+    "name": "Добросинсько-Магерівська",
+    "en": "Dobrosynsko-Maherivska",
+    "code": "UA4606011"
+  },
+  {
+    "name": "Жовківська",
+    "en": "Zhovkivska",
+    "code": "UA4606013"
+  },
+  {
+    "name": "Жовтанецька",
+    "en": "Zhovtanetska",
+    "code": "UA4606015"
+  },
+  {
+    "name": "Зимноводівська",
+    "en": "Zymnovodivska",
+    "code": "UA4606017"
+  },
+  {
+    "name": "Кам'янка-Бузька",
+    "en": "Kamianka-Buzka",
+    "code": "UA4606019"
+  },
+  {
+    "name": "Комарнівська",
+    "en": "Komarnivska",
+    "code": "UA4606021"
+  },
+  {
+    "name": "Куликівська",
+    "en": "Kulykivska",
+    "code": "UA4606023"
+  },
+  {
+    "name": "Львівська",
+    "en": "Lvivska",
+    "code": "UA4606025"
+  },
+  {
+    "name": "Мурованська",
+    "en": "Murovanska",
+    "code": "UA4606027"
+  },
+  {
+    "name": "Новояричівська",
+    "en": "Novoiarychivska",
+    "code": "UA4606029"
+  },
+  {
+    "name": "Оброшинська",
+    "en": "Obroshynska",
+    "code": "UA4606031"
+  },
+  {
+    "name": "Перемишлянська",
+    "en": "Peremyshlianska",
+    "code": "UA4606033"
+  },
+  {
+    "name": "Підберізцівська",
+    "en": "Pidberiztsivska",
+    "code": "UA4606035"
+  },
+  {
+    "name": "Пустомитівська",
+    "en": "Pustomytivska",
+    "code": "UA4606037"
+  },
+  {
+    "name": "Рава-Руська",
+    "en": "Rava-Ruska",
+    "code": "UA4606039"
+  },
+  {
+    "name": "Сокільницька",
+    "en": "Sokilnytska",
+    "code": "UA4606041"
+  },
+  {
+    "name": "Солонківська",
+    "en": "Solonkivska",
+    "code": "UA4606043"
+  },
+  {
+    "name": "Щирецька",
+    "en": "Shchyretska",
+    "code": "UA4606045"
+  },
+  {
+    "name": "Бісковицька",
+    "en": "Biskovytska",
+    "code": "UA4608001"
+  },
+  {
+    "name": "Боринська",
+    "en": "Borynska",
+    "code": "UA4608003"
+  },
+  {
+    "name": "Добромильська",
+    "en": "Dobromylska",
+    "code": "UA4608005"
+  },
+  {
+    "name": "Новокалинівська",
+    "en": "Novokalynivska",
+    "code": "UA4608007"
+  },
+  {
+    "name": "Ралівська",
+    "en": "Ralivska",
+    "code": "UA4608009"
+  },
+  {
+    "name": "Рудківська",
+    "en": "Rudkivska",
+    "code": "UA4608011"
+  },
+  {
+    "name": "Самбірська",
+    "en": "Sambirska",
+    "code": "UA4608013"
+  },
+  {
+    "name": "Старосамбірська",
+    "en": "Starosambirska",
+    "code": "UA4608015"
+  },
+  {
+    "name": "Стрілківська",
+    "en": "Strilkivska",
+    "code": "UA4608017"
+  },
+  {
+    "name": "Турківська",
+    "en": "Turkivska",
+    "code": "UA4608019"
+  },
+  {
+    "name": "Хирівська",
+    "en": "Khyrivska",
+    "code": "UA4608021"
+  },
+  {
+    "name": "Гніздичівська",
+    "en": "Hnizdychivska",
+    "code": "UA4610001"
+  },
+  {
+    "name": "Грабовецько-Дулібівська",
+    "en": "Hrabovetsko-Dulibivska",
+    "code": "UA4610003"
+  },
+  {
+    "name": "Жидачівська",
+    "en": "Zhydachivska",
+    "code": "UA4610005"
+  },
+  {
+    "name": "Журавненська",
+    "en": "Zhuravnenska",
+    "code": "UA4610007"
+  },
+  {
+    "name": "Козівська",
+    "en": "Kozivska",
+    "code": "UA4610009"
+  },
+  {
+    "name": "Миколаївська",
+    "en": "Mykolaivska",
+    "code": "UA4610011"
+  },
+  {
+    "name": "Моршинська",
+    "en": "Morshynska",
+    "code": "UA4610013"
+  },
+  {
+    "name": "Новороздільська",
+    "en": "Novorozdilska",
+    "code": "UA4610015"
+  },
+  {
+    "name": "Розвадівська",
+    "en": "Rozvadivska",
+    "code": "UA4610017"
+  },
+  {
+    "name": "Сколівська",
+    "en": "Skolivska",
+    "code": "UA4610019"
+  },
+  {
+    "name": "Славська",
+    "en": "Slavska",
+    "code": "UA4610021"
+  },
+  {
+    "name": "Стрийська",
+    "en": "Stryiska",
+    "code": "UA4610023"
+  },
+  {
+    "name": "Тростянецька",
+    "en": "Trostianetska",
+    "code": "UA4610025"
+  },
+  {
+    "name": "Ходорівська",
+    "en": "Khodorivska",
+    "code": "UA4610027"
+  },
+  {
+    "name": "Белзька",
+    "en": "Belzka",
+    "code": "UA4612001"
+  },
+  {
+    "name": "Великомостівська",
+    "en": "Velykomostivska",
+    "code": "UA4612003"
+  },
+  {
+    "name": "Добротвірська",
+    "en": "Dobrotvirska",
+    "code": "UA4612005"
+  },
+  {
+    "name": "Лопатинська",
+    "en": "Lopatynska",
+    "code": "UA4612007"
+  },
+  {
+    "name": "Радехівська",
+    "en": "Radekhivska",
+    "code": "UA4612009"
+  },
+  {
+    "name": "Сокальська",
+    "en": "Sokalska",
+    "code": "UA4612011"
+  },
+  {
+    "name": "Червоноградська",
+    "en": "Chervonohradska",
+    "code": "UA4612013"
+  },
+  {
+    "name": "Івано-Франківська",
+    "en": "Ivano-Frankivska",
+    "code": "UA4614001"
+  },
+  {
+    "name": "Мостиська",
+    "en": "Mostyska",
+    "code": "UA4614003"
+  },
+  {
+    "name": "Новояворівська",
+    "en": "Novoiavorivska",
+    "code": "UA4614005"
+  },
+  {
+    "name": "Судововишнянська",
+    "en": "Sudovovyshnianska",
+    "code": "UA4614007"
+  },
+  {
+    "name": "Шегинівська",
+    "en": "Shehynivska",
+    "code": "UA4614009"
+  },
+  {
+    "name": "Яворівська",
+    "en": "Yavorivska",
+    "code": "UA4614011"
+  },
+  {
+    "name": "Баштанська",
+    "en": "Bashtanska",
+    "code": "UA4802001"
+  },
+  {
+    "name": "Березнегуватська",
+    "en": "Bereznehuvatska",
+    "code": "UA4802003"
+  },
+  {
+    "name": "Вільнозапорізька",
+    "en": "Vilnozaporizka",
+    "code": "UA4802005"
+  },
+  {
+    "name": "Володимирівська",
+    "en": "Volodymyrivska",
+    "code": "UA4802007"
+  },
+  {
+    "name": "Горохівська",
+    "en": "Horokhivska",
+    "code": "UA4802009"
+  },
+  {
+    "name": "Інгульська",
+    "en": "Inhulska",
+    "code": "UA4802011"
+  },
+  {
+    "name": "Казанківська",
+    "en": "Kazankivska",
+    "code": "UA4802013"
+  },
+  {
+    "name": "Новобузька",
+    "en": "Novobuzka",
+    "code": "UA4802015"
+  },
+  {
+    "name": "Привільненська",
+    "en": "Pryvilnenska",
+    "code": "UA4802017"
+  },
+  {
+    "name": "Снігурівська",
+    "en": "Snihurivska",
+    "code": "UA4802019"
+  },
+  {
+    "name": "Софіївська",
+    "en": "Sofiivska",
+    "code": "UA4802021"
+  },
+  {
+    "name": "Широківська",
+    "en": "Shyrokivska",
+    "code": "UA4802023"
+  },
+  {
+    "name": "Братська",
+    "en": "Bratska",
+    "code": "UA4804001"
+  },
+  {
+    "name": "Бузька",
+    "en": "Buzka",
+    "code": "UA4804003"
+  },
+  {
+    "name": "Веселинівська",
+    "en": "Veselynivska",
+    "code": "UA4804005"
+  },
+  {
+    "name": "Вознесенська",
+    "en": "Voznesenska",
+    "code": "UA4804007"
+  },
+  {
+    "name": "Доманівська",
+    "en": "Domanivska",
+    "code": "UA4804009"
+  },
+  {
+    "name": "Дорошівська",
+    "en": "Doroshivska",
+    "code": "UA4804011"
+  },
+  {
+    "name": "Єланецька",
+    "en": "Yelanetska",
+    "code": "UA4804013"
+  },
+  {
+    "name": "Мостівська",
+    "en": "Mostivska",
+    "code": "UA4804015"
+  },
+  {
+    "name": "Новомар'ївська",
+    "en": "Novomarivska",
+    "code": "UA4804017"
+  },
+  {
+    "name": "Олександрівська",
+    "en": "Oleksandrivska",
+    "code": "UA4804019"
+  },
+  {
+    "name": "Прибужанівська",
+    "en": "Prybuzhanivska",
+    "code": "UA4804021"
+  },
+  {
+    "name": "Прибузька",
+    "en": "Prybuzka",
+    "code": "UA4804023"
+  },
+  {
+    "name": "Южноукраїнська",
+    "en": "Yuzhnoukrainska",
+    "code": "UA4804025"
+  },
+  {
+    "name": "Березанська",
+    "en": "Berezanska",
+    "code": "UA4806001"
+  },
+  {
+    "name": "Веснянська",
+    "en": "Vesnianska",
+    "code": "UA4806003"
+  },
+  {
+    "name": "Воскресенська",
+    "en": "Voskresenska",
+    "code": "UA4806005"
+  },
+  {
+    "name": "Галицинівська",
+    "en": "Halytsynivska",
+    "code": "UA4806007"
+  },
+  {
+    "name": "Коблівська",
+    "en": "Koblivska",
+    "code": "UA4806009"
+  },
+  {
+    "name": "Костянтинівська",
+    "en": "Kostiantynivska",
+    "code": "UA4806011"
+  },
+  {
+    "name": "Куцурубська",
+    "en": "Kutsurubska",
+    "code": "UA4806013"
+  },
+  {
+    "name": "Миколаївська",
+    "en": "Mykolaivska",
+    "code": "UA4806015"
+  },
+  {
+    "name": "Мішково-Погорілівська",
+    "en": "Mishkovo-Pohorilivska",
+    "code": "UA4806017"
+  },
+  {
+    "name": "Нечаянська",
+    "en": "Nechaianska",
+    "code": "UA4806019"
+  },
+  {
+    "name": "Новоодеська",
+    "en": "Novoodeska",
+    "code": "UA4806021"
+  },
+  {
+    "name": "Ольшанська",
+    "en": "Olshanska",
+    "code": "UA4806023"
+  },
+  {
+    "name": "Очаківська",
+    "en": "Ochakivska",
+    "code": "UA4806025"
+  },
+  {
+    "name": "Первомайська",
+    "en": "Pervomaiska",
+    "code": "UA4806027"
+  },
+  {
+    "name": "Радсадівська",
+    "en": "Radsadivska",
+    "code": "UA4806029"
+  },
+  {
+    "name": "Степівська",
+    "en": "Stepivska",
+    "code": "UA4806031"
+  },
+  {
+    "name": "Сухоєланецька",
+    "en": "Sukhoielanetska",
+    "code": "UA4806033"
+  },
+  {
+    "name": "Чорноморська",
+    "en": "Chornomorska",
+    "code": "UA4806035"
+  },
+  {
+    "name": "Шевченківська",
+    "en": "Shevchenkivska",
+    "code": "UA4806037"
+  },
+  {
+    "name": "Арбузинська",
+    "en": "Arbuzynska",
+    "code": "UA4808001"
+  },
+  {
+    "name": "Благодатненська",
+    "en": "Blahodatnenska",
+    "code": "UA4808003"
+  },
+  {
+    "name": "Врадіївська",
+    "en": "Vradiivska",
+    "code": "UA4808005"
+  },
+  {
+    "name": "Кам'яномостівська",
+    "en": "Kamianomostivska",
+    "code": "UA4808007"
+  },
+  {
+    "name": "Кривоозерська",
+    "en": "Kryvoozerska",
+    "code": "UA4808009"
+  },
+  {
+    "name": "Мигіївська",
+    "en": "Myhiivska",
+    "code": "UA4808011"
+  },
+  {
+    "name": "Первомайська",
+    "en": "Pervomaiska",
+    "code": "UA4808013"
+  },
+  {
+    "name": "Синюхинобрідська",
+    "en": "Syniukhynobridska",
+    "code": "UA4808015"
+  },
+  {
+    "name": "Андрієво-Іванівська",
+    "en": "Andriievo-Ivanivska",
+    "code": "UA5102001"
+  },
+  {
+    "name": "Березівська",
+    "en": "Berezivska",
+    "code": "UA5102003"
+  },
+  {
+    "name": "Великобуялицька",
+    "en": "Velykobuialytska",
+    "code": "UA5102005"
+  },
+  {
+    "name": "Знам'янська",
+    "en": "Znamianska",
+    "code": "UA5102007"
+  },
+  {
+    "name": "Іванівська",
+    "en": "Ivanivska",
+    "code": "UA5102009"
+  },
+  {
+    "name": "Коноплянська",
+    "en": "Konoplianska",
+    "code": "UA5102011"
+  },
+  {
+    "name": "Курісовська",
+    "en": "Kurisovska",
+    "code": "UA5102013"
+  },
+  {
+    "name": "Миколаївська",
+    "en": "Mykolaivska",
+    "code": "UA5102015"
+  },
+  {
+    "name": "Новокальчевська",
+    "en": "Novokalchevska",
+    "code": "UA5102017"
+  },
+  {
+    "name": "Петровірівська",
+    "en": "Petrovirivska",
+    "code": "UA5102019"
+  },
+  {
+    "name": "Раухівська",
+    "en": "Raukhivska",
+    "code": "UA5102021"
+  },
+  {
+    "name": "Розквітівська",
+    "en": "Rozkvitivska",
+    "code": "UA5102023"
+  },
+  {
+    "name": "Старомаяківська",
+    "en": "Staromaiakivska",
+    "code": "UA5102025"
+  },
+  {
+    "name": "Стрюківська",
+    "en": "Striukivska",
+    "code": "UA5102027"
+  },
+  {
+    "name": "Чогодарівська",
+    "en": "Chohodarivska",
+    "code": "UA5102029"
+  },
+  {
+    "name": "Ширяївська",
+    "en": "Shyriaivska",
+    "code": "UA5102031"
+  },
+  {
+    "name": "Білгород-Дністровська",
+    "en": "Bilhorod-Dnistrovska",
+    "code": "UA5104001"
+  },
+  {
+    "name": "Дивізійська",
+    "en": "Dyviziiska",
+    "code": "UA5104003"
+  },
+  {
+    "name": "Кароліно-Бугазька",
+    "en": "Karolino-Buhazka",
+    "code": "UA5104005"
+  },
+  {
+    "name": "Кулевчанська",
+    "en": "Kulevchanska",
+    "code": "UA5104007"
+  },
+  {
+    "name": "Лиманська",
+    "en": "Lymanska",
+    "code": "UA5104009"
+  },
+  {
+    "name": "Маразліївська",
+    "en": "Marazliivska",
+    "code": "UA5104011"
+  },
+  {
+    "name": "Мологівська",
+    "en": "Molohivska",
+    "code": "UA5104013"
+  },
+  {
+    "name": "Петропавлівська",
+    "en": "Petropavlivska",
+    "code": "UA5104015"
+  },
+  {
+    "name": "Плахтіївська",
+    "en": "Plakhtiivska",
+    "code": "UA5104017"
+  },
+  {
+    "name": "Саратська",
+    "en": "Saratska",
+    "code": "UA5104019"
+  },
+  {
+    "name": "Сергіївська",
+    "en": "Serhiivska",
+    "code": "UA5104021"
+  },
+  {
+    "name": "Старокозацька",
+    "en": "Starokozatska",
+    "code": "UA5104023"
+  },
+  {
+    "name": "Татарбунарська",
+    "en": "Tatarbunarska",
+    "code": "UA5104025"
+  },
+  {
+    "name": "Тузлівська",
+    "en": "Tuzlivska",
+    "code": "UA5104027"
+  },
+  {
+    "name": "Успенівська",
+    "en": "Uspenivska",
+    "code": "UA5104029"
+  },
+  {
+    "name": "Шабівська",
+    "en": "Shabivska",
+    "code": "UA5104031"
+  },
+  {
+    "name": "Арцизька",
+    "en": "Artsyzka",
+    "code": "UA5106001"
+  },
+  {
+    "name": "Болградська",
+    "en": "Bolhradska",
+    "code": "UA5106003"
+  },
+  {
+    "name": "Бородінська",
+    "en": "Borodinska",
+    "code": "UA5106005"
+  },
+  {
+    "name": "Василівська",
+    "en": "Vasylivska",
+    "code": "UA5106007"
+  },
+  {
+    "name": "Городненська",
+    "en": "Horodnenska",
+    "code": "UA5106009"
+  },
+  {
+    "name": "Криничненська",
+    "en": "Krynychnenska",
+    "code": "UA5106011"
+  },
+  {
+    "name": "Кубейська",
+    "en": "Kubeiska",
+    "code": "UA5106013"
+  },
+  {
+    "name": "Павлівська",
+    "en": "Pavlivska",
+    "code": "UA5106015"
+  },
+  {
+    "name": "Тарутинська",
+    "en": "Tarutynska",
+    "code": "UA5106017"
+  },
+  {
+    "name": "Теплицька",
+    "en": "Teplytska",
+    "code": "UA5106019"
+  },
+  {
+    "name": "Вилківська",
+    "en": "Vylkivska",
+    "code": "UA5108001"
+  },
+  {
+    "name": "Ізмаїльська",
+    "en": "Izmailska",
+    "code": "UA5108003"
+  },
+  {
+    "name": "Кілійська",
+    "en": "Kiliiska",
+    "code": "UA5108005"
+  },
+  {
+    "name": "Ренійська",
+    "en": "Reniiska",
+    "code": "UA5108007"
+  },
+  {
+    "name": "Саф'янівська",
+    "en": "Safianivska",
+    "code": "UA5108009"
+  },
+  {
+    "name": "Суворовська",
+    "en": "Suvorovska",
+    "code": "UA5108011"
+  },
+  {
+    "name": "Авангардівська",
+    "en": "Avanhardivska",
+    "code": "UA5110001"
+  },
+  {
+    "name": "Біляївська",
+    "en": "Biliaivska",
+    "code": "UA5110003"
+  },
+  {
+    "name": "Великодальницька",
+    "en": "Velykodalnytska",
+    "code": "UA5110005"
+  },
+  {
+    "name": "Великодолинська",
+    "en": "Velykodolynska",
+    "code": "UA5110007"
+  },
+  {
+    "name": "Вигодянська",
+    "en": "Vyhodianska",
+    "code": "UA5110009"
+  },
+  {
+    "name": "Визирська",
+    "en": "Vyzyrska",
+    "code": "UA5110011"
+  },
+  {
+    "name": "Дальницька",
+    "en": "Dalnytska",
+    "code": "UA5110013"
+  },
+  {
+    "name": "Дачненська",
+    "en": "Dachnenska",
+    "code": "UA5110015"
+  },
+  {
+    "name": "Доброславська",
+    "en": "Dobroslavska",
+    "code": "UA5110017"
+  },
+  {
+    "name": "Красносільська",
+    "en": "Krasnosilska",
+    "code": "UA5110019"
+  },
+  {
+    "name": "Маяківська",
+    "en": "Maiakivska",
+    "code": "UA5110021"
+  },
+  {
+    "name": "Нерубайська",
+    "en": "Nerubaiska",
+    "code": "UA5110023"
+  },
+  {
+    "name": "Овідіопольська",
+    "en": "Ovidiopolska",
+    "code": "UA5110025"
+  },
+  {
+    "name": "Одеська",
+    "en": "Odeska",
+    "code": "UA5110027"
+  },
+  {
+    "name": "Таїровська",
+    "en": "Tairovska",
+    "code": "UA5110029"
+  },
+  {
+    "name": "Теплодарська",
+    "en": "Teplodarska",
+    "code": "UA5110031"
+  },
+  {
+    "name": "Усатівська",
+    "en": "Usativska",
+    "code": "UA5110033"
+  },
+  {
+    "name": "Фонтанська",
+    "en": "Fontanska",
+    "code": "UA5110035"
+  },
+  {
+    "name": "Чорноморська",
+    "en": "Chornomorska",
+    "code": "UA5110037"
+  },
+  {
+    "name": "Чорноморська",
+    "en": "Chornomorska",
+    "code": "UA5110039"
+  },
+  {
+    "name": "Южненська",
+    "en": "Yuzhnenska",
+    "code": "UA5110041"
+  },
+  {
+    "name": "Яськівська",
+    "en": "Yaskivska",
+    "code": "UA5110043"
+  },
+  {
+    "name": "Ананьївська",
+    "en": "Ananivska",
+    "code": "UA5112001"
+  },
+  {
+    "name": "Балтська",
+    "en": "Baltska",
+    "code": "UA5112003"
+  },
+  {
+    "name": "Долинська",
+    "en": "Dolynska",
+    "code": "UA5112005"
+  },
+  {
+    "name": "Зеленогірська",
+    "en": "Zelenohirska",
+    "code": "UA5112007"
+  },
+  {
+    "name": "Кодимська",
+    "en": "Kodymska",
+    "code": "UA5112009"
+  },
+  {
+    "name": "Куяльницька",
+    "en": "Kuialnytska",
+    "code": "UA5112011"
+  },
+  {
+    "name": "Любашівська",
+    "en": "Liubashivska",
+    "code": "UA5112013"
+  },
+  {
+    "name": "Окнянська",
+    "en": "Oknianska",
+    "code": "UA5112015"
+  },
+  {
+    "name": "Піщанська",
+    "en": "Pishchanska",
+    "code": "UA5112017"
+  },
+  {
+    "name": "Подільська",
+    "en": "Podilska",
+    "code": "UA5112019"
+  },
+  {
+    "name": "Савранська",
+    "en": "Savranska",
+    "code": "UA5112021"
+  },
+  {
+    "name": "Слобідська",
+    "en": "Slobidska",
+    "code": "UA5112023"
+  },
+  {
+    "name": "Великомихайлівська",
+    "en": "Velykomykhailivska",
+    "code": "UA5114001"
+  },
+  {
+    "name": "Великоплосківська",
+    "en": "Velykoploskivska",
+    "code": "UA5114003"
+  },
+  {
+    "name": "Затишанська",
+    "en": "Zatyshanska",
+    "code": "UA5114005"
+  },
+  {
+    "name": "Захарівська",
+    "en": "Zakharivska",
+    "code": "UA5114007"
+  },
+  {
+    "name": "Лиманська",
+    "en": "Lymanska",
+    "code": "UA5114009"
+  },
+  {
+    "name": "Новоборисівська",
+    "en": "Novoborysivska",
+    "code": "UA5114011"
+  },
+  {
+    "name": "Роздільнянська",
+    "en": "Rozdilnianska",
+    "code": "UA5114013"
+  },
+  {
+    "name": "Степанівська",
+    "en": "Stepanivska",
+    "code": "UA5114015"
+  },
+  {
+    "name": "Цебриківська",
+    "en": "Tsebrykivska",
+    "code": "UA5114017"
+  },
+  {
+    "name": "Глобинська",
+    "en": "Hlobynska",
+    "code": "UA5302001"
+  },
+  {
+    "name": "Горішньоплавнівська",
+    "en": "Horishnoplavnivska",
+    "code": "UA5302003"
+  },
+  {
+    "name": "Градизька",
+    "en": "Hradyzka",
+    "code": "UA5302005"
+  },
+  {
+    "name": "Кам'янопотоківська",
+    "en": "Kamianopotokivska",
+    "code": "UA5302007"
+  },
+  {
+    "name": "Козельщинська",
+    "en": "Kozelshchynska",
+    "code": "UA5302009"
+  },
+  {
+    "name": "Кременчуцька",
+    "en": "Kremenchutska",
+    "code": "UA5302011"
+  },
+  {
+    "name": "Новогалещинська",
+    "en": "Novohaleshchynska",
+    "code": "UA5302013"
+  },
+  {
+    "name": "Оболонська",
+    "en": "Obolonska",
+    "code": "UA5302015"
+  },
+  {
+    "name": "Омельницька",
+    "en": "Omelnytska",
+    "code": "UA5302017"
+  },
+  {
+    "name": "Піщанська",
+    "en": "Pishchanska",
+    "code": "UA5302019"
+  },
+  {
+    "name": "Пришибська",
+    "en": "Pryshybska",
+    "code": "UA5302021"
+  },
+  {
+    "name": "Семенівська",
+    "en": "Semenivska",
+    "code": "UA5302023"
+  },
+  {
+    "name": "Гребінківська",
+    "en": "Hrebinkivska",
+    "code": "UA5304001"
+  },
+  {
+    "name": "Лубенська",
+    "en": "Lubenska",
+    "code": "UA5304003"
+  },
+  {
+    "name": "Новооржицька",
+    "en": "Novoorzhytska",
+    "code": "UA5304005"
+  },
+  {
+    "name": "Оржицька",
+    "en": "Orzhytska",
+    "code": "UA5304007"
+  },
+  {
+    "name": "Пирятинська",
+    "en": "Pyriatynska",
+    "code": "UA5304009"
+  },
+  {
+    "name": "Хорольська",
+    "en": "Khorolska",
+    "code": "UA5304011"
+  },
+  {
+    "name": "Чорнухинська",
+    "en": "Chornukhynska",
+    "code": "UA5304013"
+  },
+  {
+    "name": "Білоцерківська",
+    "en": "Bilotserkivska",
+    "code": "UA5306001"
+  },
+  {
+    "name": "Великобагачанська",
+    "en": "Velykobahachanska",
+    "code": "UA5306003"
+  },
+  {
+    "name": "Великобудищанська",
+    "en": "Velykobudyshchanska",
+    "code": "UA5306005"
+  },
+  {
+    "name": "Великосорочинська",
+    "en": "Velykosorochynska",
+    "code": "UA5306007"
+  },
+  {
+    "name": "Гадяцька",
+    "en": "Hadiatska",
+    "code": "UA5306009"
+  },
+  {
+    "name": "Гоголівська",
+    "en": "Hoholivska",
+    "code": "UA5306011"
+  },
+  {
+    "name": "Заводська",
+    "en": "Zavodska",
+    "code": "UA5306013"
+  },
+  {
+    "name": "Комишнянська",
+    "en": "Komyshnianska",
+    "code": "UA5306015"
+  },
+  {
+    "name": "Краснолуцька",
+    "en": "Krasnolutska",
+    "code": "UA5306017"
+  },
+  {
+    "name": "Лохвицька",
+    "en": "Lokhvytska",
+    "code": "UA5306019"
+  },
+  {
+    "name": "Лютенська",
+    "en": "Liutenska",
+    "code": "UA5306021"
+  },
+  {
+    "name": "Миргородська",
+    "en": "Myrhorodska",
+    "code": "UA5306023"
+  },
+  {
+    "name": "Петрівсько-Роменська",
+    "en": "Petrivsko-Romenska",
+    "code": "UA5306025"
+  },
+  {
+    "name": "Ромоданівська",
+    "en": "Romodanivska",
+    "code": "UA5306027"
+  },
+  {
+    "name": "Сенчанська",
+    "en": "Senchanska",
+    "code": "UA5306029"
+  },
+  {
+    "name": "Сергіївська",
+    "en": "Serhiivska",
+    "code": "UA5306031"
+  },
+  {
+    "name": "Шишацька",
+    "en": "Shyshatska",
+    "code": "UA5306033"
+  },
+  {
+    "name": "Білицька",
+    "en": "Bilytska",
+    "code": "UA5308001"
+  },
+  {
+    "name": "Великорублівська",
+    "en": "Velykorublivska",
+    "code": "UA5308003"
+  },
+  {
+    "name": "Диканська",
+    "en": "Dykanska",
+    "code": "UA5308005"
+  },
+  {
+    "name": "Драбинівська",
+    "en": "Drabynivska",
+    "code": "UA5308007"
+  },
+  {
+    "name": "Зіньківська",
+    "en": "Zinkivska",
+    "code": "UA5308009"
+  },
+  {
+    "name": "Карлівська",
+    "en": "Karlivska",
+    "code": "UA5308011"
+  },
+  {
+    "name": "Кобеляцька",
+    "en": "Kobeliatska",
+    "code": "UA5308013"
+  },
+  {
+    "name": "Коломацька",
+    "en": "Kolomatska",
+    "code": "UA5308015"
+  },
+  {
+    "name": "Котелевська",
+    "en": "Kotelevska",
+    "code": "UA5308017"
+  },
+  {
+    "name": "Ланнівська",
+    "en": "Lannivska",
+    "code": "UA5308019"
+  },
+  {
+    "name": "Мартинівська",
+    "en": "Martynivska",
+    "code": "UA5308021"
+  },
+  {
+    "name": "Мачухівська",
+    "en": "Machukhivska",
+    "code": "UA5308023"
+  },
+  {
+    "name": "Машівська",
+    "en": "Mashivska",
+    "code": "UA5308025"
+  },
+  {
+    "name": "Михайлівська",
+    "en": "Mykhailivska",
+    "code": "UA5308027"
+  },
+  {
+    "name": "Нехворощанська",
+    "en": "Nekhvoroshchanska",
+    "code": "UA5308029"
+  },
+  {
+    "name": "Новосанжарська",
+    "en": "Novosanzharska",
+    "code": "UA5308031"
+  },
+  {
+    "name": "Новоселівська",
+    "en": "Novoselivska",
+    "code": "UA5308033"
+  },
+  {
+    "name": "Опішнянська",
+    "en": "Opishnianska",
+    "code": "UA5308035"
+  },
+  {
+    "name": "Полтавська",
+    "en": "Poltavska",
+    "code": "UA5308037"
+  },
+  {
+    "name": "Решетилівська",
+    "en": "Reshetylivska",
+    "code": "UA5308039"
+  },
+  {
+    "name": "Скороходівська",
+    "en": "Skorokhodivska",
+    "code": "UA5308041"
+  },
+  {
+    "name": "Терешківська",
+    "en": "Tereshkivska",
+    "code": "UA5308043"
+  },
+  {
+    "name": "Чутівська",
+    "en": "Chutivska",
+    "code": "UA5308045"
+  },
+  {
+    "name": "Щербанівська",
+    "en": "Shcherbanivska",
+    "code": "UA5308047"
+  },
+  {
+    "name": "Антонівська",
+    "en": "Antonivska",
+    "code": "UA5602001"
+  },
+  {
+    "name": "Вараська",
+    "en": "Varaska",
+    "code": "UA5602003"
+  },
+  {
+    "name": "Володимирецька",
+    "en": "Volodymyretska",
+    "code": "UA5602005"
+  },
+  {
+    "name": "Зарічненська",
+    "en": "Zarichnenska",
+    "code": "UA5602007"
+  },
+  {
+    "name": "Каноницька",
+    "en": "Kanonytska",
+    "code": "UA5602009"
+  },
+  {
+    "name": "Локницька",
+    "en": "Loknytska",
+    "code": "UA5602011"
+  },
+  {
+    "name": "Полицька",
+    "en": "Polytska",
+    "code": "UA5602013"
+  },
+  {
+    "name": "Рафалівська",
+    "en": "Rafalivska",
+    "code": "UA5602015"
+  },
+  {
+    "name": "Бокіймівська",
+    "en": "Bokiimivska",
+    "code": "UA5604001"
+  },
+  {
+    "name": "Боремельська",
+    "en": "Boremelska",
+    "code": "UA5604003"
+  },
+  {
+    "name": "Варковицька",
+    "en": "Varkovytska",
+    "code": "UA5604005"
+  },
+  {
+    "name": "Вербська",
+    "en": "Verbska",
+    "code": "UA5604007"
+  },
+  {
+    "name": "Демидівська",
+    "en": "Demydivska",
+    "code": "UA5604009"
+  },
+  {
+    "name": "Дубенська",
+    "en": "Dubenska",
+    "code": "UA5604011"
+  },
+  {
+    "name": "Козинська",
+    "en": "Kozynska",
+    "code": "UA5604013"
+  },
+  {
+    "name": "Крупецька",
+    "en": "Krupetska",
+    "code": "UA5604015"
+  },
+  {
+    "name": "Мирогощанська",
+    "en": "Myrohoshchanska",
+    "code": "UA5604017"
+  },
+  {
+    "name": "Млинівська",
+    "en": "Mlynivska",
+    "code": "UA5604019"
+  },
+  {
+    "name": "Острожецька",
+    "en": "Ostrozhetska",
+    "code": "UA5604021"
+  },
+  {
+    "name": "Підлозцівська",
+    "en": "Pidloztsivska",
+    "code": "UA5604023"
+  },
+  {
+    "name": "Повчанська",
+    "en": "Povchanska",
+    "code": "UA5604025"
+  },
+  {
+    "name": "Привільненська",
+    "en": "Pryvilnenska",
+    "code": "UA5604027"
+  },
+  {
+    "name": "Радивилівська",
+    "en": "Radyvylivska",
+    "code": "UA5604029"
+  },
+  {
+    "name": "Семидубська",
+    "en": "Semydubska",
+    "code": "UA5604031"
+  },
+  {
+    "name": "Смизька",
+    "en": "Smyzka",
+    "code": "UA5604033"
+  },
+  {
+    "name": "Тараканівська",
+    "en": "Tarakanivska",
+    "code": "UA5604035"
+  },
+  {
+    "name": "Ярославицька",
+    "en": "Yaroslavytska",
+    "code": "UA5604037"
+  },
+  {
+    "name": "Бабинська",
+    "en": "Babynska",
+    "code": "UA5606001"
+  },
+  {
+    "name": "Березнівська",
+    "en": "Bereznivska",
+    "code": "UA5606003"
+  },
+  {
+    "name": "Білокриницька",
+    "en": "Bilokrynytska",
+    "code": "UA5606005"
+  },
+  {
+    "name": "Бугринська",
+    "en": "Buhrynska",
+    "code": "UA5606007"
+  },
+  {
+    "name": "Великомежиріцька",
+    "en": "Velykomezhyritska",
+    "code": "UA5606009"
+  },
+  {
+    "name": "Великоомелянська",
+    "en": "Velykoomelianska",
+    "code": "UA5606011"
+  },
+  {
+    "name": "Головинська",
+    "en": "Holovynska",
+    "code": "UA5606013"
+  },
+  {
+    "name": "Городоцька",
+    "en": "Horodotska",
+    "code": "UA5606015"
+  },
+  {
+    "name": "Гощанська",
+    "en": "Hoshchanska",
+    "code": "UA5606017"
+  },
+  {
+    "name": "Деражненська",
+    "en": "Derazhnenska",
+    "code": "UA5606019"
+  },
+  {
+    "name": "Дядьковицька",
+    "en": "Diadkovytska",
+    "code": "UA5606021"
+  },
+  {
+    "name": "Здовбицька",
+    "en": "Zdovbytska",
+    "code": "UA5606023"
+  },
+  {
+    "name": "Здолбунівська",
+    "en": "Zdolbunivska",
+    "code": "UA5606025"
+  },
+  {
+    "name": "Зорянська",
+    "en": "Zorianska",
+    "code": "UA5606027"
+  },
+  {
+    "name": "Клеванська",
+    "en": "Klevanska",
+    "code": "UA5606029"
+  },
+  {
+    "name": "Корецька",
+    "en": "Koretska",
+    "code": "UA5606031"
+  },
+  {
+    "name": "Корнинська",
+    "en": "Kornynska",
+    "code": "UA5606033"
+  },
+  {
+    "name": "Костопільська",
+    "en": "Kostopilska",
+    "code": "UA5606035"
+  },
+  {
+    "name": "Малинська",
+    "en": "Malynska",
+    "code": "UA5606037"
+  },
+  {
+    "name": "Малолюбашанська",
+    "en": "Maloliubashanska",
+    "code": "UA5606039"
+  },
+  {
+    "name": "Мізоцька",
+    "en": "Mizotska",
+    "code": "UA5606041"
+  },
+  {
+    "name": "Олександрійська",
+    "en": "Oleksandriiska",
+    "code": "UA5606043"
+  },
+  {
+    "name": "Острозька",
+    "en": "Ostrozka",
+    "code": "UA5606045"
+  },
+  {
+    "name": "Рівненська",
+    "en": "Rivnenska",
+    "code": "UA5606047"
+  },
+  {
+    "name": "Соснівська",
+    "en": "Sosnivska",
+    "code": "UA5606049"
+  },
+  {
+    "name": "Шпанівська",
+    "en": "Shpanivska",
+    "code": "UA5606051"
+  },
+  {
+    "name": "Березівська",
+    "en": "Berezivska",
+    "code": "UA5608001"
+  },
+  {
+    "name": "Вирівська",
+    "en": "Vyrivska",
+    "code": "UA5608003"
+  },
+  {
+    "name": "Висоцька",
+    "en": "Vysotska",
+    "code": "UA5608005"
+  },
+  {
+    "name": "Дубровицька",
+    "en": "Dubrovytska",
+    "code": "UA5608007"
+  },
+  {
+    "name": "Клесівська",
+    "en": "Klesivska",
+    "code": "UA5608009"
+  },
+  {
+    "name": "Миляцька",
+    "en": "Myliatska",
+    "code": "UA5608011"
+  },
+  {
+    "name": "Немовицька",
+    "en": "Nemovytska",
+    "code": "UA5608013"
+  },
+  {
+    "name": "Рокитнівська",
+    "en": "Rokytnivska",
+    "code": "UA5608015"
+  },
+  {
+    "name": "Сарненська",
+    "en": "Sarnenska",
+    "code": "UA5608017"
+  },
+  {
+    "name": "Старосільська",
+    "en": "Starosilska",
+    "code": "UA5608019"
+  },
+  {
+    "name": "Степанська",
+    "en": "Stepanska",
+    "code": "UA5608021"
+  },
+  {
+    "name": "Бочечківська",
+    "en": "Bochechkivska",
+    "code": "UA5902001"
+  },
+  {
+    "name": "Буринська",
+    "en": "Burynska",
+    "code": "UA5902003"
+  },
+  {
+    "name": "Дубов'язівська",
+    "en": "Duboviazivska",
+    "code": "UA5902005"
+  },
+  {
+    "name": "Конотопська",
+    "en": "Konotopska",
+    "code": "UA5902007"
+  },
+  {
+    "name": "Кролевецька",
+    "en": "Krolevetska",
+    "code": "UA5902009"
+  },
+  {
+    "name": "Новослобідська",
+    "en": "Novoslobidska",
+    "code": "UA5902011"
+  },
+  {
+    "name": "Попівська",
+    "en": "Popivska",
+    "code": "UA5902013"
+  },
+  {
+    "name": "Путивльська",
+    "en": "Putyvlska",
+    "code": "UA5902015"
+  },
+  {
+    "name": "Боромлянська",
+    "en": "Boromlianska",
+    "code": "UA5904001"
+  },
+  {
+    "name": "Великописарівська",
+    "en": "Velykopysarivska",
+    "code": "UA5904003"
+  },
+  {
+    "name": "Грунська",
+    "en": "Hrunska",
+    "code": "UA5904005"
+  },
+  {
+    "name": "Кириківська",
+    "en": "Kyrykivska",
+    "code": "UA5904007"
+  },
+  {
+    "name": "Комишанська",
+    "en": "Komyshanska",
+    "code": "UA5904009"
+  },
+  {
+    "name": "Охтирська",
+    "en": "Okhtyrska",
+    "code": "UA5904011"
+  },
+  {
+    "name": "Тростянецька",
+    "en": "Trostianetska",
+    "code": "UA5904013"
+  },
+  {
+    "name": "Чернеччинська",
+    "en": "Chernechchynska",
+    "code": "UA5904015"
+  },
+  {
+    "name": "Чупахівська",
+    "en": "Chupakhivska",
+    "code": "UA5904017"
+  },
+  {
+    "name": "Андріяшівська",
+    "en": "Andriiashivska",
+    "code": "UA5906001"
+  },
+  {
+    "name": "Вільшанська",
+    "en": "Vilshanska",
+    "code": "UA5906003"
+  },
+  {
+    "name": "Коровинська",
+    "en": "Korovynska",
+    "code": "UA5906005"
+  },
+  {
+    "name": "Липоводолинська",
+    "en": "Lypovodolynska",
+    "code": "UA5906007"
+  },
+  {
+    "name": "Недригайлівська",
+    "en": "Nedryhailivska",
+    "code": "UA5906009"
+  },
+  {
+    "name": "Роменська",
+    "en": "Romenska",
+    "code": "UA5906011"
+  },
+  {
+    "name": "Синівська",
+    "en": "Synivska",
+    "code": "UA5906013"
+  },
+  {
+    "name": "Хмелівська",
+    "en": "Khmelivska",
+    "code": "UA5906015"
+  },
+  {
+    "name": "Бездрицька",
+    "en": "Bezdrytska",
+    "code": "UA5908001"
+  },
+  {
+    "name": "Білопільська",
+    "en": "Bilopilska",
+    "code": "UA5908003"
+  },
+  {
+    "name": "Верхньосироватська",
+    "en": "Verkhnosyrovatska",
+    "code": "UA5908005"
+  },
+  {
+    "name": "Ворожбянська",
+    "en": "Vorozhbianska",
+    "code": "UA5908007"
+  },
+  {
+    "name": "Краснопільська",
+    "en": "Krasnopilska",
+    "code": "UA5908009"
+  },
+  {
+    "name": "Лебединська",
+    "en": "Lebedynska",
+    "code": "UA5908011"
+  },
+  {
+    "name": "Миколаївська",
+    "en": "Mykolaivska",
+    "code": "UA5908013"
+  },
+  {
+    "name": "Миколаївська",
+    "en": "Mykolaivska",
+    "code": "UA5908015"
+  },
+  {
+    "name": "Миропільська",
+    "en": "Myropilska",
+    "code": "UA5908017"
+  },
+  {
+    "name": "Нижньосироватська",
+    "en": "Nyzhnosyrovatska",
+    "code": "UA5908019"
+  },
+  {
+    "name": "Річківська",
+    "en": "Richkivska",
+    "code": "UA5908021"
+  },
+  {
+    "name": "Садівська",
+    "en": "Sadivska",
+    "code": "UA5908023"
+  },
+  {
+    "name": "Степанівська",
+    "en": "Stepanivska",
+    "code": "UA5908025"
+  },
+  {
+    "name": "Сумська",
+    "en": "Sumska",
+    "code": "UA5908027"
+  },
+  {
+    "name": "Хотінська",
+    "en": "Khotinska",
+    "code": "UA5908029"
+  },
+  {
+    "name": "Юнаківська",
+    "en": "Yunakivska",
+    "code": "UA5908031"
+  },
+  {
+    "name": "Березівська",
+    "en": "Berezivska",
+    "code": "UA5910001"
+  },
+  {
+    "name": "Глухівська",
+    "en": "Hlukhivska",
+    "code": "UA5910003"
+  },
+  {
+    "name": "Дружбівська",
+    "en": "Druzhbivska",
+    "code": "UA5910005"
+  },
+  {
+    "name": "Есманьська",
+    "en": "Esmanska",
+    "code": "UA5910007"
+  },
+  {
+    "name": "Зноб-Новгородська",
+    "en": "Znob-Novhorodska",
+    "code": "UA5910009"
+  },
+  {
+    "name": "Свеська",
+    "en": "Sveska",
+    "code": "UA5910011"
+  },
+  {
+    "name": "Середино-Будська",
+    "en": "Seredyno-Budska",
+    "code": "UA5910013"
+  },
+  {
+    "name": "Шалигинська",
+    "en": "Shalyhynska",
+    "code": "UA5910015"
+  },
+  {
+    "name": "Шосткинська",
+    "en": "Shostkynska",
+    "code": "UA5910017"
+  },
+  {
+    "name": "Ямпільська",
+    "en": "Yampilska",
+    "code": "UA5910019"
+  },
+  {
+    "name": "Борсуківська",
+    "en": "Borsukivska",
+    "code": "UA6102001"
+  },
+  {
+    "name": "Великодедеркальська",
+    "en": "Velykodederkalska",
+    "code": "UA6102003"
+  },
+  {
+    "name": "Вишнівецька",
+    "en": "Vyshnivetska",
+    "code": "UA6102005"
+  },
+  {
+    "name": "Кременецька",
+    "en": "Kremenetska",
+    "code": "UA6102007"
+  },
+  {
+    "name": "Лановецька",
+    "en": "Lanovetska",
+    "code": "UA6102009"
+  },
+  {
+    "name": "Лопушненська",
+    "en": "Lopushnenska",
+    "code": "UA6102011"
+  },
+  {
+    "name": "Почаївська",
+    "en": "Pochaivska",
+    "code": "UA6102013"
+  },
+  {
+    "name": "Шумська",
+    "en": "Shumska",
+    "code": "UA6102015"
+  },
+  {
+    "name": "Байковецька",
+    "en": "Baikovetska",
+    "code": "UA6104001"
+  },
+  {
+    "name": "Бережанська",
+    "en": "Berezhanska",
+    "code": "UA6104003"
+  },
+  {
+    "name": "Білецька",
+    "en": "Biletska",
+    "code": "UA6104005"
+  },
+  {
+    "name": "Великоберезовицька",
+    "en": "Velykoberezovytska",
+    "code": "UA6104007"
+  },
+  {
+    "name": "Великобірківська",
+    "en": "Velykobirkivska",
+    "code": "UA6104009"
+  },
+  {
+    "name": "Великогаївська",
+    "en": "Velykohaivska",
+    "code": "UA6104011"
+  },
+  {
+    "name": "Залозецька",
+    "en": "Zalozetska",
+    "code": "UA6104013"
+  },
+  {
+    "name": "Збаразька",
+    "en": "Zbarazka",
+    "code": "UA6104015"
+  },
+  {
+    "name": "Зборівська",
+    "en": "Zborivska",
+    "code": "UA6104017"
+  },
+  {
+    "name": "Золотниківська",
+    "en": "Zolotnykivska",
+    "code": "UA6104019"
+  },
+  {
+    "name": "Іванівська",
+    "en": "Ivanivska",
+    "code": "UA6104021"
+  },
+  {
+    "name": "Козівська",
+    "en": "Kozivska",
+    "code": "UA6104023"
+  },
+  {
+    "name": "Козлівська",
+    "en": "Kozlivska",
+    "code": "UA6104025"
+  },
+  {
+    "name": "Купчинецька",
+    "en": "Kupchynetska",
+    "code": "UA6104027"
+  },
+  {
+    "name": "Микулинецька",
+    "en": "Mykulynetska",
+    "code": "UA6104029"
+  },
+  {
+    "name": "Нараївська",
+    "en": "Naraivska",
+    "code": "UA6104031"
+  },
+  {
+    "name": "Озернянська",
+    "en": "Ozernianska",
+    "code": "UA6104033"
+  },
+  {
+    "name": "Підволочиська",
+    "en": "Pidvolochyska",
+    "code": "UA6104035"
+  },
+  {
+    "name": "Підгаєцька",
+    "en": "Pidhaietska",
+    "code": "UA6104037"
+  },
+  {
+    "name": "Підгороднянська",
+    "en": "Pidhorodnianska",
+    "code": "UA6104039"
+  },
+  {
+    "name": "Саранчуківська",
+    "en": "Saranchukivska",
+    "code": "UA6104041"
+  },
+  {
+    "name": "Скалатська",
+    "en": "Skalatska",
+    "code": "UA6104043"
+  },
+  {
+    "name": "Скориківська",
+    "en": "Skorykivska",
+    "code": "UA6104045"
+  },
+  {
+    "name": "Теребовлянська",
+    "en": "Terebovlianska",
+    "code": "UA6104047"
+  },
+  {
+    "name": "Тернопільська",
+    "en": "Ternopilska",
+    "code": "UA6104049"
+  },
+  {
+    "name": "Білобожницька",
+    "en": "Bilobozhnytska",
+    "code": "UA6106001"
+  },
+  {
+    "name": "Більче-Золотецька",
+    "en": "Bilche-Zolotetska",
+    "code": "UA6106003"
+  },
+  {
+    "name": "Борщівська",
+    "en": "Borshchivska",
+    "code": "UA6106005"
+  },
+  {
+    "name": "Бучацька",
+    "en": "Buchatska",
+    "code": "UA6106007"
+  },
+  {
+    "name": "Васильковецька",
+    "en": "Vasylkovetska",
+    "code": "UA6106009"
+  },
+  {
+    "name": "Гримайлівська",
+    "en": "Hrymailivska",
+    "code": "UA6106011"
+  },
+  {
+    "name": "Гусятинська",
+    "en": "Husiatynska",
+    "code": "UA6106013"
+  },
+  {
+    "name": "Заводська",
+    "en": "Zavodska",
+    "code": "UA6106015"
+  },
+  {
+    "name": "Заліщицька",
+    "en": "Zalishchytska",
+    "code": "UA6106017"
+  },
+  {
+    "name": "Золотопотіцька",
+    "en": "Zolotopotitska",
+    "code": "UA6106019"
+  },
+  {
+    "name": "Іване-Пустенська",
+    "en": "Ivane-Pustenska",
+    "code": "UA6106021"
+  },
+  {
+    "name": "Колиндянська",
+    "en": "Kolyndianska",
+    "code": "UA6106023"
+  },
+  {
+    "name": "Копичинецька",
+    "en": "Kopychynetska",
+    "code": "UA6106025"
+  },
+  {
+    "name": "Коропецька",
+    "en": "Koropetska",
+    "code": "UA6106027"
+  },
+  {
+    "name": "Мельнице-Подільська",
+    "en": "Melnytse-Podilska",
+    "code": "UA6106029"
+  },
+  {
+    "name": "Монастириська",
+    "en": "Monastyryska",
+    "code": "UA6106031"
+  },
+  {
+    "name": "Нагірянська",
+    "en": "Nahirianska",
+    "code": "UA6106033"
+  },
+  {
+    "name": "Скала-Подільська",
+    "en": "Skala-Podilska",
+    "code": "UA6106035"
+  },
+  {
+    "name": "Товстенська",
+    "en": "Tovstenska",
+    "code": "UA6106037"
+  },
+  {
+    "name": "Трибухівська",
+    "en": "Trybukhivska",
+    "code": "UA6106039"
+  },
+  {
+    "name": "Хоростківська",
+    "en": "Khorostkivska",
+    "code": "UA6106041"
+  },
+  {
+    "name": "Чортківська",
+    "en": "Chortkivska",
+    "code": "UA6106043"
+  },
+  {
+    "name": "Богодухівська",
+    "en": "Bohodukhivska",
+    "code": "UA6302001"
+  },
+  {
+    "name": "Валківська",
+    "en": "Valkivska",
+    "code": "UA6302003"
+  },
+  {
+    "name": "Золочівська",
+    "en": "Zolochivska",
+    "code": "UA6302005"
+  },
+  {
+    "name": "Коломацька",
+    "en": "Kolomatska",
+    "code": "UA6302007"
+  },
+  {
+    "name": "Краснокутська",
+    "en": "Krasnokutska",
+    "code": "UA6302009"
+  },
+  {
+    "name": "Балаклійська",
+    "en": "Balakliiska",
+    "code": "UA6304001"
+  },
+  {
+    "name": "Барвінківська",
+    "en": "Barvinkivska",
+    "code": "UA6304003"
+  },
+  {
+    "name": "Борівська",
+    "en": "Borivska",
+    "code": "UA6304005"
+  },
+  {
+    "name": "Донецька",
+    "en": "Donetska",
+    "code": "UA6304007"
+  },
+  {
+    "name": "Ізюмська",
+    "en": "Iziumska",
+    "code": "UA6304009"
+  },
+  {
+    "name": "Куньєвська",
+    "en": "Kunievska",
+    "code": "UA6304011"
+  },
+  {
+    "name": "Оскільська",
+    "en": "Oskilska",
+    "code": "UA6304013"
+  },
+  {
+    "name": "Савинська",
+    "en": "Savynska",
+    "code": "UA6304015"
+  },
+  {
+    "name": "Зачепилівська",
+    "en": "Zachepylivska",
+    "code": "UA6306001"
+  },
+  {
+    "name": "Кегичівська",
+    "en": "Kehychivska",
+    "code": "UA6306003"
+  },
+  {
+    "name": "Красноградська",
+    "en": "Krasnohradska",
+    "code": "UA6306005"
+  },
+  {
+    "name": "Наталинська",
+    "en": "Natalynska",
+    "code": "UA6306007"
+  },
+  {
+    "name": "Сахновщинська",
+    "en": "Sakhnovshchynska",
+    "code": "UA6306009"
+  },
+  {
+    "name": "Старовірівська",
+    "en": "Starovirivska",
+    "code": "UA6306011"
+  },
+  {
+    "name": "Великобурлуцька",
+    "en": "Velykoburlutska",
+    "code": "UA6308001"
+  },
+  {
+    "name": "Вільхуватська",
+    "en": "Vilkhuvatska",
+    "code": "UA6308003"
+  },
+  {
+    "name": "Дворічанська",
+    "en": "Dvorichanska",
+    "code": "UA6308005"
+  },
+  {
+    "name": "Кіндрашівська",
+    "en": "Kindrashivska",
+    "code": "UA6308007"
+  },
+  {
+    "name": "Куп'янська",
+    "en": "Kupianska",
+    "code": "UA6308009"
+  },
+  {
+    "name": "Курилівська",
+    "en": "Kurylivska",
+    "code": "UA6308011"
+  },
+  {
+    "name": "Петропавлівська",
+    "en": "Petropavlivska",
+    "code": "UA6308013"
+  },
+  {
+    "name": "Шевченківська",
+    "en": "Shevchenkivska",
+    "code": "UA6308015"
+  },
+  {
+    "name": "Біляївська",
+    "en": "Biliaivska",
+    "code": "UA6310001"
+  },
+  {
+    "name": "Близнюківська",
+    "en": "Blyzniukivska",
+    "code": "UA6310003"
+  },
+  {
+    "name": "Лозівська",
+    "en": "Lozivska",
+    "code": "UA6310005"
+  },
+  {
+    "name": "Олексіївська",
+    "en": "Oleksiivska",
+    "code": "UA6310007"
+  },
+  {
+    "name": "Первомайська",
+    "en": "Pervomaiska",
+    "code": "UA6310009"
+  },
+  {
+    "name": "Безлюдівська",
+    "en": "Bezliudivska",
+    "code": "UA6312001"
+  },
+  {
+    "name": "Височанська",
+    "en": "Vysochanska",
+    "code": "UA6312003"
+  },
+  {
+    "name": "Вільхівська",
+    "en": "Vilkhivska",
+    "code": "UA6312005"
+  },
+  {
+    "name": "Дергачівська",
+    "en": "Derhachivska",
+    "code": "UA6312007"
+  },
+  {
+    "name": "Липецька",
+    "en": "Lypetska",
+    "code": "UA6312009"
+  },
+  {
+    "name": "Люботинська",
+    "en": "Liubotynska",
+    "code": "UA6312011"
+  },
+  {
+    "name": "Малоданилівська",
+    "en": "Malodanylivska",
+    "code": "UA6312013"
+  },
+  {
+    "name": "Мереф'янська",
+    "en": "Merefianska",
+    "code": "UA6312015"
+  },
+  {
+    "name": "Нововодолазька",
+    "en": "Novovodolazka",
+    "code": "UA6312017"
+  },
+  {
+    "name": "Південноміська",
+    "en": "Pivdennomiska",
+    "code": "UA6312019"
+  },
+  {
+    "name": "Пісочинська",
+    "en": "Pisochynska",
+    "code": "UA6312021"
+  },
+  {
+    "name": "Роганська",
+    "en": "Rohanska",
+    "code": "UA6312023"
+  },
+  {
+    "name": "Солоницівська",
+    "en": "Solonytsivska",
+    "code": "UA6312025"
+  },
+  {
+    "name": "Харківська",
+    "en": "Kharkivska",
+    "code": "UA6312027"
+  },
+  {
+    "name": "Циркунівська",
+    "en": "Tsyrkunivska",
+    "code": "UA6312029"
+  },
+  {
+    "name": "Вовчанська",
+    "en": "Vovchanska",
+    "code": "UA6314001"
+  },
+  {
+    "name": "Зміївська",
+    "en": "Zmiivska",
+    "code": "UA6314003"
+  },
+  {
+    "name": "Малинівська",
+    "en": "Malynivska",
+    "code": "UA6314005"
+  },
+  {
+    "name": "Новопокровська",
+    "en": "Novopokrovska",
+    "code": "UA6314007"
+  },
+  {
+    "name": "Печенізька",
+    "en": "Pechenizka",
+    "code": "UA6314009"
+  },
+  {
+    "name": "Слобожанська",
+    "en": "Slobozhanska",
+    "code": "UA6314011"
+  },
+  {
+    "name": "Старосалтівська",
+    "en": "Starosaltivska",
+    "code": "UA6314013"
+  },
+  {
+    "name": "Чкаловська",
+    "en": "Chkalovska",
+    "code": "UA6314015"
+  },
+  {
+    "name": "Чугуївська",
+    "en": "Chuhuivska",
+    "code": "UA6314017"
+  },
+  {
+    "name": "Бериславська",
+    "en": "Beryslavska",
+    "code": "UA6502001"
+  },
+  {
+    "name": "Борозенська",
+    "en": "Borozenska",
+    "code": "UA6502003"
+  },
+  {
+    "name": "Великоолександрівська",
+    "en": "Velykooleksandrivska",
+    "code": "UA6502005"
+  },
+  {
+    "name": "Високопільська",
+    "en": "Vysokopilska",
+    "code": "UA6502007"
+  },
+  {
+    "name": "Калинівська",
+    "en": "Kalynivska",
+    "code": "UA6502009"
+  },
+  {
+    "name": "Кочубеївська",
+    "en": "Kochubeivska",
+    "code": "UA6502011"
+  },
+  {
+    "name": "Милівська",
+    "en": "Mylivska",
+    "code": "UA6502013"
+  },
+  {
+    "name": "Нововоронцовська",
+    "en": "Novovorontsovska",
+    "code": "UA6502015"
+  },
+  {
+    "name": "Новоолександрівська",
+    "en": "Novooleksandrivska",
+    "code": "UA6502017"
+  },
+  {
+    "name": "Новорайська",
+    "en": "Novoraiska",
+    "code": "UA6502019"
+  },
+  {
+    "name": "Тягинська",
+    "en": "Tiahynska",
+    "code": "UA6502021"
+  },
+  {
+    "name": "Генічеська",
+    "en": "Henicheska",
+    "code": "UA6504001"
+  },
+  {
+    "name": "Іванівська",
+    "en": "Ivanivska",
+    "code": "UA6504003"
+  },
+  {
+    "name": "Нижньосірогозька",
+    "en": "Nyzhnosirohozka",
+    "code": "UA6504005"
+  },
+  {
+    "name": "Новотроїцька",
+    "en": "Novotroitska",
+    "code": "UA6504007"
+  },
+  {
+    "name": "Асканія-Нова",
+    "en": "Askaniia-Nova",
+    "code": "UA6506001"
+  },
+  {
+    "name": "Великолепетиська",
+    "en": "Velykolepetyska",
+    "code": "UA6506003"
+  },
+  {
+    "name": "Верхньорогачицька",
+    "en": "Verkhnorohachytska",
+    "code": "UA6506005"
+  },
+  {
+    "name": "Горностаївська",
+    "en": "Hornostaivska",
+    "code": "UA6506007"
+  },
+  {
+    "name": "Зеленопідська",
+    "en": "Zelenopidska",
+    "code": "UA6506009"
+  },
+  {
+    "name": "Каховська",
+    "en": "Kakhovska",
+    "code": "UA6506011"
+  },
+  {
+    "name": "Костянтинівська",
+    "en": "Kostiantynivska",
+    "code": "UA6506013"
+  },
+  {
+    "name": "Любимівська",
+    "en": "Liubymivska",
+    "code": "UA6506015"
+  },
+  {
+    "name": "Новокаховська",
+    "en": "Novokakhovska",
+    "code": "UA6506017"
+  },
+  {
+    "name": "Присиваська",
+    "en": "Prysyvaska",
+    "code": "UA6506019"
+  },
+  {
+    "name": "Рубанівська",
+    "en": "Rubanivska",
+    "code": "UA6506021"
+  },
+  {
+    "name": "Тавричанська",
+    "en": "Tavrychanska",
+    "code": "UA6506023"
+  },
+  {
+    "name": "Таврійська",
+    "en": "Tavriiska",
+    "code": "UA6506025"
+  },
+  {
+    "name": "Хрестівська",
+    "en": "Khrestivska",
+    "code": "UA6506027"
+  },
+  {
+    "name": "Чаплинська",
+    "en": "Chaplynska",
+    "code": "UA6506029"
+  },
+  {
+    "name": "Бехтерська",
+    "en": "Bekhterska",
+    "code": "UA6508001"
+  },
+  {
+    "name": "Голопристанська",
+    "en": "Holoprystanska",
+    "code": "UA6508003"
+  },
+  {
+    "name": "Долматівська",
+    "en": "Dolmativska",
+    "code": "UA6508005"
+  },
+  {
+    "name": "Каланчацька",
+    "en": "Kalanchatska",
+    "code": "UA6508007"
+  },
+  {
+    "name": "Лазурненська",
+    "en": "Lazurnenska",
+    "code": "UA6508009"
+  },
+  {
+    "name": "Мирненська",
+    "en": "Myrnenska",
+    "code": "UA6508011"
+  },
+  {
+    "name": "Новомиколаївська",
+    "en": "Novomykolaivska",
+    "code": "UA6508013"
+  },
+  {
+    "name": "Скадовська",
+    "en": "Skadovska",
+    "code": "UA6508015"
+  },
+  {
+    "name": "Чулаківська",
+    "en": "Chulakivska",
+    "code": "UA6508017"
+  },
+  {
+    "name": "Білозерська",
+    "en": "Bilozerska",
+    "code": "UA6510001"
+  },
+  {
+    "name": "Великокопанівська",
+    "en": "Velykokopanivska",
+    "code": "UA6510003"
+  },
+  {
+    "name": "Виноградівська",
+    "en": "Vynohradivska",
+    "code": "UA6510005"
+  },
+  {
+    "name": "Дар'ївська",
+    "en": "Darivska",
+    "code": "UA6510007"
+  },
+  {
+    "name": "Музиківська",
+    "en": "Muzykivska",
+    "code": "UA6510009"
+  },
+  {
+    "name": "Олешківська",
+    "en": "Oleshkivska",
+    "code": "UA6510011"
+  },
+  {
+    "name": "Станіславська",
+    "en": "Stanislavska",
+    "code": "UA6510013"
+  },
+  {
+    "name": "Херсонська",
+    "en": "Khersonska",
+    "code": "UA6510015"
+  },
+  {
+    "name": "Чорнобаївська",
+    "en": "Chornobaivska",
+    "code": "UA6510017"
+  },
+  {
+    "name": "Ювілейна",
+    "en": "Yuvileina",
+    "code": "UA6510019"
+  },
+  {
+    "name": "Гуківська",
+    "en": "Hukivska",
+    "code": "UA6802001"
+  },
+  {
+    "name": "Гуменецька",
+    "en": "Humenetska",
+    "code": "UA6802003"
+  },
+  {
+    "name": "Дунаєвецька",
+    "en": "Dunaievetska",
+    "code": "UA6802005"
+  },
+  {
+    "name": "Жванецька",
+    "en": "Zhvanetska",
+    "code": "UA6802007"
+  },
+  {
+    "name": "Закупненська",
+    "en": "Zakupnenska",
+    "code": "UA6802009"
+  },
+  {
+    "name": "Кам'янець-Подільська",
+    "en": "Kamianets-Podilska",
+    "code": "UA6802011"
+  },
+  {
+    "name": "Китайгородська",
+    "en": "Kytaihorodska",
+    "code": "UA6802013"
+  },
+  {
+    "name": "Маківська",
+    "en": "Makivska",
+    "code": "UA6802015"
+  },
+  {
+    "name": "Новодунаєвецька",
+    "en": "Novounaievetska",
+    "code": "UA6802017"
+  },
+  {
+    "name": "Новоушицька",
+    "en": "Novoushytska",
+    "code": "UA6802019"
+  },
+  {
+    "name": "Орининська",
+    "en": "Orynynska",
+    "code": "UA6802021"
+  },
+  {
+    "name": "Слобідсько-Кульчієвецька",
+    "en": "Slobidsko-Kulchiievetska",
+    "code": "UA6802023"
+  },
+  {
+    "name": "Смотрицька",
+    "en": "Smotrytska",
+    "code": "UA6802025"
+  },
+  {
+    "name": "Староушицька",
+    "en": "Staroushytska",
+    "code": "UA6802027"
+  },
+  {
+    "name": "Чемеровецька",
+    "en": "Chemerovetska",
+    "code": "UA6802029"
+  },
+  {
+    "name": "Антонінська",
+    "en": "Antoninska",
+    "code": "UA6804001"
+  },
+  {
+    "name": "Війтовецька",
+    "en": "Viitovetska",
+    "code": "UA6804003"
+  },
+  {
+    "name": "Віньковецька",
+    "en": "Vinkovetska",
+    "code": "UA6804005"
+  },
+  {
+    "name": "Вовковинецька",
+    "en": "Vovkovynetska",
+    "code": "UA6804007"
+  },
+  {
+    "name": "Волочиська",
+    "en": "Volochyska",
+    "code": "UA6804009"
+  },
+  {
+    "name": "Гвардійська",
+    "en": "Hvardiiska",
+    "code": "UA6804011"
+  },
+  {
+    "name": "Городоцька",
+    "en": "Horodotska",
+    "code": "UA6804013"
+  },
+  {
+    "name": "Деражнянська",
+    "en": "Derazhnianska",
+    "code": "UA6804015"
+  },
+  {
+    "name": "Заслучненська",
+    "en": "Zasluchnenska",
+    "code": "UA6804017"
+  },
+  {
+    "name": "Зіньківська",
+    "en": "Zinkivska",
+    "code": "UA6804019"
+  },
+  {
+    "name": "Красилівська",
+    "en": "Krasylivska",
+    "code": "UA6804021"
+  },
+  {
+    "name": "Летичівська",
+    "en": "Letychivska",
+    "code": "UA6804023"
+  },
+  {
+    "name": "Лісовогринівецька",
+    "en": "Lisovohrynivetska",
+    "code": "UA6804025"
+  },
+  {
+    "name": "Меджибізька",
+    "en": "Medzhybizka",
+    "code": "UA6804027"
+  },
+  {
+    "name": "Миролюбненська",
+    "en": "Myroliubnenska",
+    "code": "UA6804029"
+  },
+  {
+    "name": "Наркевицька",
+    "en": "Narkevytska",
+    "code": "UA6804031"
+  },
+  {
+    "name": "Розсошанська",
+    "en": "Rozsoshanska",
+    "code": "UA6804033"
+  },
+  {
+    "name": "Сатанівська",
+    "en": "Satanivska",
+    "code": "UA6804035"
+  },
+  {
+    "name": "Солобковецька",
+    "en": "Solobkovetska",
+    "code": "UA6804037"
+  },
+  {
+    "name": "Старокостянтинівська",
+    "en": "Starokostiantynivska",
+    "code": "UA6804039"
+  },
+  {
+    "name": "Староостропільська",
+    "en": "Staroostropilska",
+    "code": "UA6804041"
+  },
+  {
+    "name": "Старосинявська",
+    "en": "Starosyniavska",
+    "code": "UA6804043"
+  },
+  {
+    "name": "Теофіпольська",
+    "en": "Teofipolska",
+    "code": "UA6804045"
+  },
+  {
+    "name": "Хмельницька",
+    "en": "Khmelnytska",
+    "code": "UA6804047"
+  },
+  {
+    "name": "Чорноострівська",
+    "en": "Chornoostrivska",
+    "code": "UA6804049"
+  },
+  {
+    "name": "Щиборівська",
+    "en": "Shchyborivska",
+    "code": "UA6804051"
+  },
+  {
+    "name": "Ярмолинецька",
+    "en": "Yarmolynetska",
+    "code": "UA6804053"
+  },
+  {
+    "name": "Берездівська",
+    "en": "Berezdivska",
+    "code": "UA6806001"
+  },
+  {
+    "name": "Білогірська",
+    "en": "Bilohirska",
+    "code": "UA6806003"
+  },
+  {
+    "name": "Ганнопільська",
+    "en": "Hannopilska",
+    "code": "UA6806005"
+  },
+  {
+    "name": "Грицівська",
+    "en": "Hrytsivska",
+    "code": "UA6806007"
+  },
+  {
+    "name": "Ізяславська",
+    "en": "Iziaslavska",
+    "code": "UA6806009"
+  },
+  {
+    "name": "Крупецька",
+    "en": "Krupetska",
+    "code": "UA6806011"
+  },
+  {
+    "name": "Ленковецька",
+    "en": "Lenkovetska",
+    "code": "UA6806013"
+  },
+  {
+    "name": "Михайлюцька",
+    "en": "Mykhailiutska",
+    "code": "UA6806015"
+  },
+  {
+    "name": "Нетішинська",
+    "en": "Netishynska",
+    "code": "UA6806017"
+  },
+  {
+    "name": "Плужненська",
+    "en": "Pluzhnenska",
+    "code": "UA6806019"
+  },
+  {
+    "name": "Полонська",
+    "en": "Polonska",
+    "code": "UA6806021"
+  },
+  {
+    "name": "Понінківська",
+    "en": "Poninkivska",
+    "code": "UA6806023"
+  },
+  {
+    "name": "Сахновецька",
+    "en": "Sakhnovetska",
+    "code": "UA6806025"
+  },
+  {
+    "name": "Славутська",
+    "en": "Slavutska",
+    "code": "UA6806027"
+  },
+  {
+    "name": "Судилківська",
+    "en": "Sudylkivska",
+    "code": "UA6806029"
+  },
+  {
+    "name": "Улашанівська",
+    "en": "Ulashanivska",
+    "code": "UA6806031"
+  },
+  {
+    "name": "Шепетівська",
+    "en": "Shepetivska",
+    "code": "UA6806033"
+  },
+  {
+    "name": "Ямпільська",
+    "en": "Yampilska",
+    "code": "UA6806035"
+  },
+  {
+    "name": "Бужанська",
+    "en": "Buzhanska",
+    "code": "UA7102001"
+  },
+  {
+    "name": "Ватутінська",
+    "en": "Vatutinska",
+    "code": "UA7102003"
+  },
+  {
+    "name": "Виноградська",
+    "en": "Vynohradska",
+    "code": "UA7102005"
+  },
+  {
+    "name": "Вільшанська",
+    "en": "Vilshanska",
+    "code": "UA7102007"
+  },
+  {
+    "name": "Водяницька",
+    "en": "Vodianytska",
+    "code": "UA7102009"
+  },
+  {
+    "name": "Єрківська",
+    "en": "Yerkivska",
+    "code": "UA7102011"
+  },
+  {
+    "name": "Звенигородська",
+    "en": "Zvenyhorodska",
+    "code": "UA7102013"
+  },
+  {
+    "name": "Катеринопільська",
+    "en": "Katerynopilska",
+    "code": "UA7102015"
+  },
+  {
+    "name": "Лип'янська",
+    "en": "Lypianska",
+    "code": "UA7102017"
+  },
+  {
+    "name": "Лисянська",
+    "en": "Lysianska",
+    "code": "UA7102019"
+  },
+  {
+    "name": "Матусівська",
+    "en": "Matusivska",
+    "code": "UA7102021"
+  },
+  {
+    "name": "Мокрокалигірська",
+    "en": "Mokrokalyhirska",
+    "code": "UA7102023"
+  },
+  {
+    "name": "Селищенська",
+    "en": "Selyshchenska",
+    "code": "UA7102025"
+  },
+  {
+    "name": "Стеблівська",
+    "en": "Steblivska",
+    "code": "UA7102027"
+  },
+  {
+    "name": "Тальнівська",
+    "en": "Talnivska",
+    "code": "UA7102029"
+  },
+  {
+    "name": "Шевченківська",
+    "en": "Shevchenkivska",
+    "code": "UA7102031"
+  },
+  {
+    "name": "Шполянська",
+    "en": "Shpolianska",
+    "code": "UA7102033"
+  },
+  {
+    "name": "Великохутірська",
+    "en": "Velykokhutirska",
+    "code": "UA7104001"
+  },
+  {
+    "name": "Вознесенська",
+    "en": "Voznesenska",
+    "code": "UA7104003"
+  },
+  {
+    "name": "Гельмязівська",
+    "en": "Helmiazivska",
+    "code": "UA7104005"
+  },
+  {
+    "name": "Драбівська",
+    "en": "Drabivska",
+    "code": "UA7104007"
+  },
+  {
+    "name": "Золотоніська",
+    "en": "Zolotoniska",
+    "code": "UA7104009"
+  },
+  {
+    "name": "Зорівська",
+    "en": "Zorivska",
+    "code": "UA7104011"
+  },
+  {
+    "name": "Іркліївська",
+    "en": "Irkliivska",
+    "code": "UA7104013"
+  },
+  {
+    "name": "Новодмитрівська",
+    "en": "Novodmytrivska",
+    "code": "UA7104015"
+  },
+  {
+    "name": "Піщанська",
+    "en": "Pishchanska",
+    "code": "UA7104017"
+  },
+  {
+    "name": "Чорнобаївська",
+    "en": "Chornobaivska",
+    "code": "UA7104019"
+  },
+  {
+    "name": "Шрамківська",
+    "en": "Shramkivska",
+    "code": "UA7104021"
+  },
+  {
+    "name": "Бабанська",
+    "en": "Babanska",
+    "code": "UA7106001"
+  },
+  {
+    "name": "Баштечківська",
+    "en": "Bashtechkivska",
+    "code": "UA7106003"
+  },
+  {
+    "name": "Буцька",
+    "en": "Butska",
+    "code": "UA7106005"
+  },
+  {
+    "name": "Дмитрушківська",
+    "en": "Dmytrushkivska",
+    "code": "UA7106007"
+  },
+  {
+    "name": "Жашківська",
+    "en": "Zhashkivska",
+    "code": "UA7106009"
+  },
+  {
+    "name": "Іваньківська",
+    "en": "Ivankivska",
+    "code": "UA7106011"
+  },
+  {
+    "name": "Ладижинська",
+    "en": "Ladyzhynska",
+    "code": "UA7106013"
+  },
+  {
+    "name": "Маньківська",
+    "en": "Mankivska",
+    "code": "UA7106015"
+  },
+  {
+    "name": "Монастирищенська",
+    "en": "Monastyryshchenska",
+    "code": "UA7106017"
+  },
+  {
+    "name": "Паланська",
+    "en": "Palanska",
+    "code": "UA7106019"
+  },
+  {
+    "name": "Уманська",
+    "en": "Umanska",
+    "code": "UA7106021"
+  },
+  {
+    "name": "Христинівська",
+    "en": "Khrystynivska",
+    "code": "UA7106023"
+  },
+  {
+    "name": "Балаклеївська",
+    "en": "Balakleivska",
+    "code": "UA7108001"
+  },
+  {
+    "name": "Березняківська",
+    "en": "Berezniakivska",
+    "code": "UA7108003"
+  },
+  {
+    "name": "Білозірська",
+    "en": "Bilozirska",
+    "code": "UA7108005"
+  },
+  {
+    "name": "Бобрицька",
+    "en": "Bobrytska",
+    "code": "UA7108007"
+  },
+  {
+    "name": "Будищенська",
+    "en": "Budyshchenska",
+    "code": "UA7108009"
+  },
+  {
+    "name": "Городищенська",
+    "en": "Horodyshchenska",
+    "code": "UA7108011"
+  },
+  {
+    "name": "Кам'янська",
+    "en": "Kamianska",
+    "code": "UA7108013"
+  },
+  {
+    "name": "Канівська",
+    "en": "Kanivska",
+    "code": "UA7108015"
+  },
+  {
+    "name": "Корсунь-Шевченківська",
+    "en": "Korsun-Shevchenkivska",
+    "code": "UA7108017"
+  },
+  {
+    "name": "Леськівська",
+    "en": "Leskivska",
+    "code": "UA7108019"
+  },
+  {
+    "name": "Ліплявська",
+    "en": "Lipliavska",
+    "code": "UA7108021"
+  },
+  {
+    "name": "Медведівська",
+    "en": "Medvedivska",
+    "code": "UA7108023"
+  },
+  {
+    "name": "Михайлівська",
+    "en": "Mykhailivska",
+    "code": "UA7108025"
+  },
+  {
+    "name": "Мліївська",
+    "en": "Mliivska",
+    "code": "UA7108027"
+  },
+  {
+    "name": "Мошнівська",
+    "en": "Moshnivska",
+    "code": "UA7108029"
+  },
+  {
+    "name": "Набутівська",
+    "en": "Nabutivska",
+    "code": "UA7108031"
+  },
+  {
+    "name": "Ротмістрівська",
+    "en": "Rotmistrivska",
+    "code": "UA7108033"
+  },
+  {
+    "name": "Руськополянська",
+    "en": "Ruskopolianska",
+    "code": "UA7108035"
+  },
+  {
+    "name": "Сагунівська",
+    "en": "Sahunivska",
+    "code": "UA7108037"
+  },
+  {
+    "name": "Смілянська",
+    "en": "Smilianska",
+    "code": "UA7108039"
+  },
+  {
+    "name": "Степанецька",
+    "en": "Stepanetska",
+    "code": "UA7108041"
+  },
+  {
+    "name": "Степанківська",
+    "en": "Stepankivska",
+    "code": "UA7108043"
+  },
+  {
+    "name": "Тернівська",
+    "en": "Ternivska",
+    "code": "UA7108045"
+  },
+  {
+    "name": "Червонослобідська",
+    "en": "Chervonoslobidska",
+    "code": "UA7108047"
+  },
+  {
+    "name": "Черкаська",
+    "en": "Cherkaska",
+    "code": "UA7108049"
+  },
+  {
+    "name": "Чигиринська",
+    "en": "Chyhyrynska",
+    "code": "UA7108051"
+  },
+  {
+    "name": "Банилівська",
+    "en": "Banylivska",
+    "code": "UA7302001"
+  },
+  {
+    "name": "Берегометська",
+    "en": "Berehometska",
+    "code": "UA7302003"
+  },
+  {
+    "name": "Брусницька",
+    "en": "Brusnytska",
+    "code": "UA7302005"
+  },
+  {
+    "name": "Вашківецька",
+    "en": "Vashkivetska",
+    "code": "UA7302007"
+  },
+  {
+    "name": "Вижницька",
+    "en": "Vyzhnytska",
+    "code": "UA7302009"
+  },
+  {
+    "name": "Конятинська",
+    "en": "Koniatynska",
+    "code": "UA7302011"
+  },
+  {
+    "name": "Путильська",
+    "en": "Putylska",
+    "code": "UA7302013"
+  },
+  {
+    "name": "Селятинська",
+    "en": "Seliatynska",
+    "code": "UA7302015"
+  },
+  {
+    "name": "Усть-Путильська",
+    "en": "Ust-Putylska",
+    "code": "UA7302017"
+  },
+  {
+    "name": "Вашковецька",
+    "en": "Vashkovetska",
+    "code": "UA7304001"
+  },
+  {
+    "name": "Кельменецька",
+    "en": "Kelmenetska",
+    "code": "UA7304003"
+  },
+  {
+    "name": "Клішковецька",
+    "en": "Klishkovetska",
+    "code": "UA7304005"
+  },
+  {
+    "name": "Лівинецька",
+    "en": "Livynetska",
+    "code": "UA7304007"
+  },
+  {
+    "name": "Мамалигівська",
+    "en": "Mamalyhivska",
+    "code": "UA7304009"
+  },
+  {
+    "name": "Недобоївська",
+    "en": "Nedoboivska",
+    "code": "UA7304011"
+  },
+  {
+    "name": "Новодністровська",
+    "en": "Novodnistrovska",
+    "code": "UA7304013"
+  },
+  {
+    "name": "Рукшинська",
+    "en": "Rukshynska",
+    "code": "UA7304015"
+  },
+  {
+    "name": "Сокирянська",
+    "en": "Sokyrianska",
+    "code": "UA7304017"
+  },
+  {
+    "name": "Хотинська",
+    "en": "Khotynska",
+    "code": "UA7304019"
+  },
+  {
+    "name": "Боянська",
+    "en": "Boianska",
+    "code": "UA7306001"
+  },
+  {
+    "name": "Ванчиковецька",
+    "en": "Vanchykovetska",
+    "code": "UA7306003"
+  },
+  {
+    "name": "Великокучурівська",
+    "en": "Velykokuchurivska",
+    "code": "UA7306005"
+  },
+  {
+    "name": "Веренчанська",
+    "en": "Verenchanska",
+    "code": "UA7306007"
+  },
+  {
+    "name": "Вікнянська",
+    "en": "Viknianska",
+    "code": "UA7306009"
+  },
+  {
+    "name": "Волоківська",
+    "en": "Volokivska",
+    "code": "UA7306011"
+  },
+  {
+    "name": "Герцаївська",
+    "en": "Hertsaivska",
+    "code": "UA7306013"
+  },
+  {
+    "name": "Глибоцька",
+    "en": "Hlybotska",
+    "code": "UA7306015"
+  },
+  {
+    "name": "Горішньошеровецька",
+    "en": "Horishnosherovetska",
+    "code": "UA7306017"
+  },
+  {
+    "name": "Заставнівська",
+    "en": "Zastavnivska",
+    "code": "UA7306019"
+  },
+  {
+    "name": "Кадубовецька",
+    "en": "Kadubovetska",
+    "code": "UA7306021"
+  },
+  {
+    "name": "Кам'янецька",
+    "en": "Kamianetska",
+    "code": "UA7306023"
+  },
+  {
+    "name": "Кам'янська",
+    "en": "Kamianska",
+    "code": "UA7306025"
+  },
+  {
+    "name": "Карапчівська",
+    "en": "Karapchivska",
+    "code": "UA7306027"
+  },
+  {
+    "name": "Кіцманська",
+    "en": "Kitsmanska",
+    "code": "UA7306029"
+  },
+  {
+    "name": "Кострижівська",
+    "en": "Kostryzhivska",
+    "code": "UA7306031"
+  },
+  {
+    "name": "Красноїльська",
+    "en": "Krasnoilska",
+    "code": "UA7306033"
+  },
+  {
+    "name": "Магальська",
+    "en": "Mahalska",
+    "code": "UA7306035"
+  },
+  {
+    "name": "Мамаївська",
+    "en": "Mamaivska",
+    "code": "UA7306037"
+  },
+  {
+    "name": "Неполоковецька",
+    "en": "Nepolokovetska",
+    "code": "UA7306039"
+  },
+  {
+    "name": "Новоселицька",
+    "en": "Novoselytska",
+    "code": "UA7306041"
+  },
+  {
+    "name": "Острицька",
+    "en": "Ostrytska",
+    "code": "UA7306043"
+  },
+  {
+    "name": "Петровецька",
+    "en": "Petrovetska",
+    "code": "UA7306045"
+  },
+  {
+    "name": "Ставчанська",
+    "en": "Stavchanska",
+    "code": "UA7306047"
+  },
+  {
+    "name": "Сторожинецька",
+    "en": "Storozhynetska",
+    "code": "UA7306049"
+  },
+  {
+    "name": "Сучевенська",
+    "en": "Suchevenska",
+    "code": "UA7306051"
+  },
+  {
+    "name": "Тарашанська",
+    "en": "Tarashanska",
+    "code": "UA7306053"
+  },
+  {
+    "name": "Тереблеченська",
+    "en": "Tereblechenska",
+    "code": "UA7306055"
+  },
+  {
+    "name": "Топорівська",
+    "en": "Toporivska",
+    "code": "UA7306057"
+  },
+  {
+    "name": "Чагорська",
+    "en": "Chahorska",
+    "code": "UA7306059"
+  },
+  {
+    "name": "Чернівецька",
+    "en": "Chernivetska",
+    "code": "UA7306061"
+  },
+  {
+    "name": "Чудейська",
+    "en": "Chudeiska",
+    "code": "UA7306063"
+  },
+  {
+    "name": "Юрковецька",
+    "en": "Yurkovetska",
+    "code": "UA7306065"
+  },
+  {
+    "name": "Корюківська",
+    "en": "Koriukivska",
+    "code": "UA7402001"
+  },
+  {
+    "name": "Менська",
+    "en": "Menska",
+    "code": "UA7402003"
+  },
+  {
+    "name": "Сновська",
+    "en": "Snovska",
+    "code": "UA7402005"
+  },
+  {
+    "name": "Сосницька",
+    "en": "Sosnytska",
+    "code": "UA7402007"
+  },
+  {
+    "name": "Холминська",
+    "en": "Kholmynska",
+    "code": "UA7402009"
+  },
+  {
+    "name": "Батуринська",
+    "en": "Baturynska",
+    "code": "UA7404001"
+  },
+  {
+    "name": "Бахмацька",
+    "en": "Bakhmatska",
+    "code": "UA7404003"
+  },
+  {
+    "name": "Бобровицька",
+    "en": "Bobrovytska",
+    "code": "UA7404005"
+  },
+  {
+    "name": "Борзнянська",
+    "en": "Borznianska",
+    "code": "UA7404007"
+  },
+  {
+    "name": "Вертіївська",
+    "en": "Vertiivska",
+    "code": "UA7404009"
+  },
+  {
+    "name": "Височанська",
+    "en": "Vysochanska",
+    "code": "UA7404011"
+  },
+  {
+    "name": "Дмитрівська",
+    "en": "Dmytrivska",
+    "code": "UA7404013"
+  },
+  {
+    "name": "Комарівська",
+    "en": "Komarivska",
+    "code": "UA7404015"
+  },
+  {
+    "name": "Крутівська",
+    "en": "Krutivska",
+    "code": "UA7404017"
+  },
+  {
+    "name": "Лосинівська",
+    "en": "Losynivska",
+    "code": "UA7404019"
+  },
+  {
+    "name": "Макіївська",
+    "en": "Makiivska",
+    "code": "UA7404021"
+  },
+  {
+    "name": "Мринська",
+    "en": "Mrynska",
+    "code": "UA7404023"
+  },
+  {
+    "name": "Ніжинська",
+    "en": "Nizhynska",
+    "code": "UA7404025"
+  },
+  {
+    "name": "Новобасанська",
+    "en": "Novobasanska",
+    "code": "UA7404027"
+  },
+  {
+    "name": "Носівська",
+    "en": "Nosivska",
+    "code": "UA7404029"
+  },
+  {
+    "name": "Плисківська",
+    "en": "Plyskivska",
+    "code": "UA7404031"
+  },
+  {
+    "name": "Талалаївська",
+    "en": "Talalaivska",
+    "code": "UA7404033"
+  },
+  {
+    "name": "Коропська",
+    "en": "Koropska",
+    "code": "UA7406001"
+  },
+  {
+    "name": "Новгород-Сіверська",
+    "en": "Novhorod-Siverska",
+    "code": "UA7406003"
+  },
+  {
+    "name": "Понорницька",
+    "en": "Ponornytska",
+    "code": "UA7406005"
+  },
+  {
+    "name": "Семенівська",
+    "en": "Semenivska",
+    "code": "UA7406007"
+  },
+  {
+    "name": "Варвинська",
+    "en": "Varvynska",
+    "code": "UA7408001"
+  },
+  {
+    "name": "Ічнянська",
+    "en": "Ichnianska",
+    "code": "UA7408003"
+  },
+  {
+    "name": "Ладанська",
+    "en": "Ladanska",
+    "code": "UA7408005"
+  },
+  {
+    "name": "Линовицька",
+    "en": "Lynovytska",
+    "code": "UA7408007"
+  },
+  {
+    "name": "Малодівицька",
+    "en": "Malodivytska",
+    "code": "UA7408009"
+  },
+  {
+    "name": "Парафіївська",
+    "en": "Parafiivska",
+    "code": "UA7408011"
+  },
+  {
+    "name": "Прилуцька",
+    "en": "Prylutska",
+    "code": "UA7408013"
+  },
+  {
+    "name": "Срібнянська",
+    "en": "Sribnianska",
+    "code": "UA7408015"
+  },
+  {
+    "name": "Сухополов'янська",
+    "en": "Sukhopolovianska",
+    "code": "UA7408017"
+  },
+  {
+    "name": "Талалаївська",
+    "en": "Talalaivska",
+    "code": "UA7408019"
+  },
+  {
+    "name": "Яблунівська",
+    "en": "Yablunivska",
+    "code": "UA7408021"
+  },
+  {
+    "name": "Березнянська",
+    "en": "Bereznianska",
+    "code": "UA7410001"
+  },
+  {
+    "name": "Гончарівська",
+    "en": "Honcharivska",
+    "code": "UA7410003"
+  },
+  {
+    "name": "Городнянська",
+    "en": "Horodnianska",
+    "code": "UA7410005"
+  },
+  {
+    "name": "Деснянська",
+    "en": "Desnianska",
+    "code": "UA7410007"
+  },
+  {
+    "name": "Добрянська",
+    "en": "Dobrianska",
+    "code": "UA7410009"
+  },
+  {
+    "name": "Іванівська",
+    "en": "Ivanivska",
+    "code": "UA7410011"
+  },
+  {
+    "name": "Киїнська",
+    "en": "Kyinska",
+    "code": "UA7410013"
+  },
+  {
+    "name": "Киселівська",
+    "en": "Kyselivska",
+    "code": "UA7410015"
+  },
+  {
+    "name": "Кіптівська",
+    "en": "Kiptivska",
+    "code": "UA7410017"
+  },
+  {
+    "name": "Козелецька",
+    "en": "Kozeletska",
+    "code": "UA7410019"
+  },
+  {
+    "name": "Куликівська",
+    "en": "Kulykivska",
+    "code": "UA7410021"
+  },
+  {
+    "name": "Любецька",
+    "en": "Liubetska",
+    "code": "UA7410023"
+  },
+  {
+    "name": "Михайло-Коцюбинська",
+    "en": "Mykhailo-Kotsiubynska",
+    "code": "UA7410025"
+  },
+  {
+    "name": "Новобілоуська",
+    "en": "Novobilouska",
+    "code": "UA7410027"
+  },
+  {
+    "name": "Олишівська",
+    "en": "Olyshivska",
+    "code": "UA7410029"
+  },
+  {
+    "name": "Остерська",
+    "en": "Osterska",
+    "code": "UA7410031"
+  },
+  {
+    "name": "Ріпкинська",
+    "en": "Ripkynska",
+    "code": "UA7410033"
+  },
+  {
+    "name": "Седнівська",
+    "en": "Sednivska",
+    "code": "UA7410035"
+  },
+  {
+    "name": "Тупичівська",
+    "en": "Tupychivska",
+    "code": "UA7410037"
+  },
+  {
+    "name": "Чернігівська",
+    "en": "Chernihivska",
+    "code": "UA7410039"
+  },
+  {
+    "name": "Київ",
+    "en": "Kyiv",
+    "code": "UA8000000"
+  },
+  {
+    "name": "Севастополь",
+    "en": "Sevastopol",
+    "code": "UA8500000"
+  }
+]
+
+const unsecuredCopyToClipboard = (text) => {
+  const textArea = document.createElement('textarea')
+  textArea.value = text
+  document.body.appendChild(textArea)
+  textArea.focus()
+  textArea.select()
+  try {
+    document.execCommand('copy')
+  } catch (err) {
+    console.error('Unable to copy to clipboard', err)
+  }
+  document.body.removeChild(textArea)
+}
+
+const app = createApp({
+  computed: {
+    names () { return names },
+    filteredNames () {
+      if (!this.search) return this.names
+      let regexp = new RegExp(this.search.replace(/[.\[\]?+*()]/g, ''), 'ig')
+      return this.names.filter(el => {
+        return regexp.test(el.name) ||
+          regexp.test(el.en) ||
+          regexp.test(el.code)
+      })
+    }
+  },
+  data () {
+    return {
+      search: undefined,
+      snackbar: false
+    }
+  },
+  methods: {
+    getType (s) {
+      if (s.length === 0) return ''
+      if (s.length === 4) return 'область'
+      if (s.length === 6) return 'район'
+      if (s.length === 9) return 'громада'
+    },
+    getTypeEn (s) {
+      if (s.length === 0) return ''
+      if (s.length === 4) return 'oblast'
+      if (s.length === 6) return 'raion'
+      if (s.length === 9) return 'hromada'
+    },
+    copyToClipboard (content) {
+      this.snackbar = true
+      if (window.isSecureContext && navigator.clipboard) {
+        navigator.clipboard.writeText(content)
+      } else {
+        unsecuredCopyToClipboard(content)
+      }
+    }
+  }
+})
+app.use(vuetify).mount('#app')
+
+</script>
+</body>
+</html>
