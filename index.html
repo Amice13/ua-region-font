@@ -9923,6 +9923,7 @@ const app = createApp({
     },
     copyToClipboard (content) {
       this.snackbar = true
+      content = 'ua-region-' + content
       if (window.isSecureContext && navigator.clipboard) {
         navigator.clipboard.writeText(content)
       } else {
