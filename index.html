@@ -114,37 +114,39 @@
           variant="outlined"
         ></v-text-field>
       </v-row>
-      <v-row>
-        <v-col
-          cols="12"
-          sm="4"
-          v-for="name in filteredNames"
-          :key="name.code"
-          style="cursor: pointer;"
-          @click="copyToClipboard(name.code)"
-        >
-          <div
-            class="v-card bg-blue-grey-lighten-5 v-theme--light v-card--density-default v-card--variant-elevated pa-4"
-            style="height: 100%;"
+      <div :style="{ height: height + 'px' }">
+        <v-row id="all-icons" :style="{ paddingTop: prependHeight + 'px' }">
+          <v-col
+            cols="12"
+            sm="4"
+            v-for="name in shownNames"
+            :key="name.code"
+            class="virtual-element"
+            style="cursor: pointer;"
+            @click="copyToClipboard(name.code)"
           >
-            <v-row class="d-flex align-center">
-              <v-col cols="12" md="4" class='text-center'>
-                <i style="font-size: 46px;" :class="['ua-region-' + name.code]"></i>
-              </v-col>
-              <v-col cols="12" md="8" class="text-center">
-                <div style="font-size: 12px;">{{ name.name }} {{ getType(name) }} </div>
-                <div style="font-size: 12px;">{{ name.en }} {{ getTypeEn(name) }}</div>
-                <div style="font-size: 10px;">ua-region-{{ name.code }}</div>
-              </v-col>
-            </v-row>
-          </div>
-
-          <v-snackbar v-model="snackbar" :timeout="3000">
-            You copied the code to the clipboard
-          </v-snackbar>
-        </v-col>
-      </v-row>
+            <div
+              class="v-card bg-blue-grey-lighten-5 v-theme--light v-card--density-default v-card--variant-elevated pa-4"
+              style="height: 100%;"
+            >
+              <v-row class="d-flex align-center">
+                <v-col cols="12" md="4" class='text-center'>
+                  <i style="font-size: 46px;" :class="['ua-region-' + name.code]"></i>
+                </v-col>
+                <v-col cols="12" md="8" class="text-center">
+                  <div style="font-size: 12px;">{{ name.name }} {{ getType(name) }} </div>
+                  <div style="font-size: 12px;">{{ name.en }} {{ getTypeEn(name) }}</div>
+                  <div style="font-size: 10px;">ua-region-{{ name.code }}</div>
+                </v-col>
+              </v-row>
+            </div>
+          </v-col>
+        </v-row>
+      </div>
     </v-container>
+    <v-snackbar v-model="snackbar" :timeout="3000">
+      You copied the code to the clipboard
+    </v-snackbar>
   </div>
 <script>
 const { createApp } = Vue
@@ -9850,25 +9852,58 @@ const unsecuredCopyToClipboard = (text) => {
 }
 
 const app = createApp({
+  mounted () {
+    this.shownNames = this.filteredNames.slice(0, 36)
+    document.addEventListener('scroll', (event) => {
+      this.offsetTop = window.scrollY
+      this.showNames()
+    })
+  },
   computed: {
     names () { return names },
     filteredNames () {
       if (!this.search) return this.names
       let regexp = new RegExp(this.search.replace(/[.\[\]?+*()]/g, ''), 'ig')
-      return this.names.filter(el => {
+      const filtered =  this.names.filter(el => {
         return regexp.test(el.name) ||
           regexp.test(el.en) ||
           regexp.test(el.code)
       })
+      return filtered
+    },
+    height () {
+      let height = this.filteredNames.length * 398
+      if (!this.$vuetify.display.xs) height = height / 3
+      return height
     }
   },
   data () {
     return {
+      offsetTop: 0,
+      prependHeight: 0,
       search: undefined,
-      snackbar: false
+      snackbar: false,
+      shownNames: []
     }
   },
   methods: {
+    async showNames () {
+      await this.$nextTick()
+      const allIcons = document.querySelector('#all-icons')
+      const element = document.querySelector('.virtual-element')
+      if (!allIcons || !element) return this.filteredNames.slice(0, 36)
+      // Element height
+      let elementHeight = element.offsetHeight
+      // Get the current position
+      let currentPosition = this.offsetTop - document.querySelector('#all-icons').offsetTop
+      currentPosition = currentPosition < 0  ? 0 : currentPosition
+      // Check if we need to switch to the next element
+      if (Math.abs(this.prependHeight - currentPosition) < elementHeight) return false
+      this.prependHeight = Math.floor((currentPosition) / elementHeight) * elementHeight
+      const startElement = Math.floor(currentPosition / elementHeight) * 3
+      const numberOfElements = Math.floor(screen.height * 2 * 3 * 2 / elementHeight)
+      this.shownNames = this.filteredNames.slice(startElement, startElement + numberOfElements)
+    },
     getType (s) {
       if (['Автономна Республіка Крим', 'Київ', 'Севастополь'].includes(s.name)) return ''
       if (s.code.length === 0) return ''
@@ -9894,7 +9929,6 @@ const app = createApp({
   }
 })
 app.use(vuetify).mount('#app')
-
 </script>
 </body>
 </html>
