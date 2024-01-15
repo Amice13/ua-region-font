@@ -99,6 +99,9 @@
           <h1 class="text-h2 font-weight-bold grey-darken-5">ua-region-font</h1>
           <div class="mt-4 text-body-2" style="max-width: 320px;">A font with Ukrainian regions in TTF/EOT/WOFF/WOFF2/SVG formats. Based on the data provided by <a href="https://data.humdata.org/dataset/cod-ab-ukr" target="_blank">OCHA Field Information Service Section</a>.</div>
         </v-col>
+        <v-col cols="12">
+          <v-btn prepend-icon="mdi-download" color="blue-darken-1">Download</v-btn>
+        </v-col>
       </v-row>
       <v-row class="pa-4">
         <v-text-field
@@ -128,15 +131,15 @@
                 <i style="font-size: 46px;" :class="['ua-region-' + name.code]"></i>
               </v-col>
               <v-col cols="12" md="8" class="text-center">
-                <div style="font-size: 12px;">{{ name.name }} {{ getType(name.code) }} </div>
-                <div style="font-size: 12px;">{{ name.en }} {{ getTypeEn(name.code) }}</div>
+                <div style="font-size: 12px;">{{ name.name }} {{ getType(name) }} </div>
+                <div style="font-size: 12px;">{{ name.en }} {{ getTypeEn(name) }}</div>
                 <div style="font-size: 10px;">ua-region-{{ name.code }}</div>
               </v-col>
             </v-row>
           </div>
 
           <v-snackbar v-model="snackbar" :timeout="3000">
-            You copied the code to clipboard
+            You copied the code to the clipboard
           </v-snackbar>
         </v-col>
       </v-row>
@@ -9866,16 +9869,18 @@ const app = createApp({
   },
   methods: {
     getType (s) {
-      if (s.length === 0) return ''
-      if (s.length === 4) return 'область'
-      if (s.length === 6) return 'район'
-      if (s.length === 9) return 'громада'
+      if (['Автономна Республіка Крим', 'Київ', 'Севастополь'].includes(s.name)) return ''
+      if (s.code.length === 0) return ''
+      if (s.code.length === 4) return 'область'
+      if (s.code.length === 6) return 'район'
+      if (s.code.length === 9) return 'громада'
     },
     getTypeEn (s) {
-      if (s.length === 0) return ''
-      if (s.length === 4) return 'oblast'
-      if (s.length === 6) return 'raion'
-      if (s.length === 9) return 'hromada'
+      if (['Автономна Республіка Крим', 'Київ', 'Севастополь'].includes(s.name)) return ''
+      if (s.code.length === 0) return ''
+      if (s.code.length === 4) return 'oblast'
+      if (s.code.length === 6) return 'raion'
+      if (s.code.length === 9) return 'hromada'
     },
     copyToClipboard (content) {
       this.snackbar = true
